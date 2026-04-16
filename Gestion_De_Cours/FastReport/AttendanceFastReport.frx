@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/13/2022 11:12:56" ReportInfo.Modified="07/24/2023 13:53:12" ReportInfo.CreatorVersion="2022.2.16.0">
+  <Dictionary>
+    <TableDataSource Name="DataAttend" ReferenceName="Data.DataAttend" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="ID" DataType="System.Int32"/>
+      <Column Name="Gender" DataType="System.Int32"/>
+      <Column Name="Sessions" DataType="System.Int32"/>
+      <Column Name="Status" DataType="System.Int32"/>
+      <Column Name="StatusOP" DataType="System.Int32"/>
+      <Column Name="StatusCH" DataType="System.Int32"/>
+      <Column Name="StatusJustif" DataType="System.Int32"/>
+    </TableDataSource>
+    <TableDataSource Name="DataEcole" ReferenceName="Data.DataEcole" DataType="System.Int32" Enabled="true">
+      <Column Name="NameFR" DataType="System.String"/>
+      <Column Name="NameAR" DataType="System.String"/>
+      <Column Name="Logo" DataType="System.String"/>
+      <Column Name="Number" DataType="System.String"/>
+      <Column Name="Number2" DataType="System.String"/>
+      <Column Name="Adress" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="DataGroup" ReferenceName="Data.DataGroup" DataType="System.Int32" Enabled="true">
+      <Column Name="GroupName" DataType="System.String"/>
+      <Column Name="CSubject" DataType="System.Int32"/>
+      <Column Name="Gender" DataType="System.Int32"/>
+      <Column Name="CYear" DataType="System.String"/>
+      <Column Name="TName" DataType="System.String"/>
+      <Column Name="RTName" DataType="System.String"/>
+      <Column Name="Year" DataType="System.String"/>
+      <Column Name="Subject" DataType="System.String"/>
+      <Column Name="SAmmount" DataType="System.Int32"/>
+      <Column Name="Sessions" DataType="System.Int32"/>
+      <Column Name="TSessions" DataType="System.Int32"/>
+      <Column Name="Level" DataType="System.String"/>
+      <Column Name="LevelID" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="207.9">
+      <PictureObject Name="Picture1" Left="264.6" Top="9.45" Width="179.55" Height="132.3" DataColumn="DataEcole.Logo"/>
+      <TextObject Name="Text8" Left="18.9" Top="160.65" Width="680.4" Height="37.8" Text="[DataEcole.NameFR]" HorzAlign="Center" VertAlign="Center" Font="Arial, 15pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="211.9" Width="718.2" Height="75.6">
+      <TextObject Name="ClassName" Left="9.45" Width="94.5" Height="18.9" Text="Class Name :" Font="Arial, 10pt"/>
+      <TextObject Name="DateName" Left="9.45" Top="18.9" Width="94.5" Height="18.9" Text="Date :" Font="Arial, 10pt"/>
+      <TextObject Name="Text1" Left="642.6" Width="66.15" Height="18.9" Text="[PageN]" Font="Arial, 10pt"/>
+      <TextObject Name="SName" Left="9.45" Top="56.7" Width="255.15" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="Student Name" Font="Arial, 10pt"/>
+      <TextObject Name="Sessions" Left="264.6" Top="56.7" Width="94.5" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="Sessions" Font="Arial, 10pt"/>
+      <TextObject Name="Status" Left="359.1" Top="56.7" Width="122.85" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="Status" Font="Arial, 10pt"/>
+      <TextObject Name="NoteTB" Left="481.95" Top="56.7" Width="132.3" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="Note" Font="Arial, 10pt"/>
+      <TextObject Name="Text7" Left="103.95" Width="189" Height="18.9" Text="[DataGroup.GroupName]" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="DataStudents" Top="291.5" Width="718.2" Height="18.9" Guides="18.9" DataSource="DataAttend">
+      <TextObject Name="DTSNamee" Left="9.45" Width="255.15" Height="18.9" Border.Lines="All" Text="[DataAttend.Name]" Font="Arial, 10pt"/>
+      <TextObject Name="DTSes" Left="264.6" Width="94.5" Height="18.9" Border.Lines="All" Text="[DataAttend.Sessions]" Font="Arial, 10pt"/>
+      <TextObject Name="Text5" Left="359.1" Width="122.85" Height="18.9" Border.Lines="All" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="481.95" Width="132.3" Height="18.9" Border.Lines="All" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="314.4" Width="718.2" Height="85.05">
+      <TextObject Name="TEntrance" Left="9.45" Width="160.65" Height="18.9" Text="Teacher Entrance Time :" Font="Arial, 10pt"/>
+      <TextObject Name="Note" Left="9.45" Top="18.9" Width="94.5" Height="18.9" Text="Note :" Font="Arial, 10pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Name="Simple List" ReportInfo.Author="Fast Reports Inc" ReportInfo.Description="Demonstrates a simple list report. To create it:&#13;&#10;- go to &quot;Data&quot; menu and select &quot;Choose Report Data...&quot; item to select a datasource;&#13;&#10;- go to &quot;Report|Configure Bands...&quot; menu to create the band structure;&#13;&#10;- return to the report page, doubleclick the data band to show its editor;&#13;&#10;- choose the datasource;&#13;&#10;- drag data from the Data Dictionary window to the band." ReportInfo.Created="01/17/2008 03:05:57" ReportInfo.Modified="11/26/2024 15:53:16" ReportInfo.CreatorVersion="1.8.6.0">
+  <Dictionary>
+    <TableDataSource Name="dataDates" ReferenceName="Data.dataDates" DataType="System.Int32" Enabled="true">
+      <Column Name="Date1" DataType="System.String"/>
+      <Column Name="Date2" DataType="System.String"/>
+      <Column Name="Date3" DataType="System.String"/>
+      <Column Name="Date4" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Presense" ReferenceName="Data.Presense" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Gender" DataType="System.Int32"/>
+      <Column Name="ID" DataType="System.Int32"/>
+      <Column Name="Tses" DataType="System.Int32"/>
+      <Column Name="SPrice" DataType="System.Int32"/>
+      <Column Name="TPrice" DataType="System.Int32"/>
+      <Column Name="SuPrice" DataType="System.Int32"/>
+      <Column Name="Date1" DataType="System.String"/>
+      <Column Name="Date2" DataType="System.String"/>
+      <Column Name="Date3" DataType="System.String"/>
+      <Column Name="Date4" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="DataGeneral" ReferenceName="Data.DataGeneral" DataType="System.Int32" Enabled="true">
+      <Column Name="TName" DataType="System.String"/>
+      <Column Name="GName" DataType="System.String"/>
+      <Column Name="Session" DataType="System.String"/>
+      <Column Name="Date" DataType="System.String"/>
+      <Column Name="TStudents" DataType="System.String"/>
+      <Column Name="SuPrice" DataType="System.String"/>
+      <Column Name="SPrice" DataType="System.String"/>
+      <Column Name="TPrice" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="179.55" CanGrow="true">
+      <TextObject Name="Text1" Left="311.85" Top="9.45" Width="94.5" Height="37.8" Text="دفع  الأستاذ" Font="Arial, 15pt"/>
+      <TextObject Name="Text2" Left="623.7" Top="85.05" Width="85.05" Height="18.9" Text="اسم  الأستاذ :" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text4" Left="198.45" Top="85.05" Width="66.15" Height="18.9" Text="تاريخ :" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text3" Left="623.7" Top="141.75" Width="85.05" Height="18.9" Text="اسم  الفوج :" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text5" Left="198.45" Top="141.75" Width="66.15" Height="18.9" Text="حصص :" RightToLeft="true" Font="Arial, 12pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="182.75" Width="718.2" Height="22.9">
+      <TextObject Name="Text16" Left="75.6" Top="4" Width="94.5" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="سعر المفترض" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text17" Left="-9.45" Top="4" Width="85.05" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="سعر الأستاذ" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text10" Left="510.3" Top="4" Width="198.45" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="اسم الطالب " VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text15" Left="170.1" Top="4" Width="75.6" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text=" طالب سعر " VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text11" Left="444.15" Top="4" Width="66.15" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="[dataDates.Date1]" VertAlign="Center" RightToLeft="true" Font="Arial, 8pt"/>
+      <TextObject Name="Text14" Left="245.7" Top="4" Width="66.15" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="[dataDates.Date4]" VertAlign="Center" RightToLeft="true" Font="Arial, 8pt"/>
+      <TextObject Name="Text13" Left="311.85" Top="4" Width="66.15" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="[dataDates.Date3]" VertAlign="Center" RightToLeft="true" Font="Arial, 8pt"/>
+      <TextObject Name="Text12" Left="378" Top="4" Width="66.15" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="[dataDates.Date2]" VertAlign="Center" RightToLeft="true" Font="Arial, 8pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="208.85" Width="718.2" Height="18.9" DataSource="Presense">
+      <TextObject Name="Text25" Left="-9.45" Width="85.05" Height="18.9" Border.Lines="All" Text="[Presense.TPrice]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text19" Left="444.15" Width="66.15" Height="18.9" Border.Lines="All" Text="[Presense.Date1]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text20" Left="378" Width="66.15" Height="18.9" Border.Lines="All" Text="[Presense.Date2]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text21" Left="311.85" Width="66.15" Height="18.9" Border.Lines="All" Text="[Presense.Date3]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text22" Left="245.7" Width="66.15" Height="18.9" Border.Lines="All" Text="[Presense.Date4]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text23" Left="170.1" Width="75.6" Height="18.9" Border.Lines="All" Text="[Presense.SPrice]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text24" Left="75.6" Width="94.5" Height="18.9" Border.Lines="All" Text="[Presense.SuPrice]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text18" Left="510.3" Width="198.45" Height="18.9" Border.Lines="All" Text="[Presense.Name]" VertAlign="Center" RightToLeft="true"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="230.95" Width="718.2" Height="37.8">
+      <TextObject Name="Text38" Left="463.05" Top="12" Width="122.85" Height="18.9" Border.Lines="All" Border.Width="2" Text="[DataGeneral.SPrice]" RightToLeft="true"/>
+      <TextObject Name="Text40" Left="179.55" Top="12" Width="103.95" Height="18.9" Text="مجموع الأستاذ :" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text42" Left="56.7" Top="12" Width="122.85" Height="18.9" Border.Lines="All" Border.Width="2" Text="[DataGeneral.TPrice]" RightToLeft="true"/>
+      <TextObject Name="Text36" Left="585.9" Top="12" Width="103.95" Height="18.9" Text="مجموع الطلاب :" RightToLeft="true" Font="Arial, 12pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

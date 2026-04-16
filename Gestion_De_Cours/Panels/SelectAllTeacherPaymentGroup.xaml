@@ -1,0 +1,311 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.SelectAllTeacherPaymentGroup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="SelectAllTeacherPaymentGroup"
+    Width="1500"
+    Height="600"
+    dx:ThemeManager.ThemeName="None"
+    WindowState="Maximized"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <FontFamily x:Key="FontLabel">pack://application:,,,/Fonts/#Droid Arabic Kufi</FontFamily>
+                </ResourceDictionary>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <DataGrid
+            Name="DGGroups"
+            Grid.Row="2"
+            MinHeight="200"
+            HorizontalAlignment="Stretch"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            ItemsSource="{Binding}"
+            SelectionChanged="DGGroups_SelectionChanged"
+            SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding GroupName}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource GroupName}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Type}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource Type}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding FromSesDate}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource StartDatePay}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ToSesDate}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource EndDatePay}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding TotalSesTeacher}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource SumSesTeacher}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Binding="{Binding TotalP}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource TotalP}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button
+                                Name="BtnPrint"
+                                Width="35"
+                                Height="20"
+                                Background="{x:Null}"
+                                Click="BtnPrint_Click">
+                                <Image
+                                    Width="35"
+                                    Height="15"
+                                    Source="/Images/Print.png" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button
+                                Name="BtnDelGroup"
+                                Width="35"
+                                Height="20"
+                                Background="{x:Null}"
+                                Click="BtnDelGroup_Click">
+                                <Image
+                                    Width="35"
+                                    Height="15"
+                                    Source="/Images/DeleteIconsmall.png" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel
+            Grid.Row="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Label Content="{DynamicResource TeacherNameLB}" FontSize="15" />
+            <Border
+                Height="35"
+                BorderBrush="Black"
+                BorderThickness="1">
+                <TextBlock
+                    Name="TBlockTName"
+                    Width="250"
+                    FontSize="20" />
+            </Border>
+            <StackPanel Margin="10,0,0,0">
+                <RadioButton
+                    Name="PrintMethod1"
+                    Checked="PrintMethod1_Checked"
+                    Content="Print Method 1"
+                    GroupName="Options"
+                    IsChecked="True" />
+
+                <!--  Second RadioButton  -->
+                <RadioButton
+                    Name="PrintMethod2"
+                    Checked="PrintMethod2_Checked"
+                    Content="Print Method 2"
+                    GroupName="Options" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Width="100"
+                Height="30"
+                Margin="0,0,25,0"
+                Click="Button_Click_PrintAll"
+                Content="{DynamicResource PrintAll}" />
+            <Button
+                Width="100"
+                Height="30"
+                Margin="25,0,0,0"
+                Content="Export" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="3"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Label Content="{DynamicResource GroupNameLB}" FontSize="18" />
+            <TextBox
+                Name="TBGroupName"
+                Width="110"
+                Height="35" />
+            <Label Content="{DynamicResource TotalPaidLB}" FontSize="18" />
+            <TextBox
+                Name="TbTotal"
+                Width="110"
+                Height="35"
+                FontSize="18" />
+            <Label Content="{DynamicResource SessionsLB}" FontSize="18" />
+            <ComboBox
+                Name="CBSes"
+                Width="110"
+                Height="35"
+                FontSize="18"
+                SelectionChanged="CBSes_SelectionChanged" />
+        </StackPanel>
+
+
+        <DataGrid
+            Name="DGSessions"
+            Grid.RowSpan="5"
+            Grid.Column="1"
+            Width="250"
+            Margin="10"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            AutoGenerateColumns="False"
+            FontSize="15"
+            GridLinesVisibility="All"
+            IsReadOnly="True"
+            ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding TotalSessions}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource Sessions}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding TotalStudents}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource TotalStudents}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Sum}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource Price}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid
+            Name="AttendanceDG"
+            Grid.Row="0"
+            Grid.RowSpan="5"
+            Grid.Column="1"
+            Margin="10"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            AutoGenerateColumns="False"
+            FontSize="15"
+            GridLinesVisibility="All"
+            IsReadOnly="True"
+            ItemsSource="{Binding}"
+            SelectionMode="Single"
+            SelectionUnit="Cell"
+            Visibility="Collapsed">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    x:Name="ColumSName"
+                    Width="auto"
+                    Binding="{Binding Name}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource StudentName}" />
+                    </DataGridTextColumn.Header>
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Gender}" Value="1">
+                                    <Setter Property="TextBlock.Foreground" Value="Salmon" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Gender}" Value="0">
+                                    <Setter Property="TextBlock.Foreground" Value="Blue" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ID}" Visibility="Collapsed" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel
+            Grid.Row="4"
+            Grid.ColumnSpan="2"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Label Content="{DynamicResource TotalPriceLB}" FontSize="18" />
+            <Border
+                Height="35"
+                BorderBrush="Black"
+                BorderThickness="1">
+                <TextBlock
+                    Name="TBTotalGroups"
+                    Width="100"
+                    Height="35"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="20" />
+            </Border>
+            <Label
+                Margin="10,0,0,0"
+                VerticalContentAlignment="Center"
+                Content="{DynamicResource DateLB}"
+                FontSize="20" />
+            <DatePicker
+                Name="Date"
+                Width="180"
+                Height="35"
+                VerticalAlignment="Center"
+                FontSize="18"
+                Language="fr-FR" />
+            <Label Content="{DynamicResource NoteLB}" FontSize="18" />
+            <TextBox
+                Name="Note"
+                Width="137"
+                Height="30"
+                FontSize="18" />
+        </StackPanel>
+        <Button
+            Name="SubmitBtn"
+            Grid.Row="7"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Width="200"
+            Height="35"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Click="SubmitBtn_Click"
+            Content="{DynamicResource Submit}"
+            FontSize="20" />
+
+    </Grid>
+</Window>

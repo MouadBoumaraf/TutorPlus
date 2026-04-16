@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Name="Simple List" ReportInfo.Author="Fast Reports Inc" ReportInfo.Description="Demonstrates a simple list report. To create it:&#13;&#10;- go to &quot;Data&quot; menu and select &quot;Choose Report Data...&quot; item to select a datasource;&#13;&#10;- go to &quot;Report|Configure Bands...&quot; menu to create the band structure;&#13;&#10;- return to the report page, doubleclick the data band to show its editor;&#13;&#10;- choose the datasource;&#13;&#10;- drag data from the Data Dictionary window to the band." ReportInfo.Created="01/17/2008 03:05:57" ReportInfo.Modified="08/18/2025 20:04:18" ReportInfo.CreatorVersion="1.8.6.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+using System.IO;
+
+using System.Drawing.Imaging;
+
+namespace FastReport
+{
+  public class ReportScript
+  { 
+  }  
+  
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Payment" ReferenceName="Data.Payment" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Ammount" DataType="System.String"/>
+      <Column Name="Date" DataType="System.String"/>
+      <Column Name="Note" DataType="System.String"/>
+      <Column Name="CName" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="EcoleInfo" ReferenceName="Data.EcoleInfo" DataType="System.Int32" Enabled="true">
+      <Column Name="NameFR" DataType="System.String"/>
+      <Column Name="NameAR" DataType="System.String"/>
+      <Column Name="Adress" DataType="System.String"/>
+      <Column Name="Adress2" DataType="System.String"/>
+      <Column Name="Number" DataType="System.String"/>
+      <Column Name="Number2" DataType="System.String"/>
+      <Column Name="CCP" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+      <Column Name="InsFees" DataType="System.Int32"/>
+      <Column Name="Absent" DataType="System.Int32"/>
+      <Column Name="ClassPay" DataType="System.Int32"/>
+      <Column Name="PhotoFile" DataType="System.String"/>
+      <Column Name="ApplicationFile" DataType="System.String"/>
+      <Column Name="TextSize" DataType="System.Int32"/>
+      <Column Name="Language" DataType="System.Int32"/>
+      <Column Name="EcoleLogo" DataType="System.String"/>
+      <Column Name="AddStudent" DataType="System.Int32"/>
+      <Column Name="AddPayment" DataType="System.Int32"/>
+      <Column Name="ExtraPayment" DataType="System.Int32"/>
+      <Column Name="ScanBarCode" DataType="System.Int32"/>
+      <Column Name="AddTeacher" DataType="System.Int32"/>
+      <Column Name="CreateAttendance" DataType="System.Int32"/>
+      <Column Name="ClassAdd" DataType="System.Int32"/>
+      <Column Name="FSID" DataType="System.Int32"/>
+      <Column Name="FSName" DataType="System.Int32"/>
+      <Column Name="FSPhone" DataType="System.Int32"/>
+      <Column Name="FSParentNumber" DataType="System.Int32"/>
+      <Column Name="FSGender" DataType="System.Int32"/>
+      <Column Name="FSBirthDate" DataType="System.Int32"/>
+      <Column Name="FSLevel" DataType="System.Int32"/>
+      <Column Name="FSYear" DataType="System.Int32"/>
+      <Column Name="FSSpeciality" DataType="System.Int32"/>
+      <Column Name="FSAdress" DataType="System.Int32"/>
+      <Column Name="FSRegister" DataType="System.Int32"/>
+      <Column Name="FSNote" DataType="System.Int32"/>
+      <Column Name="FSInsc" DataType="System.Int32"/>
+      <Column Name="FTName" DataType="System.Int32"/>
+      <Column Name="FTNumber" DataType="System.Int32"/>
+      <Column Name="FTGender" DataType="System.Int32"/>
+      <Column Name="FTBDate" DataType="System.Int32"/>
+      <Column Name="FTMail" DataType="System.Int32"/>
+      <Column Name="FTCCP" DataType="System.Int32"/>
+      <Column Name="FTRegister" DataType="System.Int32"/>
+      <Column Name="FTNote" DataType="System.Int32"/>
+      <Column Name="FCCName" DataType="System.Int32"/>
+      <Column Name="FCTName" DataType="System.Int32"/>
+      <Column Name="FCYear" DataType="System.Int32"/>
+      <Column Name="FCSubject" DataType="System.Int32"/>
+      <Column Name="FCPrice" DataType="System.Int32"/>
+      <Column Name="FCTPayMethod" DataType="System.Int32"/>
+      <Column Name="FCTPay" DataType="System.Int32"/>
+      <Column Name="PaymentMonth" DataType="System.Int32"/>
+      <Column Name="FSBarCode" DataType="System.Int32"/>
+      <Column Name="CalcPrice" DataType="System.Int32"/>
+    </TableDataSource>
+    <TableDataSource Name="PaymentInfo" ReferenceName="Data.PaymentInfo" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="TotalPrice" DataType="System.String"/>
+      <Column Name="YearName" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="StudentInfo" ReferenceName="Data.StudentInfo" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Year" DataType="System.String"/>
+      <Column Name="TotalPrice" DataType="System.String"/>
+      <Column Name="BarCode" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="70" PaperHeight="3275.8" LeftMargin="0" RightMargin="0" FirstPageSource="15" OtherPagesSource="15" Guides="481.95,255.15,330.75,311.85,330.75,330.75,330.75">
+    <PageHeaderBand Name="PageHeader1" Width="264.6" Height="245.7">
+      <PictureObject Name="Picture2" Left="94.5" Top="37.8" Width="75.6" Height="56.7" ImageLocation="C:\Users\Home\Downloads\Logo App Black (1).png"/>
+      <TextObject Name="Text22" Top="103.95" Width="274.05" Height="18.9" Text="[EcoleInfo.NameAR]" HorzAlign="Center"/>
+      <TextObject Name="Text23" Left="179.55" Top="141.75" Width="75.6" Height="18.9" Text="اسم الطالب :" RightToLeft="true" Font="Arial, 11pt"/>
+      <TextObject Name="Text1" Left="18.9" Top="141.75" Width="151.2" Height="18.9" Border.Lines="All" Text="[StudentInfo.Name]" RightToLeft="true"/>
+      <TextObject Name="Text24" Left="160.65" Top="170.1" Width="94.5" Height="18.9" Text="السنة الدراسية :" RightToLeft="true" Font="Arial, 11pt"/>
+      <TextObject Name="Text25" Left="18.9" Top="170.1" Width="151.2" Height="18.9" Border.Lines="All" Text="[StudentInfo.Year]" RightToLeft="true"/>
+      <TextObject Name="Text2" Left="9.45" Top="9.45" Width="255.15" Height="28.35" Text="دفع الطالب" HorzAlign="Center" Font="Arial, 15pt, style=Bold"/>
+      <TextObject Name="TBMonthSubject" Top="226.8" Width="94.5" Height="18.9" Border.Lines="All" Text="المادة" RightToLeft="true"/>
+      <TextObject Name="Text27" Left="151.2" Top="226.8" Width="103.95" Height="18.9" Border.Lines="All" Text="التاريخ" RightToLeft="true"/>
+      <TextObject Name="Text28" Left="94.5" Top="226.8" Width="56.7" Height="18.9" Border.Lines="All" Text="المبلغ" RightToLeft="true"/>
+      <TextObject Name="Text32" Left="160.65" Top="198.45" Width="94.5" Height="18.9" Text="كود التلميذ :" RightToLeft="true" Font="Arial, 11pt"/>
+      <TextObject Name="Text33" Left="18.9" Top="198.45" Width="151.2" Height="18.9" Border.Lines="All" Text="[StudentInfo.BarCode]" RightToLeft="true" Font="Arial, 12pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="249.7" Width="264.6" Height="28.35" Guides="0" DataSource="Payment">
+      <TextObject Name="Text31" Left="151.2" Width="103.95" Height="28.35" Border.Lines="All" Text="[Payment.Date]" VertAlign="Center" RightToLeft="true" Font="Arial, 8pt"/>
+      <TextObject Name="Text30" Left="94.5" Width="56.7" Height="28.35" Border.Lines="All" Text="[Payment.Ammount]" VertAlign="Center" RightToLeft="true" Font="Arial, 8pt"/>
+      <TextObject Name="TBDataMonthSub" Width="94.5" Height="28.35" Border.Lines="All" Text="[Payment.CName]" VertAlign="Center" RightToLeft="true" Font="Arial, 8pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="282.05" Width="264.6" Height="37.8">
+      <TextObject Name="Text21" Left="-113.4" Top="18.9" Width="491.4" Height="18.9" Text="المدرسة غير مسؤولة في حالة ضياع وصل الدفع ." HorzAlign="Center" RightToLeft="true" Font="Arial, 11pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

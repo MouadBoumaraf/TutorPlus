@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Name="Simple List" ReportInfo.Author="Fast Reports Inc" ReportInfo.Description="Demonstrates a simple list report. To create it:&#13;&#10;- go to &quot;Data&quot; menu and select &quot;Choose Report Data...&quot; item to select a datasource;&#13;&#10;- go to &quot;Report|Configure Bands...&quot; menu to create the band structure;&#13;&#10;- return to the report page, doubleclick the data band to show its editor;&#13;&#10;- choose the datasource;&#13;&#10;- drag data from the Data Dictionary window to the band." ReportInfo.Created="01/17/2008 03:05:57" ReportInfo.Modified="12/19/2024 21:01:51" ReportInfo.CreatorVersion="1.8.6.0">
+  <Dictionary>
+    <TableDataSource Name="EcoleInfo" ReferenceName="Data.EcoleInfo" DataType="System.Int32" Enabled="true">
+      <Column Name="NameFR" DataType="System.String"/>
+      <Column Name="NameAR" DataType="System.String"/>
+      <Column Name="Adress" DataType="System.String"/>
+      <Column Name="Adress2" DataType="System.String"/>
+      <Column Name="Number" DataType="System.String"/>
+      <Column Name="Number2" DataType="System.String"/>
+      <Column Name="CCP" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+      <Column Name="InsFees" DataType="System.Int32"/>
+      <Column Name="Absent" DataType="System.Int32"/>
+      <Column Name="ClassPay" DataType="System.Int32"/>
+      <Column Name="PhotoFile" DataType="System.String"/>
+      <Column Name="ApplicationFile" DataType="System.String"/>
+      <Column Name="TextSize" DataType="System.Int32"/>
+      <Column Name="Language" DataType="System.Int32"/>
+      <Column Name="EcoleLogo" DataType="System.String"/>
+      <Column Name="AddStudent" DataType="System.Int32"/>
+      <Column Name="AddPayment" DataType="System.Int32"/>
+      <Column Name="ExtraPayment" DataType="System.Int32"/>
+      <Column Name="ScanBarCode" DataType="System.Int32"/>
+      <Column Name="AddTeacher" DataType="System.Int32"/>
+      <Column Name="CreateAttendance" DataType="System.Int32"/>
+      <Column Name="ClassAdd" DataType="System.Int32"/>
+      <Column Name="FSID" DataType="System.Int32"/>
+      <Column Name="FSName" DataType="System.Int32"/>
+      <Column Name="FSPhone" DataType="System.Int32"/>
+      <Column Name="FSParentNumber" DataType="System.Int32"/>
+      <Column Name="FSGender" DataType="System.Int32"/>
+      <Column Name="FSBirthDate" DataType="System.Int32"/>
+      <Column Name="FSLevel" DataType="System.Int32"/>
+      <Column Name="FSYear" DataType="System.Int32"/>
+      <Column Name="FSSpeciality" DataType="System.Int32"/>
+      <Column Name="FSAdress" DataType="System.Int32"/>
+      <Column Name="FSRegister" DataType="System.Int32"/>
+      <Column Name="FSNote" DataType="System.Int32"/>
+      <Column Name="FSInsc" DataType="System.Int32"/>
+      <Column Name="FTName" DataType="System.Int32"/>
+      <Column Name="FTNumber" DataType="System.Int32"/>
+      <Column Name="FTGender" DataType="System.Int32"/>
+      <Column Name="FTBDate" DataType="System.Int32"/>
+      <Column Name="FTMail" DataType="System.Int32"/>
+      <Column Name="FTCCP" DataType="System.Int32"/>
+      <Column Name="FTRegister" DataType="System.Int32"/>
+      <Column Name="FTNote" DataType="System.Int32"/>
+      <Column Name="FCCName" DataType="System.Int32"/>
+      <Column Name="FCTName" DataType="System.Int32"/>
+      <Column Name="FCYear" DataType="System.Int32"/>
+      <Column Name="FCSubject" DataType="System.Int32"/>
+      <Column Name="FCPrice" DataType="System.Int32"/>
+      <Column Name="FCTPayMethod" DataType="System.Int32"/>
+      <Column Name="FCTPay" DataType="System.Int32"/>
+      <Column Name="PaymentMonth" DataType="System.Int32"/>
+      <Column Name="FSBarCode" DataType="System.Int32"/>
+    </TableDataSource>
+    <TableDataSource Name="CashRegister" ReferenceName="Data.CashRegister" DataType="System.Int32" Enabled="true">
+      <Column Name="Initial" DataType="System.String"/>
+      <Column Name="Difference" DataType="System.String"/>
+      <Column Name="Final" DataType="System.String"/>
+      <Column Name="FromDate" DataType="System.String"/>
+      <Column Name="ToDate" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Info" ReferenceName="Data.Info" DataType="System.Int32" Enabled="true">
+      <Column Name="Type" DataType="System.String"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="ClassName" DataType="System.String"/>
+      <Column Name="WorkerName" DataType="System.String"/>
+      <Column Name="Intake" DataType="System.Int32"/>
+      <Column Name="OutTake" DataType="System.String"/>
+      <Column Name="Date" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" TopMargin="0">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="85.05" CanGrow="true">
+      <TextObject Name="Text2" Left="557.55" Top="9.45" Width="160.65" Height="28.35" Text="التاريخ :" VertAlign="Center" RightToLeft="true" Font="Arial, 17pt"/>
+      <TextObject Name="Text3" Left="292.95" Top="9.45" Width="311.85" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[CashRegister.FromDate]" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text4" Left="623.7" Top="56.7" Width="94.5" Height="28.35" Border.Lines="All" Text="نوع" VertAlign="Center" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text5" Left="481.95" Top="56.7" Width="141.75" Height="28.35" Border.Lines="All" Text="اسم العمال" VertAlign="Center" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text6" Left="368.55" Top="56.7" Width="113.4" Height="28.35" Border.Lines="All" Text="اسم" VertAlign="Center" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text7" Left="255.15" Top="56.7" Width="113.4" Height="28.35" Border.Lines="All" Text="أسم القسم" VertAlign="Center" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text8" Left="189" Top="56.7" Width="66.15" Height="28.35" Border.Lines="All" Text="المدخول" VertAlign="Center" RightToLeft="true" Font="Arial, 14pt"/>
+      <TextObject Name="Text9" Left="122.85" Top="56.7" Width="66.15" Height="28.35" Border.Lines="All" Text="إخراج" VertAlign="Center" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text31" Top="56.7" Width="122.85" Height="28.35" Border.Lines="All" Text="تاريخ" VertAlign="Center" RightToLeft="true" Font="Arial, 15pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="89.05" Width="718.2" Height="28.35" Guides="28.35,0" DataSource="Info">
+      <TextObject Name="Text32" Left="623.7" Width="94.5" Height="28.35" Border.Lines="All" Text="[Info.Type]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text35" Left="255.15" Width="113.4" Height="28.35" Border.Lines="All" Text="[Info.ClassName]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text36" Left="189" Width="66.15" Height="28.35" Border.Lines="All" Text="[Info.Intake]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text37" Left="122.85" Width="66.15" Height="28.35" Border.Lines="All" Text="[Info.OutTake]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text34" Left="368.55" Width="113.4" Height="28.35" Border.Lines="All" Text="[Info.Name]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text33" Left="481.95" Width="141.75" Height="28.35" Border.Lines="All" Text="[Info.WorkerName]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text38" Width="122.85" Height="28.35" Border.Lines="All" Text="[Info.Date]" VertAlign="Center" RightToLeft="true" Font="Arial, 12pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="121.4" Width="718.2" Height="94.5" Guides="0">
+      <TextObject Name="Text39" Left="557.55" Top="26.9" Width="132.3" Height="28.35" Text="المبلغ الأولي :" VertAlign="Center" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text40" Left="500.85" Top="26.9" Width="85.05" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[CashRegister.Initial]" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text41" Left="302.4" Top="26.9" Width="132.3" Height="28.35" Text="المبلغ النهائي :" VertAlign="Center" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text43" Left="56.7" Top="26.9" Width="113.4" Height="28.35" Text="فرق :" VertAlign="Center" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text45" Left="245.7" Top="26.9" Width="85.05" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[CashRegister.Final]" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text46" Left="28.35" Top="26.9" Width="85.05" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[CashRegister.Difference]" RightToLeft="true" Font="Arial, 15pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

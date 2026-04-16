@@ -1,0 +1,561 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.GroupAttendance"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Converter="clr-namespace:Gestion_De_Cours.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="GroupAttendance"
+    Width="1100"
+    Height="700"
+    dx:ThemeManager.ThemeName="None"
+    WindowState="Maximized"
+    mc:Ignorable="d">
+    <Window.Resources>
+
+        <ResourceDictionary>
+            <FontFamily x:Key="FontLabel">pack://application:,,,/Fonts/#Droid Arabic Kufi</FontFamily>
+
+            <Style x:Key="BeautifulLabelStyle" TargetType="Label">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Label">
+                            <Border
+                                Padding="5"
+                                Background="#cbd8ac"
+                                BorderBrush="Black"
+                                BorderThickness="1,1,1,0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <!--  Merge other resource dictionaries if needed  -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Dictionary/EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Margin="5">
+            <StackPanel
+                Height="40"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal"
+                Visibility="Collapsed">
+                <Label VerticalAlignment="Center" Content="Search :" />
+                <TextBox
+                    Width="150"
+                    Height="30"
+                    TextChanged="TBSearch_TextChanged" />
+            </StackPanel>
+            <StackPanel
+                Height="140"
+                HorizontalAlignment="Left"
+                Orientation="Horizontal"
+                Visibility="Collapsed">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button
+                            Name="AttendanceAdd"
+                            Width="80"
+                            Height="80"
+                            Margin="5,0,5,0"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Click="AttendanceAdd_Click">
+                            <StackPanel>
+                                <Image
+                                    Width="50"
+                                    Height="50"
+                                    Source="/Images/attendance.png" />
+                                <Label
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Content="{DynamicResource Attendance}"
+                                    FontSize="12"
+                                    FontWeight="Bold"
+                                    Foreground="Black" />
+                            </StackPanel>
+                        </Button>
+                        <Button
+                            Name="StudentAdd"
+                            Width="80"
+                            Height="80"
+                            Margin="5,0,5,0"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Click="StudentAdd_Click">
+                            <StackPanel>
+                                <Image
+                                    Width="50"
+                                    Height="50"
+                                    Source="/Images/StudentAdd.png" />
+                                <Label
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Content="{DynamicResource Student}"
+                                    FontSize="12"
+                                    FontWeight="Bold"
+                                    Foreground="Black" />
+                            </StackPanel>
+                        </Button>
+                        <Button
+                            Name="PaymentButton"
+                            Width="80"
+                            Height="80"
+                            Margin="5,0,5,0"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Click="PaymentButton_Click">
+                            <StackPanel>
+                                <Image
+                                    Width="50"
+                                    Height="50"
+                                    Source="/Images/payment512.png" />
+                                <Label
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Content="{DynamicResource Payment}"
+                                    FontSize="12"
+                                    FontWeight="Bold"
+                                    Foreground="Black" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <Label
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Content="{DynamicResource Add}"
+                        FontSize="13" />
+                </StackPanel>
+
+                <Border
+                    Height="120"
+                    VerticalAlignment="Center"
+                    BorderBrush="Black"
+                    BorderThickness="0,0,1,0" />
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button
+                            Width="80"
+                            Height="80"
+                            Margin="5,0,5,0"
+                            Background="Transparent"
+                            BorderBrush="Transparent">
+                            <StackPanel>
+                                <Image
+                                    Width="50"
+                                    Height="50"
+                                    Source="/Images/attendance.png" />
+                                <Label
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Content="{DynamicResource Attendance}"
+                                    FontSize="12"
+                                    FontWeight="Bold"
+                                    Foreground="Black" />
+                            </StackPanel>
+                        </Button>
+
+                        <Button
+                            Width="80"
+                            Height="80"
+                            Margin="5,0,5,0"
+                            Background="Transparent"
+                            BorderBrush="Transparent">
+                            <StackPanel>
+                                <Image
+                                    Width="50"
+                                    Height="50"
+                                    Source="/Images/AttendanceGroup.png" />
+                                <Label
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Content="{DynamicResource Group}"
+                                    FontSize="12"
+                                    FontWeight="Bold"
+                                    Foreground="Black" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <Label
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Center"
+                        Content="{DynamicResource Print}"
+                        FontSize="13" />
+                </StackPanel>
+                <Border
+                    Height="120"
+                    VerticalAlignment="Center"
+                    BorderBrush="Black"
+                    BorderThickness="0,0,1,0" />
+                <StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <Button
+                            Name="BtnAbsent"
+                            Width="85"
+                            Height="80"
+                            Margin="5,0,5,0"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Click="BtnAbsent_Click">
+                            <StackPanel>
+                                <Rectangle
+                                    Width="50"
+                                    Height="50"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Fill="#CC0000"
+                                    Stroke="Black"
+                                    StrokeThickness="2" />
+                                <Label
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Content="{DynamicResource Absent}"
+                                    FontSize="12"
+                                    FontWeight="Bold"
+                                    Foreground="Black" />
+                            </StackPanel>
+                        </Button>
+                        <Button
+                            Name="BtnPresent"
+                            Width="85"
+                            Height="80"
+                            Margin="5,0,5,0"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Click="BtnPresent_Click">
+                            <StackPanel>
+                                <Rectangle
+                                    Width="50"
+                                    Height="50"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Fill="#008000"
+                                    Stroke="Black"
+                                    StrokeThickness="2" />
+                                <Label
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Content="{DynamicResource Present}"
+                                    FontSize="12"
+                                    FontWeight="Bold"
+                                    Foreground="Black" />
+                            </StackPanel>
+                        </Button>
+                        <Button
+                            Width="85"
+                            Height="80"
+                            Margin="5,0,5,0"
+                            Background="Transparent"
+                            BorderBrush="Transparent">
+                            <StackPanel>
+                                <Image
+                                    Width="50"
+                                    Height="50"
+                                    Source="/Images/Justification512.png" />
+                                <Label
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Content="{DynamicResource Justification}"
+                                    FontSize="12"
+                                    FontWeight="Bold"
+                                    Foreground="Black" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <Label
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Center"
+                        Content="{DynamicResource Presense}"
+                        FontSize="13" />
+                </StackPanel>
+                <Border
+                    Height="120"
+                    VerticalAlignment="Center"
+                    BorderBrush="Black"
+                    BorderThickness="0,0,1,0" />
+                <StackPanel>
+                    <StackPanel Margin="5,10,5,0">
+                        <CheckBox Margin="0,0,0,10" Content="{DynamicResource PhoneNumber}" />
+                        <CheckBox Margin="0,0,0,10" Content="{DynamicResource Payment}" />
+                        <CheckBox Content="{DynamicResource ColorPaidSes}" />
+
+                    </StackPanel>
+                    <Label
+                        Margin="0,15,0,0"
+                        HorizontalAlignment="Center"
+                        Content="{DynamicResource View}"
+                        FontSize="13" />
+                </StackPanel>
+                <Border
+                    Height="120"
+                    VerticalAlignment="Center"
+                    BorderBrush="Black"
+                    BorderThickness="0,0,1,0" />
+
+                <StackPanel>
+                    <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
+
+                        <Border
+                            Width="80"
+                            Height="80"
+                            Margin="0,5,0,0"
+                            VerticalAlignment="Top"
+                            BorderBrush="Black"
+                            BorderThickness="2">
+                            <Image
+                                Name="Pic"
+                                Width="80"
+                                Height="80"
+                                VerticalAlignment="Top"
+                                Stretch="UniformToFill" />
+                        </Border>
+                        <StackPanel>
+
+                            <TextBlock
+                                Name="TBName"
+                                Width="100"
+                                Margin="5,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="12" />
+                            <TextBlock
+                                Name="TBNumber"
+                                Margin="5,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="12" />
+                            <TextBlock
+                                Name="TBPrice"
+                                Margin="5,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="12" />
+                        </StackPanel>
+                    </StackPanel>
+                    <Label
+                        Margin="0,6,0,0"
+                        HorizontalAlignment="Center"
+                        Content="{DynamicResource Info}"
+                        FontSize="13" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel
+                Margin="0,10,0,0"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <Label
+                    VerticalContentAlignment="Center"
+                    Content="Month :"
+                    FontSize="20" />
+                <ComboBox
+                    Name="CBMonthes"
+                    Width="200"
+                    VerticalContentAlignment="Center"
+                    FontSize="20"
+                    SelectionChanged="ComboBox_SelectionChanged">
+                    <ComboBox.Resources>
+                        <Style TargetType="CheckBox">
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                        </Style>
+                    </ComboBox.Resources>
+                    <CheckBox
+                        Name="CheckBoxAll"
+                        Width="190"
+                        Checked="CheckBox_Checked"
+                        Content="{DynamicResource SelectAll}"
+                        IsChecked="True"
+                        Unchecked="CheckBox_Unchecked" />
+                </ComboBox>
+                <Label Content="{DynamicResource StudentLB}" FontSize="20" />
+                <TextBox
+                    Name="TBSearch"
+                    Width="250"
+                    VerticalContentAlignment="Center"
+                    FontSize="15"
+                    TextChanged="TextBox_TextChanged" />
+            </StackPanel>
+            <StackPanel
+                Name="SPMargin"
+                Margin="217,20,0,0"
+                Orientation="Horizontal">
+
+                <Label
+                    Name="LB1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Content="TEST"
+                    FontSize="12"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource BeautifulLabelStyle}"
+                    Visibility="Visible" />
+                <Label
+                    Name="LB2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    FontSize="12"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource BeautifulLabelStyle}"
+                    Visibility="Collapsed" />
+                <Label
+                    Name="LB3"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    FontSize="12"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource BeautifulLabelStyle}"
+                    Visibility="Collapsed" />
+                <Label
+                    Name="LB4"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    FontSize="12"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource BeautifulLabelStyle}"
+                    Visibility="Collapsed" />
+                <Label
+                    Name="LB5"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    FontSize="12"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource BeautifulLabelStyle}"
+                    Visibility="Collapsed" />
+                <Label
+                    Name="LB6"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    FontSize="12"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource BeautifulLabelStyle}"
+                    Visibility="Collapsed" />
+                <Label
+                    Name="LB7"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    FontSize="12"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource BeautifulLabelStyle}"
+                    Visibility="Collapsed" />
+                <Label
+                    Name="LB8"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    FontSize="12"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource BeautifulLabelStyle}"
+                    Visibility="Collapsed" />
+                <Label
+                    Name="LB9"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    FontSize="12"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource BeautifulLabelStyle}"
+                    Visibility="Collapsed" />
+                <Label
+                    Name="LB10"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    FontSize="12"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource BeautifulLabelStyle}"
+                    Visibility="Collapsed" />
+                <Label
+                    Name="LB11"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    FontSize="12"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource BeautifulLabelStyle}"
+                    Visibility="Collapsed" />
+                <Label
+                    Name="LB12"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    FontSize="12"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource BeautifulLabelStyle}"
+                    Visibility="Collapsed" />
+
+            </StackPanel>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <DataGrid
+                    Name="DGAttendance"
+                    Margin="10,0,10,10"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    AutoGenerateColumns="False"
+                    CanUserReorderColumns="False"
+                    CanUserSortColumns="False"
+                    FontSize="15"
+                    FrozenColumnCount="1"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding}"
+                    MouseDoubleClick="DGAttendance_MouseDoubleClick"
+                    ScrollViewer.VerticalScrollBarVisibility="Visible"
+                    SelectionMode="Extended"
+                    SelectionUnit="CellOrRowHeader">
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridColumnHeader">
+                            <EventSetter Event="Click" Handler="ColumnHeader_Click" />
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Content.Text}" Value="A">
+                                    <Setter Property="Foreground" Value="White" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.CellStyle>
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn
+                            Width="200"
+                            Binding="{Binding Name}"
+                            Header="{DynamicResource StudentName}">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="{x:Type DataGridCell}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Gender}" Value="1">
+                                            <Setter Property="TextBlock.Foreground" Value="Salmon" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Gender}" Value="0">
+                                            <Setter Property="TextBlock.Foreground" Value="Blue" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            x:Name="DGCPhone"
+                            Width="145"
+                            Binding="{Binding PhoneNumber}"
+                            Header="Phone Number "
+                            Visibility="Collapsed" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
+
+</Window>

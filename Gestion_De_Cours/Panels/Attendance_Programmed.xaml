@@ -1,0 +1,290 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.Attendance_Programmed"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Add Attendance"
+    Width="330"
+    Height="400"
+    dx:ThemeManager.ThemeName="None"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <FontFamily x:Key="FontLabel">pack://application:,,,/Fonts/#Droid Arabic Kufi</FontFamily>
+                </ResourceDictionary>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+
+        <StackPanel HorizontalAlignment="Center">
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <Label
+                    Name="LabelClass"
+                    Grid.Column="0"
+                    Width="75"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    HorizontalContentAlignment="Right"
+                    Content="{DynamicResource ClassLB}"
+                    FontSize="20" />
+                <ComboBox
+                    Name="CBclass"
+                    Width="182"
+                    Height="30"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    DisplayMemberPath="CName"
+                    FontSize="15"
+                    SelectedValuePath="ID"
+                    SelectionChanged="CBclass_SelectionChanged" />
+
+
+            </StackPanel>
+            <StackPanel
+                Name="SPGroup"
+                Margin="5"
+                Orientation="Horizontal">
+                <Label
+                    Name="LabelGroup"
+                    Grid.Column="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource GroupLB}"
+                    FontSize="20" />
+                <ComboBox
+                    Name="CBGroup"
+                    Width="182"
+                    Height="30"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    DisplayMemberPath="GroupName"
+                    FontSize="15"
+                    SelectedValuePath="ID"
+                    SelectionChanged="CBGroup_SelectionChanged" />
+            </StackPanel>
+
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <Label
+                    Width="75"
+                    HorizontalContentAlignment="Right"
+                    VerticalContentAlignment="Center"
+                    Content="Date :"
+                    FontSize="20" />
+                <DatePicker
+                    Name="Date"
+                    Width="182"
+                    Height="30"
+                    VerticalAlignment="Center"
+                    FontSize="15"
+                    Language="fr-FR" />
+            </StackPanel>
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <Label
+                    Width="75"
+                    HorizontalContentAlignment="Right"
+                    VerticalContentAlignment="Center"
+                    Content="{DynamicResource RoomLB}"
+                    FontSize="20" />
+                <ComboBox
+                    Name="CRoom"
+                    Width="182"
+                    Height="30"
+                    Margin="0,0,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    DisplayMemberPath="Room"
+                    FontSize="15"
+                    SelectedValuePath="ID"
+                    SelectionChanged="CRoom_SelectionChanged" />
+            </StackPanel>
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <Label
+                    Width="75"
+                    HorizontalContentAlignment="Right"
+                    VerticalContentAlignment="Center"
+                    Content="{DynamicResource FromLB}"
+                    FontSize="20" />
+                <ComboBox
+                    Name="HFrom"
+                    Width="80"
+                    Height="35"
+                    Margin="0,0,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    FontSize="20"
+                    SelectionChanged="HFrom_SelectionChanged"
+                    Text="HH">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                <Label
+                                    VerticalAlignment="Top"
+                                    Content="{Binding Hour}"
+                                    FontSize="15">
+                                    <Label.Resources>
+                                        <Style TargetType="{x:Type Label}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Status}" Value="0">
+                                                    <Setter Property="Foreground" Value="YellowGreen" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status}" Value="1">
+                                                    <Setter Property="Foreground" Value="Yellow" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status}" Value="2">
+                                                    <Setter Property="Foreground" Value="Red" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Label.Resources>
+                                </Label>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Label
+                    VerticalContentAlignment="Center"
+                    Content=" : "
+                    FontSize="15" />
+                <ComboBox
+                    Name="MFrom"
+                    Width="80"
+                    Height="35"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    FontSize="15"
+                    SelectionChanged="MFrom_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                <Label
+                                    VerticalAlignment="Top"
+                                    Content="{Binding Hour}"
+                                    FontSize="15">
+                                    <Label.Resources>
+                                        <Style TargetType="{x:Type Label}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Status}" Value="0">
+                                                    <Setter Property="Foreground" Value="YellowGreen" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status}" Value="1">
+                                                    <Setter Property="Foreground" Value="Yellow" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status}" Value="2">
+                                                    <Setter Property="Foreground" Value="Red" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Label.Resources>
+                                </Label>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <Label
+                    Width="75"
+                    HorizontalContentAlignment="Right"
+                    VerticalContentAlignment="Center"
+                    Content="{DynamicResource ToLB}"
+                    FontSize="20" />
+                <ComboBox
+                    Name="HTo"
+                    Width="80"
+                    Height="35"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    FontSize="15"
+                    SelectionChanged="HTo_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                <Label
+                                    VerticalAlignment="Top"
+                                    Content="{Binding Hour}"
+                                    FontSize="15">
+                                    <Label.Resources>
+                                        <Style TargetType="{x:Type Label}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Status}" Value="0">
+                                                    <Setter Property="Foreground" Value="YellowGreen" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status}" Value="1">
+                                                    <Setter Property="Foreground" Value="Yellow" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status}" Value="2">
+                                                    <Setter Property="Foreground" Value="Red" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Label.Resources>
+                                </Label>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Label
+                    VerticalContentAlignment="Center"
+                    Content=" : "
+                    FontSize="15" />
+                <ComboBox
+                    Name="MTo"
+                    Width="80"
+                    Height="35"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    FontSize="15"
+                    SelectionChanged="MTo_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                <Label
+                                    VerticalAlignment="Top"
+                                    Content="{Binding Hour}"
+                                    FontSize="15">
+                                    <Label.Resources>
+                                        <Style TargetType="{x:Type Label}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Status}" Value="0">
+                                                    <Setter Property="Foreground" Value="YellowGreen" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status}" Value="1">
+                                                    <Setter Property="Foreground" Value="Yellow" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status}" Value="2">
+                                                    <Setter Property="Foreground" Value="Red" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Label.Resources>
+                                </Label>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <Label
+                    Width="75"
+                    HorizontalContentAlignment="Right"
+                    Content="Note :"
+                    FontSize="20" />
+                <TextBox Name="Note" Width="182" />
+            </StackPanel>
+            <Button
+                Width="100"
+                Height="25"
+                Margin="10"
+                Click="Button_Click"
+                Content="Add" />
+        </StackPanel>
+    </Grid>
+</Window>

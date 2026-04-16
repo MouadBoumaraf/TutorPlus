@@ -1,0 +1,101 @@
+﻿<!--   
+    Copyright © 2008, Zona-Tools, all rights reserved.   
+
+    This source code is licensed under the Code Project Open License (CPOL).
+    Check out http://www.codeproject.com/info/cpol10.aspx for further details.
+    
+    -->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:xpbar="clr-namespace:ZonaTools.XPlorerBar">
+
+
+    <!-- ===================== -->
+    <!-- = Luna style import = -->
+    <!-- ===================== -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/ZonaTools.XPlorerBar;component/Themes/Luna.Style.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    
+    <!-- ====================== -->
+    <!-- = XPlorerBar brushes = -->
+    <!-- ====================== -->
+    
+    <!-- background -->
+    <LinearGradientBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerBarBackgroundBrush}" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0.0" Color="#7ba2e7" />
+        <GradientStop Offset="1.0" Color="#6375d6" />
+    </LinearGradientBrush>
+
+    
+    <!-- ================================== -->
+    <!-- = XPlorerSection content brushes = -->
+    <!-- ================================== -->
+    
+    <!-- background -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionContentBackgroundBrush}" Color="#d6dff7"/>
+    <!-- background (IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryContentBackgroundBrush}" Color="#eff3ff"/>
+
+    <!-- foreground -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionContentForegroundBrush}" Color="#215dc6"/>
+    <!-- foreground (IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryContentForegroundBrush}" Color="#215dc6"/>
+    <!-- foreground (IsMouseOver = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionContentHoverForegroundBrush}" Color="#428EFF"/>
+    <!-- foreground (IsMouseOver = true && IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryContentHoverForegroundBrush}" Color="#428EFF"/>
+
+    <!-- border -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionContentBorderBrush}" Color="#ffffff"/>
+    <!-- border (IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryContentBorderBrush}" Color="#ffffff"/>
+
+
+    
+    <!-- ================================= -->
+    <!-- = XPlorerSection header brushes = -->
+    <!-- ================================= -->
+    
+    <!-- background -->
+    <LinearGradientBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionHeaderBackgroundBrush}" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="#ffffff" Offset="0.35"/>
+        <GradientStop Color="#c6d3f7" Offset="1.00"/>
+    </LinearGradientBrush>
+    <!-- background (IsPrimary = true) -->
+    <LinearGradientBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryHeaderBackgroundBrush}" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="#0049b5" Offset="0.35"/>
+        <GradientStop Color="#295dce" Offset="1.00"/>
+    </LinearGradientBrush>
+
+    <!-- foreground -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionHeaderForegroundBrush}" Color="#215dc6"/>
+    <!-- foreground (IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryHeaderForegroundBrush}" Color="#ffffff"/>
+    <!-- foreground (IsMouseOver = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionHeaderHoverForegroundBrush}" Color="#428EFF"/>
+    <!-- foreground (IsMouseOver = true && IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryHeaderHoverForegroundBrush}" Color="#428EFF"/>
+
+    <!-- button background -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionHeaderButtonBackgroundBrush}" Color="#ffffff"/>
+    <!-- button background (IsPrimary = true)-->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryHeaderButtonBackgroundBrush}" Color="#3061c4"/>
+    
+    <!-- button foreground -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionHeaderButtonForegroundBrush}" Color="#003ca5"/>
+    <!-- button foreground (IsPrimary = true)-->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryHeaderButtonForegroundBrush}" Color="#ffffff"/>
+    <!-- button foreground (IsMouseOver = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionHeaderButtonHoverForegroundBrush}" Color="#428EFF"/>
+    <!-- button foreground (IsMouseOver = true && IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryHeaderButtonHoverForegroundBrush}" Color="#ACCDFF"/>
+
+    <!-- button border -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionHeaderButtonBorderBrush}" Color="#aeb7da"/>
+    <!-- button border (IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryHeaderButtonBorderBrush}" Color="#7eade6"/>
+
+</ResourceDictionary>

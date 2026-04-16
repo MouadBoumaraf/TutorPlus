@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS0006: Metadata file '..\..\..\..\Desktop\mouath\FastReport.Editor.dll' could not be found
+dotnet_diagnostic.CS0006.severity = error

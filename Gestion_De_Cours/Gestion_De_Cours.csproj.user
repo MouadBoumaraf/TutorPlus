@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>Ftp://eris-shared.dzsecurity.net/ecolem/|Ftp://eris-shared.dzsecurity.net/ecole/|ftp://eris-shared.dzsecurity.net/ecolem/|Ftp://eris-shared.dzsecurity.net/|Ftp://ftp.eris-shared.dzsecurity.net/ecole/</PublishUrlHistory>
+    <InstallUrlHistory>http://injazking.app/ecolem/ecolem/|http://injazking.app/ecolem/ecole/|http://injazking.app/DemoCours/DemoCours/|http://injazking.app/DemoCours/|http://injazking.app/DemoCours/publish.htm/</InstallUrlHistory>
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+    <ProjectView>ShowAllFiles</ProjectView>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
+  </PropertyGroup>
+</Project>

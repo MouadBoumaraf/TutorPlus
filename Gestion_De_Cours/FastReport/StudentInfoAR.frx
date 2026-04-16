@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Name="Simple List" ReportInfo.Author="Fast Reports Inc" ReportInfo.Description="Demonstrates a simple list report. To create it:&#13;&#10;- go to &quot;Data&quot; menu and select &quot;Choose Report Data...&quot; item to select a datasource;&#13;&#10;- go to &quot;Report|Configure Bands...&quot; menu to create the band structure;&#13;&#10;- return to the report page, doubleclick the data band to show its editor;&#13;&#10;- choose the datasource;&#13;&#10;- drag data from the Data Dictionary window to the band." ReportInfo.Created="01/17/2008 03:05:57" ReportInfo.Modified="07/23/2023 15:44:04" ReportInfo.CreatorVersion="2022.2.16.0">
+  <Dictionary>
+    <TableDataSource Name="EcoleInfo" ReferenceName="Data.EcoleInfo" DataType="System.Int32" Enabled="true">
+      <Column Name="NameFR" DataType="System.String"/>
+      <Column Name="NameAR" DataType="System.String"/>
+      <Column Name="Adress" DataType="System.String"/>
+      <Column Name="Adress2" DataType="System.String"/>
+      <Column Name="Number" DataType="System.String"/>
+      <Column Name="Number2" DataType="System.String"/>
+      <Column Name="CCP" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+      <Column Name="InsFees" DataType="System.Int32"/>
+      <Column Name="Absent" DataType="System.Int32"/>
+      <Column Name="ClassPay" DataType="System.Int32"/>
+      <Column Name="PhotoFile" DataType="System.String"/>
+      <Column Name="ApplicationFile" DataType="System.String"/>
+      <Column Name="TextSize" DataType="System.Int32"/>
+      <Column Name="Language" DataType="System.Int32"/>
+      <Column Name="Logo" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Student" ReferenceName="Data.Student" DataType="System.Int32" Enabled="true">
+      <Column Name="FirstName" DataType="System.String"/>
+      <Column Name="LastName" DataType="System.String"/>
+      <Column Name="PhoneNumber" DataType="System.String"/>
+      <Column Name="ParentNumber" DataType="System.String"/>
+      <Column Name="Adress" DataType="System.String"/>
+      <Column Name="SchoolName" DataType="System.String"/>
+      <Column Name="Note" DataType="System.String"/>
+      <Column Name="BarCode" DataType="System.String"/>
+      <Column Name="Gender" DataType="System.String"/>
+      <Column Name="BirthDate" DataType="System.String"/>
+      <Column Name="InscFees" DataType="System.String"/>
+      <Column Name="Level" DataType="System.String"/>
+      <Column Name="Year" DataType="System.String"/>
+      <Column Name="Speciality" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="727.65" CanGrow="true">
+      <PictureObject Name="Picture1" Left="302.4" Top="9.45" Width="113.4" Height="103.95" DataColumn="EcoleInfo.Logo"/>
+      <TextObject Name="Text1" Left="529.2" Top="217.35" Width="160.65" Height="28.35" Text=" : الاسم" HorzAlign="Right" VertAlign="Center" Font="Arial, 14pt"/>
+      <TextObject Name="Text2" Left="529.2" Top="274.05" Width="160.65" Height="28.35" Text=": اللقب " HorzAlign="Right" VertAlign="Center" Font="Arial, 14pt"/>
+      <TextObject Name="Text3" Left="529.2" Top="330.75" Width="160.65" Height="28.35" Text=": رقم الهاتف" HorzAlign="Right" VertAlign="Center" Font="Arial, 14pt"/>
+      <TextObject Name="Text4" Left="529.2" Top="387.45" Width="160.65" Height="28.35" Text=": رقم ولي الأمر" HorzAlign="Right" VertAlign="Center" Font="Arial, 14pt"/>
+      <TextObject Name="Text5" Left="529.2" Top="444.15" Width="160.65" Height="28.35" Text="العنوان :" HorzAlign="Right" VertAlign="Center" Font="Arial, 14pt"/>
+      <TextObject Name="Text6" Left="529.2" Top="500.85" Width="160.65" Height="28.35" Text=": اسم المدرسة" HorzAlign="Right" VertAlign="Center" Font="Arial, 14pt"/>
+      <TextObject Name="Text7" Left="529.2" Top="557.55" Width="160.65" Height="28.35" Text=": ملاحظة&#13;&#10;" HorzAlign="Right" VertAlign="Center" Font="Arial, 14pt"/>
+      <TextObject Name="Text8" Left="595.35" Top="633.15" Width="85.05" Height="28.35" Text=": الجنس" HorzAlign="Right" VertAlign="Center" Font="Arial, 13pt"/>
+      <TextObject Name="Text9" Left="368.55" Top="633.15" Width="103.95" Height="28.35" Text=": تاريخ الميلاد" HorzAlign="Right" VertAlign="Center" Font="Arial, 13pt"/>
+      <TextObject Name="Text10" Left="141.75" Top="633.15" Width="103.95" Height="28.35" Text=": رسوم التسجيل" HorzAlign="Right" VertAlign="Center" Font="Arial, 13pt"/>
+      <TextObject Name="Text11" Left="595.35" Top="699.3" Width="85.05" Height="28.35" Text=": مستوى" HorzAlign="Right" VertAlign="Center" Font="Arial, 13pt"/>
+      <TextObject Name="Text12" Left="378" Top="699.3" Width="94.5" Height="28.35" Text=": سنة" HorzAlign="Right" VertAlign="Center" Font="Arial, 13pt"/>
+      <TextObject Name="Text13" Left="132.3" Top="699.3" Width="103.95" Height="28.35" Text=": تخصص&#13;&#10;&#13;&#10;" HorzAlign="Right" VertAlign="Center" Font="Arial, 13pt"/>
+      <TextObject Name="Text14" Left="283.5" Top="217.35" Width="245.7" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[Student.FirstName]" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text15" Left="283.5" Top="274.05" Width="245.7" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[Student.LastName]" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text16" Left="283.5" Top="330.75" Width="245.7" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[Student.PhoneNumber]" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text17" Left="283.5" Top="387.45" Width="245.7" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[Student.ParentNumber]" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text18" Left="283.5" Top="444.15" Width="245.7" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[Student.Adress]" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text19" Left="283.5" Top="500.85" Width="245.7" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[Student.SchoolName]" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text20" Left="283.5" Top="557.55" Width="245.7" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[Student.Note]" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text21" Left="510.3" Top="633.15" Width="103.95" Height="28.35" Border.Lines="All" Text="[Student.Gender]" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text22" Left="510.3" Top="699.3" Width="103.95" Height="28.35" Border.Lines="All" Text="[Student.Level]" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text23" Left="274.05" Top="633.15" Width="103.95" Height="28.35" Border.Lines="All" Text="[Student.BirthDate]" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text24" Left="274.05" Top="699.3" Width="103.95" Height="28.35" Border.Lines="All" Text="[Student.Year]" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text25" Left="37.8" Top="633.15" Width="103.95" Height="28.35" Border.Lines="All" Text="[Student.InscFees]" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text26" Left="37.8" Top="699.3" Width="103.95" Height="28.35" Border.Lines="All" Text="[Student.Speciality]" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      <BarcodeObject Name="Barcode1" Left="9.45" Top="245.7" Width="230.75" Height="122.85" CanGrow="true" AutoSize="false" Text="[Student.BarCode]" AllowExpressions="true" Barcode="Code93"/>
+      <TextObject Name="Text27" Left="179.55" Top="141.75" Width="349.65" Height="28.35" Text="[EcoleInfo.NameAR]" HorzAlign="Center" Font="Arial, 14pt"/>
+    </ReportTitleBand>
+  </ReportPage>
+</Report>

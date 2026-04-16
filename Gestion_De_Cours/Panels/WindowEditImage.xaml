@@ -1,0 +1,63 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.WindowEditImage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:local1="clr-namespace:Gestion_De_Cours.UControl"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ImageCropper"
+    Width="600"
+    Height="600"
+    MinWidth="600"
+    MinHeight="600"
+    dx:ThemeManager.ThemeName="None"
+    Background="Gainsboro"
+    SizeChanged="Window1_SizeChanged"
+    WindowState="Maximized"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Menu>
+            <!--  File menu  -->
+
+            <!--  Save menu item  -->
+            <MenuItem Click="Save_Click">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image
+                            Width="16"
+                            Height="16"
+                            Margin="0,0,4,0"
+                            Source="/Images/Save.png" />
+                        <TextBlock>Save</TextBlock>
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+
+            <!--  Undo menu item  -->
+            <MenuItem Name="Undo" Click="Undo_Click">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image
+                            Width="16"
+                            Height="16"
+                            Margin="0,0,4,0"
+                            Source="/Images/Undo.png" />
+                        <TextBlock>Undo</TextBlock>
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+
+
+        </Menu>
+
+        <DockPanel
+            x:Name="dp"
+            Width="500"
+            Height="500">
+            <local1:ControlCrop x:Name="UcImageCropper" DockPanel.Dock="Top" />
+        </DockPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,322 @@
+﻿<UserControl
+    x:Class="Gestion_De_Cours.UControl.StudentPayment"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:local="clr-namespace:Gestion_De_Cours.UControl"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:rs="clr-namespace:Gestion_De_Cours.Properties"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    d:DesignHeight="500"
+    d:DesignWidth="700"
+    dx:ThemeManager.ThemeName="None"
+    FocusManager.IsFocusScope="True"
+    Loaded="Window_Loaded"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Viewbox Stretch="Fill">
+
+        <Grid
+            Name="MainGrid"
+            Width="700"
+            Height="500"
+            Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Name="Row0" Height="0" />
+                <RowDefinition Name="Row1" Height="50" />
+                <RowDefinition Height="*" />
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Label
+                    Content="{DynamicResource MonthlyPaymentLB}"
+                    FontFamily="bold"
+                    FontSize="18" />
+                <TextBox
+                    Name="PricemonthlyTB"
+                    Width="100"
+                    Margin="5,0,0,0"
+                    BorderBrush="Black"
+                    BorderThickness="3"
+                    LostFocus="PricemonthlyTB_LostFocus"
+                    PreviewTextInput="PricemonthlyTB_PreviewTextInput" />
+            </StackPanel>
+            <StackPanel
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Label
+                    Name="StudentLabel"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource SNameLB}"
+                    FontSize="15"
+                    Visibility="Collapsed" />
+                <ComboBox
+                    Name="CBStudent"
+                    Width="210"
+                    Height="40"
+                    FontSize="15"
+                    IsEditable="True"
+                    IsTextSearchEnabled="True"
+                    SelectedValuePath="ID"
+                    SelectionChanged="StudentName_SelectionChanged"
+                    TextSearch.TextPath="Name"
+                    Visibility="Collapsed">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+
+                                <Label Content="{Binding Name}" FontSize="15">
+                                    <Label.Resources>
+                                        <Style TargetType="{x:Type Label}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Gender}" Value="0">
+                                                    <Setter Property="Foreground" Value="Blue" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Gender}" Value="1">
+                                                    <Setter Property="Foreground" Value="Pink" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Label.Resources>
+                                </Label>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <Label
+                    Name="CNLabel"
+                    Margin="0,0,5,0"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource CNameLB}"
+                    FontSize="15" />
+                <dxe:ComboBoxEdit
+                    Name="CNcombobox"
+                    Width="150"
+                    Height="35"
+                    Margin="0,0,10,0"
+                    VerticalContentAlignment="Top"
+                    dx:ThemeManager.ThemeName="Office2019Colorful"
+                    DisplayMember="Name"
+                    EditValue="{Binding SelectedClassID, Mode=TwoWay}"
+                    EditValueChanged="CNCombobox_EditValueChanged"
+                    FontSize="12"
+                    ValueMember="ClassID" />
+
+                <StackPanel
+                    Name="SPMonthly"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    Visibility="Collapsed">
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource MonthLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="CBMonths"
+                        Width="150"
+                        Height="35"
+                        FontFamily="15"
+                        SelectionChanged="CBMonths_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                    <Label
+                                        VerticalAlignment="Top"
+                                        Content="{Binding AttendanceMonthYear}"
+                                        FontSize="15">
+                                        <Label.Resources>
+                                            <Style TargetType="{x:Type Label}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Status}" Value="1">
+                                                        <Setter Property="Foreground" Value="YellowGreen" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="2">
+                                                        <Setter Property="Foreground" Value="Yellow" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="0">
+                                                        <Setter Property="Foreground" Value="Red" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Label.Resources>
+                                    </Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                </StackPanel>
+                <Label
+                    Grid.Row="2"
+                    Margin="0,0,5,0"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource DateLB}"
+                    FontSize="15" />
+                <DatePicker
+                    Name="Date"
+                    Width="120"
+                    Height="30"
+                    FontSize="15"
+                    SelectedDate="{x:Static sys:DateTime.Now}" />
+                <Label
+                    Margin="5,0,5,0"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource PriceLB}"
+                    FontSize="15" />
+                <TextBox
+                    Name="PriceTB"
+                    Width="90"
+                    Height="30"
+                    Margin="0,0,15,0"
+                    FontSize="15"
+                    PreviewTextInput="PricemonthlyTB_PreviewTextInput" />
+                <Button
+                    Width="45"
+                    Height="45"
+                    Margin="5,0,0,0"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Click="Button_Click"
+                    FontSize="15">
+                    <StackPanel>
+                        <Image
+                            Width="40"
+                            Height="40"
+                            Source="/Images/addsign.png" />
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+            <StackPanel
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal" />
+
+
+            <StackPanel
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Orientation="Horizontal" />
+            <DataGrid
+                Name="DGName"
+                Grid.Row="2"
+                Grid.RowSpan="1"
+                Grid.ColumnSpan="2"
+                Margin="5,5,5,100"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                AutoGenerateColumns="False"
+                FontSize="15"
+                IsReadOnly="True"
+                ItemsSource="{Binding}"
+                SelectionMode="Extended">
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem
+                            Name="Print"
+                            Click="Button_Click_PrintMultiple"
+                            Header="{DynamicResource Print}">
+                            <MenuItem.Icon>
+                                <Image
+                                    Width="16"
+                                    Height="16"
+                                    Source="/Images/Print.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem
+                            Name="Delete"
+                            Click="Button_Click_DeleteMultiple"
+                            Header="{DynamicResource Delete}">
+                            <MenuItem.Icon>
+                                <Image
+                                    Width="16"
+                                    Height="16"
+                                    Source="/Images/DeleteIcon.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="auto" Binding="{Binding Name}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource SName}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn
+                        x:Name="DGCCName"
+                        Width="auto"
+                        Binding="{Binding CName}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Class}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn
+                        x:Name="DGCMonth"
+                        Width="auto"
+                        Binding="{Binding MonthName}"
+                        Visibility="Collapsed">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Month}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn
+                        x:Name="DGCYear"
+                        Width="auto"
+                        Binding="{Binding Year}"
+                        Visibility="Collapsed">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Year}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+
+                    <DataGridTextColumn Width="auto" Binding="{Binding Price}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Price}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Width="auto" Binding="{Binding Date}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Date}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="auto" Binding="{Binding Note}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Note}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Viewbox>
+</UserControl>
+
+

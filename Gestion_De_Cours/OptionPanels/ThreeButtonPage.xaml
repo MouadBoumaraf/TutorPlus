@@ -1,0 +1,46 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.OptionPanels.ThreeButtonPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Gestion_De_Cours.OptionPanels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ThreeButtonPage"
+    Width="500"
+    Height="150"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid>
+        <TextBlock
+            Name="TB"
+            Margin="0,20,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="18"
+            Text="Do you want to Import or Export?" />
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Orientation="Horizontal">
+            <Button
+                Name="Option1"
+                Width="150"
+                Height="40"
+                Margin="0,0,10,10"
+                Click="Option1_Click"
+                Content="TEXT 1" />
+            <Button
+                Name="Option2"
+                Width="150"
+                Margin="0,0,10,10"
+                Click="Option2_Click"
+                Content="TEXT 2" />
+            <Button
+                Name="Option3"
+                Width="150"
+                Margin="0,0,10,10"
+                Click="Option3_Click"
+                Content="TEXT 3" />
+        </StackPanel>
+    </Grid>
+</Window>

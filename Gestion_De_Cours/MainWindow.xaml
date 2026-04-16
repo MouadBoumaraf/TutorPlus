@@ -1,0 +1,374 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:rs="clr-namespace:Gestion_De_Cours.Properties"
+    xmlns:xpbar="clr-namespace:ZonaTools.XPlorerBar;assembly=ZonaTools.XPlorerBar"
+    Title="SoutienPlus"
+    Width="800"
+    Height="700"
+    dx:ThemeManager.ThemeName="None"
+    Closing="myWindow_Closing"
+    KeyDown="Window_KeyDown"
+    WindowStartupLocation="CenterOwner"
+    WindowState="Maximized"
+    mc:Ignorable="d">
+    <Window.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <FontFamily x:Key="FontLabel">pack://application:,,,/Fonts/#Droid Arabic Kufi</FontFamily>
+                </ResourceDictionary>
+                <ResourceDictionary Source="Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Border CornerRadius="20">
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="Images/Background1.jpg" />
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="210" />
+                <ColumnDefinition Width="6*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="10*" />
+            </Grid.RowDefinitions>
+            <StackPanel
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Background="#a6be85">
+                <xpbar:XPlorerBar
+                    x:Name="ZT_XPlorerBar"
+                    Width="Auto"
+                    HorizontalAlignment="Stretch"
+                    xpbar:ThemeManager.Theme="LunaOliveGreen"
+                    FontSize="13"
+                    FontWeight="Bold">
+
+                    <xpbar:XPlorerSection
+                        Name="MainMenuXP"
+                        Header="{DynamicResource MainMenu}"
+                        HeaderImage="Images/MainMenu.png"
+                        IsExpanded="True">
+                        <StackPanel Orientation="Vertical">
+                            <xpbar:XPlorerItem
+                                Name="ShortCuts"
+                                Click="XPlorerItem_Click"
+                                ItemImage="/Images/MainMenu.png"
+                                ItemText="{DynamicResource ShortCuts}"
+                                Visibility="Collapsed" />
+                            <xpbar:XPlorerItem
+                                Name="AttendanceAll"
+                                Click="XPlorerItem_Click"
+                                ItemImage="/Images/MainMenu.png"
+                                ItemText="{DynamicResource Attendance}" />
+                            <xpbar:XPlorerItem
+                                Name="Scheduler"
+                                Click="XPlorerItem_Click"
+                                ItemImage="/Images/MainMenu.png"
+                                ItemText="{DynamicResource Scheduler}" />
+                        </StackPanel>
+                    </xpbar:XPlorerSection>
+                    <xpbar:XPlorerSection
+                        Name="StudentsXP"
+                        Header="{DynamicResource Students}"
+                        HeaderImage="Images/Student.png"
+                        IsExpanded="True">
+                        <StackPanel Orientation="Vertical">
+                            <xpbar:XPlorerItem
+                                Name="SStudent"
+                                Click="XPlorerItem_Click"
+                                ItemImage="/Images/list.png"
+                               
+                                ItemText="{DynamicResource StudentList}" />
+                        </StackPanel>
+                    </xpbar:XPlorerSection>
+
+                    <xpbar:XPlorerSection
+                        Name="TeachersXP"
+                        Header="{DynamicResource Teacher}"
+                        HeaderImage="Images/Teacher.png"
+                        IsExpanded="True">
+                        <StackPanel Orientation="Vertical">
+                            <xpbar:XPlorerItem
+                                Name="STeacher"
+                                Click="XPlorerItem_Click"
+                                ItemImage="/Images/List.png"
+                                ItemText="{DynamicResource TeacherList}" />
+                        </StackPanel>
+                    </xpbar:XPlorerSection>
+
+                    <xpbar:XPlorerSection
+                        Name="ClassXP"
+                        Header="{DynamicResource Class}"
+                        HeaderImage="Images/Class.png"
+                        IsExpanded="True">
+                        <StackPanel Orientation="Vertical">
+                            <xpbar:XPlorerItem
+                                Name="SClass"
+                                Click="XPlorerItem_Click"
+                                ItemImage="/Images/List.png"
+                                ItemText="{DynamicResource ClassList}"
+                                Visibility="Visible" />
+                            <xpbar:XPlorerItem
+                                Name="SGroup"
+                                Click="XPlorerItem_Click"
+                                ItemImage="/Images/Group.png"
+                                ItemText="{DynamicResource GroupList}" />
+                            <xpbar:XPlorerItem
+                              
+                                Name="PClass"
+                                IsHitTestVisible="False"
+                                ItemImage="/Images/Particulier.png"
+                                ItemText="{DynamicResource Particular}"
+                                Visibility="Collapsed" />
+                            <xpbar:XPlorerItem
+                                Name="FClass"
+                                IsHitTestVisible="False"
+                                ItemImage="/Images/Formation.png"
+                                ItemText="{DynamicResource FormationList}"
+                                Visibility="Collapsed" />
+
+                        </StackPanel>
+                    </xpbar:XPlorerSection>
+                    <xpbar:XPlorerSection
+                        Name="PaymentsXP"
+                        Header="{DynamicResource Payments}"
+                        HeaderImage="Images/Payments.png"
+                        IsExpanded="True">
+                        <StackPanel Orientation="Vertical">
+                            <xpbar:XPlorerItem
+                                Name="CashRegister"
+                                Click="XPlorerItem_Click"
+                                ItemImage="/Images/CashRegister.png"
+                                ItemText="{DynamicResource CashRegister}" />
+                            <xpbar:XPlorerItem
+                                Name="SPayment"
+                                Click="XPlorerItem_Click"
+                                ItemImage="/Images/Student.png"
+                                ItemText="{DynamicResource StudentPayment}" />
+                            <xpbar:XPlorerItem
+                                Name="TPayment"
+                                Click="XPlorerItem_Click"
+                                ItemImage="/Images/PaymentList.png"
+                                ItemText="{DynamicResource TeacherPayment}"
+                                Visibility="Collapsed" />
+                        </StackPanel>
+                    </xpbar:XPlorerSection>
+
+                    <xpbar:XPlorerSection
+                        Name="WorkersXP"
+                        Header="{DynamicResource Worker}"
+                        HeaderImage="Images/Worker.png"
+                        IsExpanded="True"
+                        Visibility="Visible">
+                        <StackPanel Orientation="Vertical">
+                            <xpbar:XPlorerItem
+                                Name="SWorker"
+                                Click="XPlorerItem_Click"
+                                ItemImage="/Images/List.png"
+                                ItemText="{DynamicResource WorkerList}" />
+                            <xpbar:XPlorerItem
+                                Name="History"
+                                Click="XPlorerItem_Click"
+                                ItemImage="/Images/History.png"
+                                ItemText="{DynamicResource History}" />
+                        </StackPanel>
+                    </xpbar:XPlorerSection>
+
+                    <xpbar:XPlorerSection
+                        Name="SettingsXP"
+                        Header="{DynamicResource Setting}"
+                        HeaderImage="Images/Settings.png"
+                        IsExpanded="True"
+                        Visibility="Visible">
+                        <StackPanel Orientation="Vertical">
+
+                            <xpbar:XPlorerItem
+                                Name="Settings"
+                                Click="XPlorerItem_Click"
+                                ItemText="{DynamicResource ShowSettings}" />
+                        </StackPanel>
+                    </xpbar:XPlorerSection>
+
+
+
+
+                </xpbar:XPlorerBar>
+            </StackPanel>
+            <StackPanel Grid.RowSpan="2" Grid.Column="1">
+
+                <StackPanel VerticalAlignment="Stretch">
+                    <Menu Height="25" Background="#cbd8ac">
+                        <Menu.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <DockPanel HorizontalAlignment="Stretch" />
+                            </ItemsPanelTemplate>
+                        </Menu.ItemsPanel>
+                        <MenuItem
+                            Name="BarCode"
+                            VerticalContentAlignment="Center"
+                            FontWeight="Bold"
+                            Header="BarCode">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/BarCode.png" />
+                            </MenuItem.Icon>
+                            <MenuItem
+                                Click="BarCode_Click"
+                                FontWeight="Bold"
+                                Header="Scan BarCode" />
+                            <MenuItem
+                                Click="MenuItem_Click_GenerateAllBarcode"
+                                FontWeight="Bold"
+                                Header="Generate BarCode for All Students" />
+                        </MenuItem>
+                        <MenuItem
+                            Click="MenuItem_Click"
+                            FontWeight="Bold"
+                            Header="{DynamicResource Justification}"
+                            Visibility="Visible">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/Absent512.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem FontWeight="Bold" Header="{DynamicResource Discounts}">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/Discount.png" />
+                            </MenuItem.Icon>
+                            <MenuItem
+                                Click="Discounts_Click"
+                                FontWeight="Bold"
+                                Header="{DynamicResource SpecialDiscounts}" />
+                            <MenuItem
+                                Click="DiscountsStandard_Click"
+                                FontWeight="Bold"
+                                Header="{DynamicResource StandardDiscounts}" />
+                        </MenuItem>
+                        <MenuItem
+                            Click="MenuItem_Click_1"
+                            FontWeight="Bold"
+                            Header="{DynamicResource Archive}"
+                            Visibility="Collapsed">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/Archive.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem FontWeight="Bold" Header="{DynamicResource Payments}">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/Payment512.png" />
+                            </MenuItem.Icon>
+                            <MenuItem
+                                Click="MenuItem_Click_TeacherPayment"
+                                FontWeight="Bold"
+                                Header="{DynamicResource Teacher}" />
+                            <MenuItem
+                                Click="MenuItem_Click_StudentPayment"
+                                FontWeight="Bold"
+                                Header="{DynamicResource Student}" />
+                        </MenuItem>
+                        <MenuItem FontWeight="Bold" Header="{DynamicResource Language}">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/Language.png" />
+                            </MenuItem.Icon>
+                            <MenuItem
+                                Name="Arabic"
+                                Checked="Arabic_Checked"
+                                FontWeight="Bold"
+                                Header="{DynamicResource Arabic}"
+                                IsCheckable="true" />
+                            <MenuItem
+                                Name="English"
+                                Checked="English_Checked"
+                                FontWeight="Bold"
+                                Header="{DynamicResource English}"
+                                IsCheckable="true" />
+                            <MenuItem
+                                Name="French"
+                                Checked="French_Checked"
+                                FontWeight="Bold"
+                                Header="{DynamicResource French}"
+                                IsCheckable="true" />
+                        </MenuItem>
+                        <MenuItem FontWeight="Bold" Header="Excel">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/Excel.png" />
+                            </MenuItem.Icon>
+
+                            <MenuItem FontWeight="Bold" Header="{DynamicResource Import}">
+                                <MenuItem
+                                    Name="ImpStudents"
+                                    Click="ImpStudents_Click"
+                                    FontWeight="Bold"
+                                    Header="{DynamicResource Student}"
+                                    IsCheckable="true" />
+                                <MenuItem
+                                    Name="ImpClass"
+                                    Click="ImpClass_Click"
+                                    FontWeight="Bold"
+                                    Header="{DynamicResource Class}"
+                                    IsCheckable="true" />
+                                <MenuItem
+                                    Name="ImpAttendance"
+                                    Click="ImpAttendance_Click"
+                                    FontWeight="Bold"
+                                    Header="{DynamicResource Attendance}"
+                                    IsCheckable="true" />
+                                <MenuItem
+                                    Name="ImpPayment"
+                                    Click="ImpPayment_Click"
+                                    FontWeight="Bold"
+                                    Header="{DynamicResource Payment}"
+                                    IsCheckable="true" />
+                            </MenuItem>
+                            <MenuItem FontWeight="Bold" Header="{DynamicResource Export}" />
+                        </MenuItem>
+
+
+                        <MenuItem FontWeight="Bold" Header="{DynamicResource Setting}">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/PrintSetting.png" />
+                            </MenuItem.Icon>
+                            <MenuItem
+                                Checked="FastReport_Checked"
+                                FontWeight="Bold"
+                                Header="{DynamicResource EditFastReport}"
+                                IsCheckable="true"
+                                Unchecked="FastReport_Unchecked" />
+                            <MenuItem
+                                Name="PrintAttendance"
+                                Click="PrintAttendance_Checked"
+                                FontWeight="Bold"
+                                Header="Print Today Attendance" />
+                        </MenuItem>
+                        <MenuItem
+                            HorizontalAlignment="Right"
+                            VerticalContentAlignment="Bottom"
+                            Click="MenuItem_Click_Disconnect"
+                            Header="Disconnect">
+                            <MenuItem.Icon>
+                                <Image VerticalAlignment="Top" Source="/Images/logout.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+
+                    </Menu>
+                </StackPanel>
+                <StackPanel
+                    Name="Coontrol"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Orientation="Vertical" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

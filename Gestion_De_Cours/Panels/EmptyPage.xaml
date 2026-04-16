@@ -1,0 +1,15 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.UControl.EmptyPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.UControl"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="EmptyPage"
+    Width="800"
+    Height="500"
+    dx:ThemeManager.ThemeName="None"
+    mc:Ignorable="d">
+    <Grid Name="Grid" />
+</Window>

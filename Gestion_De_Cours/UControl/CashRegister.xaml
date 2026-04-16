@@ -1,0 +1,375 @@
+﻿<UserControl
+    x:Class="Gestion_De_Cours.UControl.CashRegister"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.UControl"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="400"
+    d:DesignWidth="1000"
+    dx:ThemeManager.ThemeName="None"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <FontFamily x:Key="FontLabel">pack://application:,,,/Fonts/#Droid Arabic Kufi</FontFamily>
+                </ResourceDictionary>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <GroupBox
+            Grid.Row="0"
+            Grid.RowSpan="1"
+            Grid.Column="1"
+            BorderBrush="Black"
+            BorderThickness="2">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Name="IMGTeacher"
+                        Width="30"
+                        Height="30"
+                        Source="/Images/Addsign.png" />
+                    <Label Content="{DynamicResource Add}" />
+                </StackPanel>
+            </GroupBox.Header>
+            <StackPanel Margin="0" VerticalAlignment="Top">
+                <StackPanel
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="70"
+                        Content="{DynamicResource NameLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="TBName"
+                        Width="100"
+                        Height="25" />
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Label
+                        Width="70"
+                        Content="{DynamicResource PriceLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="TBPrice"
+                        Width="100"
+                        Height="25" />
+                </StackPanel>
+                <Button
+                    Width="40"
+                    Height="20"
+                    Margin="0,10,0,0"
+                    Click="Button_Click"
+                    Content="+" />
+
+            </StackPanel>
+        </GroupBox>
+        <StackPanel
+            Grid.Row="0"
+            Grid.ColumnSpan="1"
+            VerticalAlignment="Top">
+            <StackPanel
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                Margin="0,10,0,10"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Label
+                    Width="125"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource NameLB}"
+                    FontSize="20" />
+                <TextBox
+                    Name="TBSearchName"
+                    Width="150"
+                    Height="30"
+                    VerticalAlignment="Center"
+                    FontSize="15"
+                    TextChanged="TextBox_TextChanged" />
+                <Label
+                    Width="70"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource DateLB}"
+                    FontSize="20" />
+                <DatePicker
+                    Name="DPFrom"
+                    Width="150"
+                    Height="30"
+                    FontSize="15"
+                    Language="fr-FR"
+                    SelectedDateChanged="Selection" />
+
+            </StackPanel>
+            <StackPanel
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Orientation="Horizontal">
+                <Label
+                    Width="125"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource CNameLB}"
+                    FontSize="20" />
+                <TextBox
+                    Name="TBCName"
+                    Width="150"
+                    Height="30"
+                    FontSize="15"
+                    TextChanged="TextBox_TextChanged" />
+                <Label
+                    Width="70"
+                    Content="{DynamicResource Filter}"
+                    FontSize="20" />
+                <ComboBox
+                    Name="CBInOut"
+                    Width="150"
+                    Height="30"
+                    FontSize="15"
+                    SelectionChanged="Selection">
+                    <ComboBoxItem Content="{DynamicResource Both}" />
+                    <ComboBoxItem Content="{DynamicResource Intake}" />
+                    <ComboBoxItem Content="{DynamicResource OutTake}" />
+                </ComboBox>
+
+            </StackPanel>
+            <StackPanel
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Stretch"
+                Orientation="Horizontal">
+                <Grid Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="375" />
+                        <ColumnDefinition Width="375" />
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        Name="BtnPrint"
+                        Grid.Column="2"
+                        Width="50"
+                        Height="50"
+                        Margin="10,0,10,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Click="BtnPrint_Click">
+                        <Image Source="/Images/print.png" />
+                    </Button>
+                    <Button
+                        Name="BtnDelete"
+                        Width="50"
+                        Height="50"
+                        Margin="10,0,10,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Click="BtnDelete_Click">
+                        <Image Source="/Images/deleteIcon.png" />
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Label
+                VerticalAlignment="Center"
+                Content="{DynamicResource InitialAmmount}"
+                FontSize="20" />
+            <TextBox
+                Name="TBInitial"
+                Width="120"
+                Height="35"
+                Margin="0,0,10,0"
+                FontSize="20"
+                IsReadOnly="False"
+                LostFocus="TBInitial_LostFocus"
+                PreviewTextInput="TBInitial_PreviewTextInput"
+                TextChanged="TBInitial_TextChanged"
+                TextWrapping="Wrap" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Label
+                VerticalAlignment="Center"
+                Content="{DynamicResource FinalAmmount}"
+                FontSize="20" />
+            <TextBox
+                Name="TBFinal"
+                Width="120"
+                Height="35"
+                FontSize="20"
+                IsReadOnly="True" />
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Margin="0,0,20,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Label
+                VerticalAlignment="Center"
+                Content="{DynamicResource Difference}"
+                FontSize="20" />
+            <TextBox
+                Name="TBDiff"
+                Width="120"
+                Height="35"
+                FontSize="20"
+                IsReadOnly="True" />
+        </StackPanel>
+        <ListView
+    Name="LVCash"
+    SelectionMode="Extended"
+    Grid.Row="1"
+    Grid.ColumnSpan="2"
+    MaxHeight="500"
+    HorizontalAlignment="Stretch"
+    VerticalAlignment="Stretch"
+    FontSize="15"
+    IsSynchronizedWithCurrentItem="True"
+    BorderBrush="#DDD"
+    BorderThickness="1"
+    Margin="5"
+    ItemsSource="{Binding IsAsync=True}">
+
+            <!-- Item Container Styling -->
+            <ListView.Resources>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="FontSize" Value="15"/>
+                    <Setter Property="Margin" Value="2"/>
+                    <Setter Property="Padding" Value="5,3"/>
+                    <Setter Property="BorderBrush" Value="#EEE"/>
+                    <Setter Property="BorderThickness" Value="0 0 0 1"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#F1F8E9"/>
+                            <!-- Light green hover -->
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#A5D6A7"/>
+                            <!-- Softer green when selected -->
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.Resources>
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{DynamicResource Type}" DisplayMemberBinding="{Binding Type}" Width="Auto"/>
+                    <GridViewColumn Header="{DynamicResource WName}" DisplayMemberBinding="{Binding WorkerName}" Width="Auto"/>
+                    <GridViewColumn Header="{DynamicResource Name}" DisplayMemberBinding="{Binding Name}" Width="Auto"/>
+                    <GridViewColumn Header="{DynamicResource CName}" DisplayMemberBinding="{Binding ClassName}" Width="Auto"/>
+
+                    <!-- Intake badge styled like Presence -->
+                    <GridViewColumn Header="{DynamicResource Intake}" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border
+                Margin="4"
+                Padding="6,2"
+                Width="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                CornerRadius="10"
+                Background="#A5D6A7">
+                                    <!-- Default soft green -->
+                                    <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="13"
+                    FontWeight="Bold"
+                    TextAlignment="Center">
+                                        <TextBlock.Text>
+                                            <Binding Path="Intake" TargetNullValue="" FallbackValue=""/>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- OutTake badge styled like Presence -->
+                    <GridViewColumn Header="{DynamicResource OutTake}" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border
+                Margin="4"
+                Padding="6,2"
+                Width="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                CornerRadius="10"
+                Background="#FFCDD2">
+                                    <!-- Default soft red -->
+                                    <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="13"
+                    FontWeight="Bold"
+                    TextAlignment="Center">
+                                        <TextBlock.Text>
+                                            <Binding Path="OutTake" TargetNullValue="" FallbackValue=""/>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+
+                    <GridViewColumn Header="{DynamicResource Date}" DisplayMemberBinding="{Binding Date}" Width="Auto"/>
+
+                    <!-- Delete button -->
+                    <GridViewColumn Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button
+                            Name="BtnDeleteone"
+                            Click="BtnDeleteone_Click"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            ToolTip="Delete">
+                                    <Image
+                                Width="20"
+                                Height="20"
+                                Source="/Images/DeleteIconsmall.png"/>
+                                </Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+
+
+    </Grid>
+</UserControl>

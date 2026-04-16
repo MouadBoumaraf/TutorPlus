@@ -1,0 +1,81 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.AddCall"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="AddCall"
+    Width="800"
+    Height="700"
+    mc:Ignorable="d">
+    <Window.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <DataGrid
+            Name="ListClass"
+            Grid.Row="2"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            AutoGenerateColumns="False"
+            GridLinesVisibility="All"
+            IsReadOnly="True"
+            ItemsSource="{Binding}"
+            SelectionMode="Extended"
+            SelectionUnit="FullRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="auto" Binding="{Binding Name}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource SName}" />
+                    </DataGridTextColumn.Header>
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Gender}" Value="1">
+                                    <Setter Property="TextBlock.Foreground" Value="Salmon" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Gender}" Value="0">
+                                    <Setter Property="TextBlock.Foreground" Value="Blue" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="Auto" Binding="{Binding PhoneNumber}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource PhoneNumber}" TextAlignment="Center" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="Auto" Binding="{Binding ParentNumber}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource ParentNumber}" TextAlignment="Center" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="Auto" Binding="{Binding Sessions}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource Payments}" TextAlignment="Center" />
+                    </DataGridTextColumn.Header>
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            <Setter Property="Foreground" Value="{Binding Sessions, Converter={StaticResource ForegroundConverterPayment}}" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -1,0 +1,981 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.StudentAdd"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:rs="clr-namespace:Gestion_De_Cours.Properties"
+    Title="{DynamicResource StudentAdd}"
+    Width="600"
+    Height="520"
+    dx:ThemeManager.ThemeName="None"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Normal"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <FontFamily x:Key="FontLabel">pack://application:,,,/Fonts/#Droid Arabic Kufi</FontFamily>
+                </ResourceDictionary>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <TabControl SelectionChanged="TabControl_SelectionChanged" TabStripPlacement="Top">
+        <TabItem Width="110">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Name="IMGStudent"
+                        Width="25"
+                        Height="25"
+                        Source="/Images/Student.png" />
+                    <Label Content="{DynamicResource StudentInfo}" FontSize="12" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <Label
+                        Name="LBFN"
+                        Width="90"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource FirstNameLB}"
+                        FontFamily="{StaticResource FontLabel}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="FirstName"
+                        Grid.ColumnSpan="2"
+                        Width="310"
+                        Height="30"
+                        HorizontalAlignment="Left"
+                        FontFamily="{StaticResource FontLabel}"
+                        FontSize="15"
+                        PreviewKeyDown="FirstName_KeyDown"
+                        TextChanged="FirstName_TextChanged" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <Label
+                        Name="LBLN"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Width="90"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource LastNameLB}"
+                        FontFamily="{StaticResource FontLabel}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="LastName"
+                        Grid.ColumnSpan="2"
+                        Width="310"
+                        Height="30"
+                        HorizontalAlignment="Left"
+                        FontFamily="{StaticResource FontLabel}"
+                        FontSize="15"
+                        PreviewKeyDown="LastName_KeyDown" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Width="90"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource PhoneNumberLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="PhoneNumber"
+                        Grid.ColumnSpan="2"
+                        Width="310"
+                        Height="30"
+                        HorizontalAlignment="Left"
+                        FontSize="15"
+                        PreviewKeyDown="PhoneNumber_KeyDown"
+                        PreviewTextInput="PhoneNumber_PreviewTextInput"
+                        TextChanged="PhoneNumber_TextChanged" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Width="90"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource ParentNumberLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="ParentNumber"
+                        Grid.ColumnSpan="2"
+                        Width="310"
+                        Height="30"
+                        HorizontalAlignment="Left"
+                        FontSize="15"
+                        PreviewKeyDown="ParentNumber_KeyDown"
+                        PreviewTextInput="ParentNumber_PreviewTextInput" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="7"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="90"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource BirthDateLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="Date"
+                        Width="100"
+                        Height="30"
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        Language="fr-FR"
+                        PreviewKeyDown="BDay_KeyDown" />
+                    <Label
+                        Width="120"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource DateOfRegisterLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="DateRegister"
+                        Width="90"
+                        Height="30"
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        PreviewKeyDown="Register_KeyDown" />
+
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="8"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="4"
+                    Orientation="Horizontal">
+                    <Label
+                        Name="LBGender"
+                        Width="90"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource GenderLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="Gender"
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Width="100"
+                        Height="30"
+                        FontSize="15"
+                        IsReadOnly="True"
+                        PreviewKeyDown="Gender_KeyDown">
+                        <ComboBoxItem Content="{DynamicResource Male}" />
+                        <ComboBoxItem Content="{DynamicResource Female}" />
+                    </ComboBox>
+                    <Label
+                        Name="LBInsc"
+                        Width="120"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource InscFeesLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="InscFees"
+                        Grid.ColumnSpan="2"
+                        Width="90"
+                        Height="30"
+                        HorizontalAlignment="Left"
+                        FontSize="15"
+                        PreviewKeyDown="InscFees_KeyDown">
+                        <ComboBoxItem Content="{DynamicResource Paid}" Foreground="Green" />
+                        <ComboBoxItem Content="{DynamicResource Didntpay}" Foreground="Red" />
+                        <ComboBoxItem Content="{DynamicResource DoesntPay}" />
+                        <ComboBoxItem Name="CBItemRefund" Content="{DynamicResource Refund}" />
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="90"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource AdressLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="Adress"
+                        Grid.ColumnSpan="2"
+                        Width="310"
+                        Height="30"
+                        HorizontalAlignment="Left"
+                        FontSize="15"
+                        PreviewKeyDown="Adress_KeyDown" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="90"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource SchoolNameLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="School"
+                        Grid.ColumnSpan="2"
+                        Width="310"
+                        Height="30"
+                        HorizontalAlignment="Left"
+                        FontSize="15"
+                        PreviewKeyDown="School_KeyDown"
+                        TextChanged="School_TextChanged" />
+
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="4"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="90"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource NoteLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="Note"
+                        Grid.ColumnSpan="2"
+                        Width="310"
+                        Height="30"
+                        HorizontalAlignment="Left"
+                        FontSize="15"
+                        PreviewKeyDown="Note_KeyDown"
+                        TextChanged="Note_TextChanged" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="9"
+                    Grid.ColumnSpan="4"
+                    Orientation="Horizontal">
+                    <Label
+                        Name="LBLevel"
+                        Width="90"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource LevelLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="LevelCB"
+                        Width="100"
+                        Height="30"
+                        DisplayMemberPath="Level"
+                        FontSize="15"
+                        ItemsSource="{Binding}"
+                        PreviewKeyDown="Level_KeyDown"
+                        SelectedValuePath="ID"
+                        SelectionChanged="LevelCB_SelectionChanged" />
+                    <Label
+                        Name="LBYear"
+                        Width="120"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource YearLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="YearCB"
+                        Width="90"
+                        Height="30"
+                        DisplayMemberPath="Year"
+                        FontSize="15"
+                        ItemsSource="{Binding}"
+                        SelectedValuePath="ID"
+                        SelectionChanged="Year_SelectionChanged" />
+                    <Label
+                        Name="Speclabel"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource SpecialityLB}"
+                        FontSize="15"
+                        Visibility="Collapsed" />
+                    <ComboBox
+                        Name="SpecCB"
+                        Width="100"
+                        Height="30"
+                        DisplayMemberPath="Speciality"
+                        FontSize="15"
+                        ItemsSource="{Binding}"
+                        SelectedValuePath="ID"
+                        SelectionChanged="SpecCB_SelectionChanged"
+                        Visibility="Collapsed" />
+                </StackPanel>
+                <Button
+                    Grid.Row="11"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Width="150"
+                    Height="30"
+                    Margin="5"
+                    Click="Button_Click"
+                    Content="{DynamicResource Cancel}" />
+                <Button
+                    Grid.Row="11"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    Width="150"
+                    Height="30"
+                    Margin="5"
+                    Click="Button_Click_1"
+                    Content="{DynamicResource Next}" />
+                <Border
+                    Grid.Row="1"
+                    Grid.RowSpan="3"
+                    Grid.Column="3"
+                    Width="120"
+                    Height="120"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    BorderBrush="Black"
+                    BorderThickness="2">
+                    <Image
+                        Name="SPicture"
+                        Width="120"
+                        Height="120"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Stretch="UniformToFill" />
+                </Border>
+                <StackPanel
+                    Grid.Row="4"
+                    Grid.Column="3"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+                    <Button
+                        Name="scan"
+                        Width="30"
+                        Height="30"
+                        Margin="5,0,10,0"
+                        Background="Transparent"
+                        Click="scan_Click">
+                        <StackPanel>
+                            <Image HorizontalAlignment="Center" Source="/Images/Scan.png" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,10,0"
+                        Background="Transparent"
+                        Click="Button_Click_Crop">
+                        <StackPanel>
+                            <Image HorizontalAlignment="Center" Source="/Images/Crop.png" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Width="30"
+                        Height="30"
+                        Background="Transparent"
+                        Click="Insert_Pic">
+                        <StackPanel>
+                            <Image HorizontalAlignment="Left" Source="/Images/Folder.png" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="5"
+                    Grid.Column="3"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource BarCodeLB}"
+                        FontSize="12" />
+                    <TextBox
+                        Name="TBBarCode"
+                        Width="50"
+                        Height="20" />
+                    <TextBlock VerticalAlignment="Center" Text="$" />
+                </StackPanel>
+
+            </Grid>
+        </TabItem>
+        <TabItem Name="AddC" Width="110">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Name="IMGClass"
+                        Width="25"
+                        Height="25"
+                        Source="/Images/CLass.png" />
+                    <Label Content="{DynamicResource Classes}" FontSize="12" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="5*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="4"
+                    Orientation="Horizontal">
+                    <Label
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource TypeLB}"
+                        FontSize="15"
+                        Visibility="Collapsed" />
+                    <ComboBox
+                        Name="CBTypeClass"
+                        Width="80"
+                        Height="30"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        SelectionChanged="CBTypeClass_SelectionChanged"
+                        Visibility="Collapsed">
+                        <ComboBoxItem Content="{DynamicResource Class}" />
+                        <ComboBoxItem Content="{DynamicResource Formations}" />
+                    </ComboBox>
+                    <Label
+                        Name="LBSubject"
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource SubjectLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="SubjectC"
+                        Width="80"
+                        Height="30"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        DisplayMemberPath="Subject"
+                        FontSize="15"
+                        SelectedValuePath="ID"
+                        SelectionChanged="SubjectC_SelectionChanged" />
+                    <Label
+                        Name="LabelClass"
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource ClassLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="CBclass"
+                        Width="120"
+                        Height="30"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        DisplayMemberPath="CName"
+                        FontSize="15"
+                        SelectedValuePath="ID"
+                        SelectionChanged="CBclass_SelectionChanged" />
+                    <StackPanel
+                        Name="SPGroup"
+                        Orientation="Horizontal"
+                        Visibility="Visible">
+                        <Label
+                            Name="LabelGroup"
+                            Grid.Column="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{DynamicResource GroupLB}"
+                            FontSize="15" />
+                        <ComboBox
+                            Name="CBGroup"
+                            Width="70"
+                            Height="30"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            DisplayMemberPath="GroupName"
+                            FontSize="15"
+                            SelectedValuePath="ID"
+                            SelectionChanged="CBGroup_SelectionChanged" />
+                    </StackPanel>
+                    <Label
+                        Name="LBDateClassReg"
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource DateLB}"
+                        FontSize="15" />
+                    <DatePicker
+                        Name="DateClassReg"
+                        Width="120"
+                        Height="30"
+                        VerticalAlignment="Center"
+                        FontSize="13" />
+                    <Button
+                        Name="SubmitClass"
+                        Width="40"
+                        Height="40"
+                        Margin="10,0,0,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Click="SubmitClass_Click_2">
+                        <Image Source="/Images/addsign.png" />
+                    </Button>
+                </StackPanel>
+                <DataGrid
+                    Name="DGClass"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="0,0,0,0"
+                    HorizontalAlignment="Stretch"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding}"
+                    MouseDoubleClick="DGClass_MouseDoubleClick"
+                    SelectionMode="Single">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="Auto" Binding="{Binding ClassName}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource ClassName}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="Auto" Binding="{Binding GroupName}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource GroupName}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="Auto" Binding="{Binding Subject}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Subject}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="Auto" Binding="{Binding StartDate}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource BegSes}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            x:Name="DGCDebt"
+                            Width="Auto"
+                            Binding="{Binding Debt}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Olddebt}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            x:Name="DGCPrice"
+                            Width="Auto"
+                            Binding="{Binding Price}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Price}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="Auto" Binding="{Binding Stopped}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource EndSes}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid
+                    Name="DGFormation"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Stretch"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    CellEditEnding="DGFormation_CellEditEnding"
+                    ItemsSource="{Binding}"
+                    VirtualizingStackPanel.IsVirtualizing="False"
+                    VirtualizingStackPanel.VirtualizationMode="Recycling"
+                    Visibility="Collapsed">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding Name}"
+                            IsReadOnly="True">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource FormationName}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn
+                            x:Name="DGCStartHour"
+                            Width="auto"
+                            Binding="{Binding StartHour}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="Starting Hour" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            x:Name="DGCHours"
+                            Width="auto"
+                            Binding="{Binding Hours}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Hours}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            x:Name="DGCSuPrice"
+                            Width="auto"
+                            Binding="{Binding SuPrice}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource RemainingPayment}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            x:Name="DGCNote"
+                            Width="150"
+                            Binding="{Binding Note}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Note}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Name="AddP" Width="110">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Name="IMGPayment"
+                        Width="25"
+                        Height="25"
+                        Source="/Images/Payment512.png" />
+                    <Label Content="{DynamicResource Payment}" FontSize="12" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <StackPanel
+                    Name="ControlP"
+                    Margin="10"
+                    Orientation="Vertical" />
+            </Grid>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Name="IMGAttendance"
+                        Width="25"
+                        Height="25"
+                        Source="/Images/Attendancesmall.png" />
+                    <Label
+                        HorizontalAlignment="Center"
+                        Content="{DynamicResource Attendance}"
+                        FontSize="12" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="60"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource DateLB}"
+                        FontSize="15" />
+
+                    <ComboBox
+                        Name="DaySearchAttend"
+                        Width="50"
+                        Height="35"
+                        VerticalContentAlignment="Center"
+                        FontSize="15"
+                        SelectedIndex="0"
+                        SelectionChanged="AttendanceSearch">
+                        <ComboBoxItem Content="DD" />
+                        <!--  Add days from 01 to 31  -->
+                        <ComboBoxItem Content="01" />
+                        <ComboBoxItem Content="02" />
+                        <ComboBoxItem Content="03" />
+                        <ComboBoxItem Content="04" />
+                        <ComboBoxItem Content="05" />
+                        <ComboBoxItem Content="06" />
+                        <ComboBoxItem Content="07" />
+                        <ComboBoxItem Content="08" />
+                        <ComboBoxItem Content="09" />
+                        <ComboBoxItem Content="10" />
+                        <ComboBoxItem Content="11" />
+                        <ComboBoxItem Content="12" />
+                        <ComboBoxItem Content="13" />
+                        <ComboBoxItem Content="14" />
+                        <ComboBoxItem Content="15" />
+                        <ComboBoxItem Content="16" />
+                        <ComboBoxItem Content="17" />
+                        <ComboBoxItem Content="18" />
+                        <ComboBoxItem Content="19" />
+                        <ComboBoxItem Content="20" />
+                        <ComboBoxItem Content="21" />
+                        <ComboBoxItem Content="22" />
+                        <ComboBoxItem Content="23" />
+                        <ComboBoxItem Content="24" />
+                        <ComboBoxItem Content="25" />
+                        <ComboBoxItem Content="26" />
+                        <ComboBoxItem Content="27" />
+                        <ComboBoxItem Content="28" />
+                        <ComboBoxItem Content="29" />
+                        <ComboBoxItem Content="30" />
+                        <ComboBoxItem Content="31" />
+                    </ComboBox>
+                    <Label VerticalAlignment="Center" FontSize="20">-</Label>
+                    <!--  Months ComboBox  -->
+                    <ComboBox
+                        Name="MonthSearchAttend"
+                        Width="60"
+                        Height="35"
+                        VerticalContentAlignment="Center"
+                        FontSize="16"
+                        SelectedIndex="0"
+                        SelectionChanged="AttendanceSearch">
+                        <ComboBoxItem Content="MM" />
+                        <!--  Add months from 01 to 12  -->
+                        <ComboBoxItem Content="01" />
+                        <ComboBoxItem Content="02" />
+                        <ComboBoxItem Content="03" />
+                        <ComboBoxItem Content="04" />
+                        <ComboBoxItem Content="05" />
+                        <ComboBoxItem Content="06" />
+                        <ComboBoxItem Content="07" />
+                        <ComboBoxItem Content="08" />
+                        <ComboBoxItem Content="09" />
+                        <ComboBoxItem Content="10" />
+                        <ComboBoxItem Content="11" />
+                        <ComboBoxItem Content="12" />
+                    </ComboBox>
+                    <Label VerticalAlignment="Center" FontSize="20">-</Label>
+                    <!--  Years ComboBox  -->
+                    <ComboBox
+                        Name="YearSearchAttend"
+                        Width="65"
+                        Height="35"
+                        VerticalContentAlignment="Center"
+                        FontSize="16"
+                        SelectedIndex="0"
+                        SelectionChanged="AttendanceSearch">
+                        <ComboBoxItem Content="YYYY" />
+                        <!--  Add years as needed  -->
+                        <ComboBoxItem Content="2023" />
+                        <ComboBoxItem Content="2024" />
+                        <!--  Add more years here  -->
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="60"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Left"
+                        Content="{DynamicResource ClassLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="CBAttendanceClass"
+                        Width="210"
+                        Height="35"
+                        VerticalAlignment="Center"
+                        DisplayMemberPath="CName"
+                        SelectedValuePath="ID"
+                        SelectionChanged="AttendanceSearch" />
+                </StackPanel>
+
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="70"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource TypeLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="CBType"
+                        Width="170"
+                        Height="35"
+                        VerticalAlignment="Center"
+                        SelectionChanged="ComboBox_SelectionChanged">
+                        <ComboBoxItem Content="{DynamicResource Absent}" />
+                        <ComboBoxItem Content="{DynamicResource Present}" />
+                        <ComboBoxItem Content="{DynamicResource Justified}" />
+                    </ComboBox>
+
+                </StackPanel>
+
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="70"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Left"
+                        Content="{DynamicResource SessionLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="CBAttendanceSession"
+                        Width="170"
+                        Height="35"
+                        VerticalAlignment="Center"
+                        SelectionChanged="AttendanceSearch" />
+
+                </StackPanel>
+                <Button
+                    Grid.Row="2"
+                    Grid.ColumnSpan="1"
+                    Width="40"
+                    Height="40"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Click="Button_Click_PrintMultiple">
+                    <Image Source="/Images/Print.png" />
+                </Button>
+                <Button
+                    Name="btnClear"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Width="40"
+                    Height="40"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Click="btnClear_Click">
+                    <Image Source="/Images/ClearFilter.png" />
+                </Button>
+                <DataGrid
+                    Name="DGAttendance"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="10"
+                    HorizontalAlignment="Stretch"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding}"
+                    SelectionChanged="DGAttendance_SelectionChanged">
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridRow">
+                            <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick" />
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Width="Auto" Binding="{Binding Type}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Type}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="Auto" Binding="{Binding Date}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Date}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Width="Auto" Binding="{Binding CName}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource ClassName}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Width="Auto" Binding="{Binding GName}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource GroupName}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Width="Auto" Binding="{Binding Session}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Sessions}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="Auto" Binding="{Binding Status}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Presense}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Width="Auto" Binding="{Binding Time}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Time}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

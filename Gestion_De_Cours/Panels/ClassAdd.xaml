@@ -1,0 +1,1373 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.ClassAdd"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Convert="clr-namespace:Gestion_De_Cours.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:rs="clr-namespace:Gestion_De_Cours.Properties"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    Title="{DynamicResource AddClass}"
+    Width="780"
+    Height="420"
+    dx:ThemeManager.ThemeName="None"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Normal"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Convert:RangeToListConverter x:Key="RangeToListConverter" />
+        </ResourceDictionary>
+
+    </Window.Resources>
+
+    <TabControl TabStripPlacement="Top">
+        <TabItem Width="110" MaxWidth="100">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Name="IMGClass"
+                        Width="25"
+                        Height="25"
+                        Source="/Images/CLass.png" />
+                    <Label Content="{DynamicResource ClassInfo}" FontSize="12" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid Margin="0,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="65"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource LevelLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="CLevel"
+                        Width="150"
+                        Height="30"
+                        DisplayMemberPath="Level"
+                        FontSize="15"
+                        ItemsSource="{Binding}"
+                        SelectedValuePath="ID"
+                        SelectionChanged="CLevel_SelectionChanged" />
+                    <Label
+                        Width="65"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource YearLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="CYear"
+                        Width="150"
+                        Height="30"
+                        DisplayMemberPath="Year"
+                        FontSize="15"
+                        ItemsSource="{Binding}"
+                        SelectedValuePath="ID"
+                        SelectionChanged="CYear_SelectionChanged" />
+                    <Label
+                        Width="65"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource SubjectLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="SubjectC"
+                        Width="150"
+                        Height="30"
+                        DisplayMemberPath="Subject"
+                        FontSize="15"
+                        ItemsSource="{Binding}"
+                        SelectedValuePath="ID" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal">
+
+                    <Label
+                        Width="60"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource NameLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="CName"
+                        Width="370"
+                        Height="35"
+                        FontSize="15" />
+                    <StackPanel
+                        Name="SPGender"
+                        Orientation="Horizontal"
+                        Visibility="Collapsed">
+                        <Label
+                            VerticalContentAlignment="Center"
+                            Content="{DynamicResource GenderLB}"
+                            FontSize="15" />
+                        <ComboBox
+                            Name="GenderC"
+                            Width="150"
+                            Height="30"
+                            FontSize="15">
+                            <ComboBoxItem Content="{DynamicResource Male}" />
+                            <ComboBoxItem Content="{DynamicResource Female}" />
+                            <ComboBoxItem Content="{DynamicResource Mix}" />
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+                <GroupBox
+                    Grid.Row="2"
+                    Grid.RowSpan="1"
+                    Grid.ColumnSpan="2"
+                    BorderBrush="Black"
+                    BorderThickness="2">
+                    <GroupBox.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image
+                                Name="IMGTeacher"
+                                Width="30"
+                                Height="30"
+                                Source="/Images/Teacher.png" />
+
+                            <Label Content="{DynamicResource TeacherInfo}" />
+                        </StackPanel>
+                    </GroupBox.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="4*" />
+                            <RowDefinition Height="4*" />
+                            <RowDefinition Height="4*" />
+                        </Grid.RowDefinitions>
+                        <StackPanel
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            Orientation="Horizontal">
+                            <Label
+                                Width="130"
+                                VerticalContentAlignment="Center"
+                                Content="{DynamicResource TeacherNameLB}"
+                                FontSize="15" />
+                            <ComboBox
+                                Name="TComboBox"
+                                Grid.Row="6"
+                                Grid.Column="0"
+                                Width="300"
+                                Height="40"
+                                Margin="5"
+                                FontSize="20"
+                                SelectedValuePath="ID"
+                                SelectionChanged="TComboBox_SelectionChanged">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image
+                                                Width="50"
+                                                Height="40"
+                                                Source="{Binding Picture}"
+                                                Stretch="Uniform" />
+                                            <Label
+                                                x:Name="Label1"
+                                                Content="{Binding Name}"
+                                                FontSize="15">
+                                                <Label.Resources>
+                                                    <Style TargetType="{x:Type Label}">
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding TGender}" Value="0">
+                                                                <Setter Property="Foreground" Value="Blue" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding TGender}" Value="1">
+                                                                <Setter Property="Foreground" Value="Pink" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Label.Resources>
+                                            </Label>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            Orientation="Horizontal">
+                            <Label
+                                Width="130"
+                                VerticalContentAlignment="Center"
+                                Content="{DynamicResource TPaymentMethodLB}"
+                                FontSize="15" />
+                            <ComboBox
+                                Name="TPaymentMethod"
+                                Grid.Row="6"
+                                Grid.Column="0"
+                                Width="180"
+                                Height="30"
+                                Margin="5"
+                                FontSize="15">
+                                <ComboBoxItem Content="{DynamicResource PerHour}" />
+                                <ComboBoxItem Content="{DynamicResource PerStudent}" />
+                                <ComboBoxItem Content="{DynamicResource PerPeriod}" />
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            Orientation="Horizontal">
+                            <Label
+                                Width="130"
+                                VerticalContentAlignment="Center"
+                                Content="{DynamicResource TPaymentLB}"
+                                FontSize="15" />
+                            <TextBox
+                                Name="TPayment"
+                                Grid.Row="6"
+                                Grid.Column="0"
+                                Width="180"
+                                Height="30"
+                                Margin="5"
+                                FontSize="15"
+                                PreviewTextInput="TPayment_PreviewTextInput" />
+                        </StackPanel>
+                        <StackPanel
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            Orientation="Horizontal">
+                            <Label
+                                Width="130"
+                                VerticalContentAlignment="Center"
+                                Content="{DynamicResource PriceLB}"
+                                FontSize="15" />
+                            <TextBox
+                                Name="CPrice"
+                                Grid.Row="6"
+                                Grid.Column="0"
+                                Width="180"
+                                Height="30"
+                                Margin="5"
+                                FontSize="15"
+                                PreviewTextInput="CPrice_PreviewTextInput" />
+                        </StackPanel>
+                    </Grid>
+                </GroupBox>
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="1"
+                    Width="100"
+                    Height="25"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Click="Button_Click"
+                    Content="{DynamicResource Cancel}" />
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="1"
+                    Width="100"
+                    Height="25"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Click="Buttun_Click_Next1"
+                    Content="{DynamicResource Insert}" />
+
+            </Grid>
+        </TabItem>
+        <TabItem
+            Name="TabSpec"
+            Width="110"
+            Visibility="Visible">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{DynamicResource Speciality}" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <StackPanel
+                    Name="SPSpec"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    Visibility="Visible">
+                    <Label
+                        Margin="0,0,10,0"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource SpecialityLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="CBSpeciality"
+                        Width="120"
+                        Height="30"
+                        Margin="5"
+                        DisplayMemberPath="Speciality"
+                        FontSize="15"
+                        ItemsSource="{Binding}" />
+                    <Button
+                        Width="70"
+                        Height="25"
+                        Margin="10,0,0,0"
+                        Click="ClickSpec"
+                        Content="+" />
+                </StackPanel>
+                <DataGrid
+                    Name="DGSpec"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="110" Binding="{Binding Speciality}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Speciality}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Width="30" Header="">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="BtnDelete" Click="BtnDeleteSpec_Click">
+                                        <Image
+                                            Width="80"
+                                            Height="20"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Source="/Images/DeleteIconsmall.png" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem
+            Name="Groups"
+            Width="110"
+            Visibility="Visible">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Name="IMGGroups"
+                        Width="25"
+                        Height="25"
+                        Source="/Images/Group.png" />
+                    <Label Content="{DynamicResource Groups}" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <StackPanel
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal">
+                    <Label
+                        Name="LabelGN"
+                        Margin="5,0,0,0"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource GNameLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="TBGN"
+                        Width="150"
+                        Height="30"
+                        Margin="0,0,0,0" />
+                    <Label
+                        Name="LabelGroup"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource GenderLB}"
+                        FontSize="15" />
+                    <StackPanel
+                        Name="SPG"
+                        Grid.ColumnSpan="2"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical">
+                        <RadioButton
+                            Name="Male"
+                            VerticalAlignment="Center"
+                            Content="{DynamicResource Male}" />
+                        <RadioButton
+                            Name="Female"
+                            VerticalAlignment="Center"
+                            Content="{DynamicResource Female}" />
+                        <RadioButton
+                            Name="Mix"
+                            VerticalAlignment="Center"
+                            Content="{DynamicResource Mix}" />
+                    </StackPanel>
+                    <Button
+                        Width="70"
+                        Height="25"
+                        Margin="10,0,0,0"
+                        Click="Button_Click_AddGroup"
+                        Content="+" />
+                </StackPanel>
+                <DataGrid
+                    Name="DGGroups"
+                    Grid.Row="1"
+                    Grid.RowSpan="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="10"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    CellEditEnding="DGGroups_CellEditEnding"
+                    FontSize="15"
+                    ItemsSource="{Binding}"
+                    Visibility="Visible">
+                    <DataGrid.Columns>
+                        <!--  Editable GroupName column  -->
+                        <DataGridTextColumn Width="150" Binding="{Binding GroupName}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource GroupName}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+                        <!--  Read-only GroupGenderr column  -->
+                        <DataGridTextColumn
+                            Width="150"
+                            Binding="{Binding GroupGenderr}"
+                            IsReadOnly="True">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource GroupGender}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+                        <!--  Buttons or other read-only columns  -->
+                        <DataGridTemplateColumn Width="30" Header="">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="BtnDelete" Click="BtnDeleteGroup_Click">
+                                        <Image
+                                            Width="80"
+                                            Height="20"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Source="/Images/DeleteIconsmall.png" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="30" Header="">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="BtnBarCode" Click="BtnBarCode_Click">
+                                        <Image
+                                            Width="80"
+                                            Height="20"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Source="/Images/printing.png" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem
+            Name="GroupTime"
+            Width="110"
+            Visibility="Visible">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Name="IMGTime"
+                        Width="25"
+                        Height="25"
+                        Source="/Images/Time.png" />
+                    <Label Content="{DynamicResource ClassTime}" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <StackPanel Name="SPGroupTime" Orientation="Horizontal">
+                        <Label
+                            Width="60"
+                            VerticalContentAlignment="Center"
+                            Content="{DynamicResource GroupLB}"
+                            FontSize="15"
+                            Visibility="Visible" />
+                        <ComboBox
+                            Name="CBGroupsT"
+                            Width="147"
+                            Height="30"
+                            DisplayMemberPath="GroupName"
+                            FontSize="15"
+                            ItemsSource="{Binding}"
+                            SelectionChanged="CBGroupsT_SelectionChanged"
+                            Visibility="Visible" />
+                    </StackPanel>
+                    <Label
+                        Width="60"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource DayLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="CDay"
+                        Width="100"
+                        Height="30"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        SelectionChanged="CDay_SelectionChanged">
+                        <ComboBoxItem Content="{DynamicResource Sunday}" />
+                        <ComboBoxItem Content="{DynamicResource Monday}" />
+                        <ComboBoxItem Content="{DynamicResource Tuesday}" />
+                        <ComboBoxItem Content="{DynamicResource Wednesday}" />
+                        <ComboBoxItem Content="{DynamicResource Thursday}" />
+                        <ComboBoxItem Content="{DynamicResource Friday}" />
+                        <ComboBoxItem Content="{DynamicResource Saturday}" />
+
+                    </ComboBox>
+                    <Label
+                        Width="60"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource RoomLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="CRoom"
+                        Width="100"
+                        Height="30"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        DisplayMemberPath="Room"
+                        FontSize="15"
+                        SelectedValuePath="ID"
+                        SelectionChanged="CRoom_SelectionChanged" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+
+
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource FromLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="HFrom"
+                        Width="80"
+                        Height="35"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        FontSize="20"
+                        SelectionChanged="HFrom_SelectionChanged"
+                        Text="HH">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                    <Label
+                                        VerticalAlignment="Top"
+                                        Content="{Binding Hour}"
+                                        FontSize="15">
+                                        <Label.Resources>
+                                            <Style TargetType="{x:Type Label}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Status}" Value="0">
+                                                        <Setter Property="Foreground" Value="YellowGreen" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="1">
+                                                        <Setter Property="Foreground" Value="Yellow" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="2">
+                                                        <Setter Property="Foreground" Value="Red" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Label.Resources>
+                                    </Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content=" : "
+                        FontSize="15" />
+                    <ComboBox
+                        Name="MFrom"
+                        Width="80"
+                        Height="35"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        FontSize="15"
+                        SelectionChanged="MFrom_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                    <Label
+                                        VerticalAlignment="Top"
+                                        Content="{Binding Hour}"
+                                        FontSize="15">
+                                        <Label.Resources>
+                                            <Style TargetType="{x:Type Label}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Status}" Value="0">
+                                                        <Setter Property="Foreground" Value="YellowGreen" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="1">
+                                                        <Setter Property="Foreground" Value="Yellow" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="2">
+                                                        <Setter Property="Foreground" Value="Red" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Label.Resources>
+                                    </Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource ToLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="HTo"
+                        Width="80"
+                        Height="35"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        FontSize="15"
+                        SelectionChanged="HTo_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                    <Label
+                                        VerticalAlignment="Top"
+                                        Content="{Binding Hour}"
+                                        FontSize="15">
+                                        <Label.Resources>
+                                            <Style TargetType="{x:Type Label}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Status}" Value="0">
+                                                        <Setter Property="Foreground" Value="YellowGreen" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="1">
+                                                        <Setter Property="Foreground" Value="Yellow" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="2">
+                                                        <Setter Property="Foreground" Value="Red" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Label.Resources>
+                                    </Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content=" : "
+                        FontSize="15" />
+                    <ComboBox
+                        Name="MTo"
+                        Width="80"
+                        Height="35"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        FontSize="15"
+                        SelectionChanged="MTo_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                    <Label
+                                        VerticalAlignment="Top"
+                                        Content="{Binding Hour}"
+                                        FontSize="15">
+                                        <Label.Resources>
+                                            <Style TargetType="{x:Type Label}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Status}" Value="0">
+                                                        <Setter Property="Foreground" Value="YellowGreen" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="1">
+                                                        <Setter Property="Foreground" Value="Yellow" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="2">
+                                                        <Setter Property="Foreground" Value="Red" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Label.Resources>
+                                    </Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button
+                        Width="70"
+                        Height="25"
+                        Margin="10,0,0,0"
+                        Click="Button_Click_AddTime"
+                        Content="+" />
+                </StackPanel>
+                <DataGrid
+                    Name="DGAddTime"
+                    Grid.Row="2"
+                    Grid.RowSpan="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Margin="10"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            x:Name="DGCGroupT"
+                            Width="80"
+                            Binding="{Binding GroupName}"
+                            FontSize="15"
+                            Visibility="Visible">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Groups}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding Day}"
+                            FontSize="15">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Day}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding TimeStart}"
+                            FontSize="15">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource TimeStart}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding TimeEnd}"
+                            FontSize="15">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Time End}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding Room}"
+                            FontSize="15">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Room}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Width="40" Header="">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="BtnDelete" Click="BtnDeleteTime_Click">
+                                        <Image
+                                            Width="30"
+                                            Height="20"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Source="/Images/DeleteIconsmall.png" />
+
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+
+        <TabItem
+            Name="Students"
+            Width="110"
+            Visibility="Visible">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Name="IMGStudentAdd"
+                        Width="25"
+                        Height="25"
+                        Source="/Images/StudentAdd.Png" />
+
+                    <Label Content="{DynamicResource Students}" FontSize="12" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <StackPanel
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal">
+
+                    <StackPanel Name="SPGroupStudent" Orientation="Horizontal">
+                        <Label
+                            Name="LabelGS"
+                            Margin="00,0,0,0"
+                            VerticalAlignment="Center"
+                            Content="{DynamicResource GroupLB}"
+                            FontSize="15"
+                            Visibility="Visible" />
+                        <ComboBox
+                            Name="CBGroups"
+                            Width="100"
+                            Height="35"
+                            ItemsSource="{Binding}"
+                            SelectionChanged="CBGroups_SelectionChanged"
+                            Visibility="Visible">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                        <Label
+                                            VerticalAlignment="Top"
+                                            VerticalContentAlignment="Top"
+                                            Content="{Binding GroupName}"
+                                            FontSize="13">
+                                            <Label.Resources>
+                                                <Style TargetType="{x:Type Label}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding GroupGender}" Value="0">
+                                                            <Setter Property="Foreground" Value="Blue" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding GroupGender}" Value="1">
+                                                            <Setter Property="Foreground" Value="Pink" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Label.Resources>
+                                        </Label>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                    <Label
+                        Name="LabelS"
+                        Width="80"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource StudentLB}"
+                        FontSize="15"
+                        Visibility="Visible" />
+                    <TextBox
+                        Name="AddStudentdoubleclck"
+                        Width="200"
+                        Height="30"
+                        Background="#CCFFCC"
+                        MouseDoubleClick="AddStudentdoubleclck_MouseDoubleClick" />
+                    <ComboBox
+                        Name="CBStudent"
+                        Width="220"
+                        Height="40"
+                        FontSize="15"
+                        IsEditable="True"
+                        IsTextSearchEnabled="True"
+                        SelectionChanged="CBStudent_SelectionChanged"
+                        TextSearch.TextPath="Name"
+                        Visibility="Collapsed">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image
+                                        Width="55"
+                                        Height="40"
+                                        Source="{Binding Picture}" />
+                                    <Label Content="{Binding Name}" FontSize="15">
+                                        <Label.Resources>
+                                            <Style TargetType="{x:Type Label}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Gender}" Value="0">
+                                                        <Setter Property="Foreground" Value="Blue" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Gender}" Value="1">
+                                                        <Setter Property="Foreground" Value="Pink" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Label.Resources>
+                                    </Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button
+                        Width="60"
+                        Height="25"
+                        Margin="10,0,0,0"
+                        Click="Button_Click_3"
+                        Content="+"
+                        Visibility="Collapsed" />
+                </StackPanel>
+                <Button
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Width="40"
+                    Height="40"
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="Right"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Click="Button_Click_ImportStudents"
+                    Visibility="Collapsed">
+                    <Image Source="/Images/Import.png" />
+                </Button>
+                <DataGrid
+                    Name="DGStudent"
+                    Grid.Row="1"
+                    Grid.RowSpan="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="10"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding}"
+                    MouseDoubleClick="DGStudent_MouseDoubleClick"
+                    MouseRightButtonDown="DGStudent_MouseRightButtonDown"
+                    SelectionChanged="DGStudent_SelectionChanged"
+                    SelectionMode="Single"
+                    VirtualizingStackPanel.IsVirtualizing="False"
+                    VirtualizingStackPanel.VirtualizationMode="Recycling"
+                    Visibility="Visible">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem
+                                Name="ChangeGroup"
+                                Click="ChangeGroup_Click"
+                                Header="{DynamicResource ChangeGroup}">
+                                <MenuItem.Icon>
+                                    <Image
+                                        Width="16"
+                                        Height="16"
+                                        Source="/Images/Change.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+
+                            <MenuItem
+                                Name="ChangeStartSes"
+                                Click="ChangeStartSes_Click"
+                                Header="{DynamicResource ChangeStartSes}">
+                                <MenuItem.Icon>
+                                    <Image
+                                        Width="16"
+                                        Height="16"
+                                        Source="/Images/Enter.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem
+                                Name="ChangeEndSes"
+                                Click="ChangeEndSes_Click"
+                                Header="{DynamicResource ChangeEndSes}">
+                                <MenuItem.Icon>
+                                    <Image
+                                        Width="16"
+                                        Height="16"
+                                        Source="/Images/Leave.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="100" Binding="{Binding FirstName}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource FirstName}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="100" Binding="{Binding LastName}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource LastName}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            x:Name="DGCGroupS"
+                            Width="100"
+                            Binding="{Binding GroupName}"
+                            Visibility="Visible">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource GroupName}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding StartDate}"
+                            Visibility="Visible">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Sessions}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Width="100" Binding="{Binding Stopped}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource EndSes}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Width="70" Header="">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button
+                                            Name="BtnRemoveStudent"
+                                            Width="30"
+                                            Margin="5,0,0,0"
+                                            Click="BtnRemoveStudent_Click">
+                                            <Image
+                                                Width="30"
+                                                Height="20"
+                                                VerticalAlignment="Stretch"
+                                                Source="/Images/DeleteIconsmall.png" />
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem
+            Name="Attandence"
+            Width="110"
+            Visibility="Visible">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Name="IMGAttendance"
+                        Width="25"
+                        Height="25"
+                        Source="/Images/Attendancesmall.png" />
+                    <Label Content="{DynamicResource Attendance}" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <StackPanel
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal">
+
+                    <StackPanel
+                        Name="SPGroupAttendance"
+                        Orientation="Horizontal"
+                        Visibility="Visible">
+                        <Label
+                            Name="LabelGA"
+                            Margin="10,0,0,0"
+                            VerticalAlignment="Center"
+                            Content="{DynamicResource GroupLB}"
+                            FontSize="15"
+                            Visibility="Visible" />
+                        <ComboBox
+                            Name="CBGroupsA"
+                            Width="120"
+                            Height="30"
+                            DisplayMemberPath="GroupName"
+                            FontSize="15"
+                            ItemsSource="{Binding}"
+                            SelectionChanged="CBGroupsA_SelectionChanged"
+                            Visibility="Visible" />
+                    </StackPanel>
+                    <Label
+                        Name="LabelTime"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource TimeLB}"
+                        FontSize="15"
+                        Visibility="Visible" />
+                    <ComboBox
+                        Name="CBGroupT"
+                        Width="150"
+                        Height="30"
+                        Margin="0,0,15,0"
+                        DisplayMemberPath="Time"
+                        FontSize="15"
+                        ItemsSource="{Binding}"
+                        SelectionChanged="CBGroupT_SelectionChanged"
+                        Visibility="Visible" />
+                    <Label
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource DateLB}"
+                        FontSize="15" />
+                    <DatePicker
+                        Name="DateAttend"
+                        Width="110"
+                        Height="30"
+                        Margin="0,0,10,0"
+                        FontSize="15"
+                        SelectedDate="{x:Static sys:DateTime.Today}" />
+                    <CheckBox
+                        Name="FreeSesCheck"
+                        Margin="0,0,10,0"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource FreeSes}"
+                        Visibility="Collapsed" />
+                    <Button
+                        Width="60"
+                        Height="25"
+                        Click="Button_Click_Attendance"
+                        Content="+" />
+                </StackPanel>
+                <DataGrid
+                    Name="DGAttendance"
+                    Grid.Row="1"
+                    Grid.RowSpan="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="10"
+                    HorizontalAlignment="Stretch"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding}"
+                    Visibility="Visible">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            x:Name="DGCGroupA"
+                            Width="auto"
+                            Binding="{Binding GroupName}"
+                            Visibility="Visible">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource GroupName}" />
+                            </DataGridTextColumn.Header>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding AttendEmpty}" Value="1">
+                                            <Setter Property="Foreground" Value="Red" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="auto" Binding="{Binding Time}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Time}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="auto" Binding="{Binding Session}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Session}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="auto" Binding="{Binding Date}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Date}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="auto" Binding="{Binding TotalStudent}">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource TotalStudents}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Width="140" Header="">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button
+                                            Name="BtnDelete"
+                                            Width="30"
+                                            Click="BtnDeleteAttendance_Click">
+                                            <Image
+                                                Width="30"
+                                                Height="20"
+                                                VerticalAlignment="Stretch"
+                                                Source="/Images/DeleteIconsmall.png" />
+                                        </Button>
+                                        <Button
+                                            Name="BtnShow"
+                                            Width="30"
+                                            Margin="10,0,0,0"
+                                            Click="btnClick">
+                                            <Image
+                                                Width="30"
+                                                Height="20"
+                                                VerticalAlignment="Stretch"
+                                                Source="/Images/eye.png" />
+                                        </Button>
+                                        <Button
+                                            Name="BtnPrintAttend"
+                                            Width="30"
+                                            Margin="10,0,0,0"
+                                            Click="BtnPrintAttend_Click">
+                                            <Image
+                                                Width="30"
+                                                Height="20"
+                                                VerticalAlignment="Stretch"
+                                                Source="/Images/print.png" />
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem
+            Name="Calls"
+            Width="110"
+            Visibility="Collapsed">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Name="IMGCalls"
+                        Width="25"
+                        Height="25"
+                        Source="/Images/Phone.png" />
+                    <Label Content="{DynamicResource Attendance}" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <StackPanel
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+
+                    <StackPanel Orientation="Horizontal" Visibility="Visible">
+                        <Label
+                            Margin="10,0,0,0"
+                            VerticalAlignment="Center"
+                            Content="{DynamicResource GroupLB}"
+                            FontSize="15"
+                            Visibility="Visible" />
+                        <ComboBox
+                            Name="CBCallGroups"
+                            Width="120"
+                            Height="30"
+                            DisplayMemberPath="GroupName"
+                            FontSize="15"
+                            ItemsSource="{Binding}"
+                            SelectionChanged="CBGroupsA_SelectionChanged"
+                            Visibility="Visible" />
+                    </StackPanel>
+                    <Label
+                        Name="LabelNote"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource ReasonOfCallLB}"
+                        FontSize="15"
+                        Visibility="Visible" />
+                    <TextBox
+                        Name="TBCallNote"
+                        Width="200"
+                        Height="30"
+                        Margin="0,0,10,0" />
+                    <Button
+                        Width="60"
+                        Height="25"
+                        Click="Button_Click_Attendance"
+                        Content="+" />
+                </StackPanel>
+                <DataGrid
+                    Name="DGPhoneCall"
+                    Grid.Row="1"
+                    Grid.RowSpan="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="10"
+                    HorizontalAlignment="Stretch"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding}"
+                    Visibility="Visible" />
+            </Grid>
+        </TabItem>
+    </TabControl>
+
+</Window>

@@ -1,0 +1,150 @@
+﻿<UserControl
+    x:Class="Gestion_De_Cours.UControl.TeacherPayment"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.UControl"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:rs="clr-namespace:Gestion_De_Cours.Properties"
+    d:DesignHeight="450"
+    d:DesignWidth="600"
+    dx:ThemeManager.ThemeName="None"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Viewbox Stretch="Fill">
+        <Grid
+            Width="700"
+            Height="450"
+            Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55" />
+
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button
+                Grid.Row="0"
+                Grid.ColumnSpan="1"
+                Width="100"
+                Height="40"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="Button_Click_Add">
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Margin="0,7,0,0"
+                        VerticalAlignment="Center"
+                        Source="/Images/Payment.png" />
+                    <Label
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource Add}"
+                        FontSize="15" />
+                </StackPanel>
+            </Button>
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="100"
+                Height="40"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="Button_Click_Delete">
+                <StackPanel Orientation="Horizontal">
+                    <Image Margin="0,0,0,0" Source="/Images/Deleteiconsmall.png" />
+                    <Label
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource Delete}"
+                        FontSize="15" />
+                </StackPanel>
+            </Button>
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="2"
+                Width="100"
+                Height="40"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="Button_Click_Print">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/Print.png" />
+                    <Label
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource Print}"
+                        FontSize="15" />
+                </StackPanel>
+            </Button>
+
+            <DataGrid
+                Name="DGPay"
+                Grid.Row="2"
+                Grid.ColumnSpan="3"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                AutoGenerateColumns="False"
+                FontSize="15"
+                IsReadOnly="True"
+                ItemsSource="{Binding}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Width="110"
+                        Binding="{Binding Name}"
+                        Header="Teacher Name"
+                        Visibility="Collapsed" />
+                    <DataGridTextColumn Binding="{Binding CName}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource ClassName}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding GName}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource GroupName}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Sessions}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Sessions}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Date}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Date}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding SPrice}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource StudentTotal}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding SuPrice}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource SupposedTotal}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding TPrice}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource TeacherTotal}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Note}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Note}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Viewbox>
+</UserControl>

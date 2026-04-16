@@ -1,0 +1,766 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.WorkerAdd"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="WorkerAdd"
+    Width="570"
+    Height="450"
+    dx:ThemeManager.ThemeName="None"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <FontFamily x:Key="FontLabel">pack://application:,,,/Fonts/#Droid Arabic Kufi</FontFamily>
+                </ResourceDictionary>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <TabControl TabStripPlacement="Top">
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Width="25"
+                        Height="25"
+                        Source="/Images/Worker.png" />
+                    <Label Content="{DynamicResource WorkerInfo}" FontSize="12" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="120"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource FirstNameLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="FName"
+                        Grid.ColumnSpan="2"
+                        Width="200"
+                        Height="25"
+                        HorizontalAlignment="Left"
+                        FontSize="17"
+                        KeyDown="FName_KeyDown" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="120"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource LastNameLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="LName"
+                        Grid.ColumnSpan="2"
+                        Width="200"
+                        Height="25"
+                        HorizontalAlignment="Left"
+                        FontSize="17"
+                        KeyDown="LName_KeyDown" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="120"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource PhoneNumberLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="Phone"
+                        Grid.ColumnSpan="2"
+                        Width="200"
+                        Height="25"
+                        HorizontalAlignment="Left"
+                        FontSize="17"
+                        KeyDown="Phone_KeyDown" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="120"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource CCPLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="CCP"
+                        Grid.ColumnSpan="2"
+                        Width="200"
+                        Height="25"
+                        HorizontalAlignment="Left"
+                        FontSize="17"
+                        KeyDown="CCP_KeyDown" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="120"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource AdressLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="Adress"
+                        Grid.ColumnSpan="2"
+                        Width="200"
+                        Height="25"
+                        HorizontalAlignment="Left"
+                        FontSize="17"
+                        KeyDown="Adress_KeyDown" />
+                </StackPanel>
+
+                <StackPanel
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="120"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource NoteLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="Note"
+                        Grid.ColumnSpan="2"
+                        Width="200"
+                        Height="25"
+                        HorizontalAlignment="Left"
+                        FontSize="17"
+                        KeyDown="Note_KeyDown" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="4"
+                    Orientation="Horizontal">
+                    <Label
+                        Width="100"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource GenderLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="Gender"
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Width="90"
+                        Height="25"
+                        HorizontalAlignment="Center"
+                        FontSize="15">
+                        <ComboBoxItem Content="{DynamicResource Male}" />
+                        <ComboBoxItem Content="{DynamicResource Female}" />
+                    </ComboBox>
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource BirthDateLB}"
+                        FontSize="15" />
+                    <DatePicker
+                        Name="Date"
+                        Width="150"
+                        Height="30"
+                        VerticalAlignment="Center"
+                        FontSize="15" />
+
+                </StackPanel>
+
+                <StackPanel
+                    Grid.Row="7"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="4"
+                    Orientation="Horizontal"
+                    Visibility="Collapsed">
+
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource PaymentMethodLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="WPaymentMethod"
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Width="100"
+                        Height="25"
+                        Margin="5"
+                        FontSize="15">
+                        <ComboBoxItem Content="Per Hour" />
+                        <ComboBoxItem Content="Per Day" />
+                        <ComboBoxItem Content="Per Month" />
+
+                    </ComboBox>
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource PriceLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="WSalary"
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Width="100"
+                        Height="25"
+                        FontSize="15" />
+                </StackPanel>
+                <Border
+                    Grid.Row="1"
+                    Grid.RowSpan="3"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    Width="120"
+                    Height="120"
+                    VerticalAlignment="Bottom"
+                    BorderBrush="Black"
+                    BorderThickness="2">
+                    <Image
+                        Name="WPicture"
+                        Width="120"
+                        Height="120"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Stretch="UniformToFill" />
+                </Border>
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    Width="100"
+                    Height="25"
+                    Click="Button_Click_2"
+                    Content="{DynamicResource Insert}"
+                    FontSize="15" />
+                <Button
+                    Grid.Row="8"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Width="100"
+                    Height="25"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Click="Button_Click"
+                    Content="Cancel" />
+                <Button
+                    Grid.Row="8"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    Width="100"
+                    Height="25"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Click="SubmitW"
+                    Content="Submit" />
+            </Grid>
+        </TabItem>
+        <TabItem Name="TabWorkTime">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Width="25"
+                        Height="25"
+                        Source="/Images/Time.png" />
+                    <Label Content="{DynamicResource WorkTime}" FontSize="12" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    Visibility="Visible">
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource DayLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="Day"
+                        Width="80"
+                        Height="25"
+                        FontSize="15"
+                        SelectionChanged="Day_SelectionChanged">
+                        <ComboBoxItem Content="{DynamicResource Sunday}" />
+                        <ComboBoxItem Content="{DynamicResource Monday}" />
+                        <ComboBoxItem Content="{DynamicResource Tuesday}" />
+                        <ComboBoxItem Content="{DynamicResource Wednesday}" />
+                        <ComboBoxItem Content="{DynamicResource Thursday}" />
+                        <ComboBoxItem Content="{DynamicResource Friday}" />
+                        <ComboBoxItem Content="{DynamicResource Saturday}" />
+                    </ComboBox>
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource FromLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="HFrom"
+                        Width="50"
+                        Height="25"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        IsEditable="True"
+                        IsReadOnly="True"
+                        SelectionChanged="HFrom_SelectionChanged"
+                        Text="HH" />
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content=" : "
+                        FontSize="15" />
+                    <ComboBox
+                        Name="MFrom"
+                        Width="50"
+                        Height="25"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        IsEditable="True"
+                        IsReadOnly="True"
+                        SelectionChanged="MFrom_SelectionChanged"
+                        Text="MM" />
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content=" To : "
+                        FontSize="15" />
+                    <ComboBox
+                        Name="HTo"
+                        Width="50"
+                        Height="25"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        IsEditable="True"
+                        IsReadOnly="True"
+                        SelectionChanged="HTo_SelectionChanged"
+                        Text="HH" />
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content=" : "
+                        FontSize="15" />
+                    <ComboBox
+                        Name="MTo"
+                        Width="50"
+                        Height="25"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        IsEditable="True"
+                        IsReadOnly="True"
+                        SelectionChanged="MTo_SelectionChanged"
+                        Text="MM">
+                        <ComboBoxItem Content="00" />
+                        <ComboBoxItem Content="15" />
+                        <ComboBoxItem Content="30" />
+                        <ComboBoxItem Content="45" />
+                    </ComboBox>
+                    <Button
+                        Width="50"
+                        Height="20"
+                        Margin="10,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Click="Button_Click_1"
+                        Content="+" />
+
+                </StackPanel>
+                <DataGrid
+                    Name="DGWorkTime"
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Stretch"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding}"
+                    Visibility="Visible">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding Day}"
+                            FontSize="15"
+                            Visibility="Visible">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Day}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding TimeStart}"
+                            FontSize="15"
+                            Visibility="Visible">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource TimeStart}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding TimeEnd}"
+                            FontSize="15"
+                            Visibility="Visible">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Time End}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Width="30" Header="">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="BtnDelete" Click="BtnDeleteTime_Click">
+                                        <Image
+                                            Width="80"
+                                            Height="20"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Source="/Images/DeleteIcon.png" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+        </TabItem>
+        <TabItem Name="TabPrivilage">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Width="25"
+                        Height="25"
+                        Source="/Images/Users.png" />
+                    <Label Content="Privilages" FontSize="12" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75" />
+                    <RowDefinition Height="125" />
+                    <RowDefinition Height="125" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <GroupBox
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    Header="{DynamicResource Students}">
+                    <StackPanel>
+                        <CheckBox
+                            Name="SView"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource View}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="SAdd"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Add}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="SModify"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Update}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="SDelete"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Delete}"
+                            IsChecked="True" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    Header="{DynamicResource Teacher}">
+                    <StackPanel>
+                        <CheckBox
+                            Name="TView"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource View}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="TAdd"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Add}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="TModify"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Update}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="TDelete"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Delete}"
+                            IsChecked="True" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox
+                    Grid.Row="2"
+                    Grid.Column="4"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    Header="{DynamicResource Worker}">
+                    <StackPanel>
+                        <CheckBox
+                            Name="WView"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource View}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="WAdd"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Add}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="WModify"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Update}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="WDelete"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Delete}"
+                            IsChecked="True" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    Header="{DynamicResource StudentPayment}">
+                    <StackPanel>
+                        <CheckBox
+                            Name="SPView"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource View}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="SPAdd"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Add}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="SPModify"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Update}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="SPDelete"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Delete}"
+                            IsChecked="True" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    Header="{DynamicResource TeacherPayment}">
+                    <StackPanel>
+                        <CheckBox
+                            Name="TPView"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource View}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="TPAdd"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Add}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="TPModify"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Update}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="TPDelete"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Delete}"
+                            IsChecked="True" />
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    Header="{DynamicResource Class}">
+                    <StackPanel>
+                        <CheckBox
+                            Name="CView"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource View}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="CAdd"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Add}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="CModify"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Update}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="CDelete"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Delete}"
+                            IsChecked="True" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    Header="{DynamicResource General}">
+                    <StackPanel>
+                        <CheckBox
+                            Name="CashRegister"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource CashRegister}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="Stat"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource Statistics}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="History"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource History}"
+                            IsChecked="True" />
+                        <CheckBox
+                            Name="EcoleInfo"
+                            Margin="10,10,0,0"
+                            Content="{DynamicResource EcoleInfo}"
+                            IsChecked="True" />
+                    </StackPanel>
+                </GroupBox>
+                <StackPanel Grid.Row="2" Grid.Column="0">
+                    <GroupBox
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        Header="{DynamicResource Attendance}">
+                        <StackPanel
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Orientation="Vertical">
+                            <CheckBox
+                                Name="AView"
+                                Margin="10,10,0,0"
+                                Content="{DynamicResource View}"
+                                IsChecked="True" />
+                            <CheckBox
+                                Name="AAdd"
+                                Margin="10,10,0,0"
+                                Content="{DynamicResource Add}"
+                                IsChecked="True" />
+                            <CheckBox
+                                Name="AModify"
+                                Margin="10,10,0,0"
+                                Content="{DynamicResource Update}"
+                                IsChecked="True" />
+                            <CheckBox
+                                Name="ADelete"
+                                Margin="10,10,0,0"
+                                Content="{DynamicResource Delete}"
+                                IsChecked="True" />
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.ColumnSpan="4"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Orientation="Vertical">
+                    <StackPanel
+                        Margin="0,10,0,10"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Orientation="Horizontal">
+                        <Label Width="75" Content="{DynamicResource UserNameLB}" />
+                        <TextBox
+                            Name="TBUsername"
+                            Width="90"
+                            Height="25" />
+                    </StackPanel>
+                    <StackPanel
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Orientation="Horizontal">
+                        <Label Width="75" Content="{DynamicResource PassWordLB}" />
+                        <PasswordBox
+                            Name="TBPass"
+                            Width="90"
+                            Height="25" />
+                    </StackPanel>
+                </StackPanel>
+                <Button
+                    Grid.Row="4"
+                    Grid.ColumnSpan="4"
+                    Width="100"
+                    Margin="0,5,0,0"
+                    VerticalAlignment="Center"
+                    Click="Button_Click_3"
+                    Content="{DynamicResource Insert}" />
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

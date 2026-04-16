@@ -1,0 +1,189 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.List"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title=""
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <FontFamily x:Key="FontLabel">pack://application:,,,/Fonts/#Droid Arabic Kufi</FontFamily>
+                </ResourceDictionary>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Label
+                Name="LBSearch"
+                Width="60"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Right"
+                Content="{DynamicResource SearchLB}"
+                FontSize="15" />
+            <TextBox
+                Name="TBSearch"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                Width="200"
+                Height="30"
+                Margin="5,0,0,0"
+                HorizontalAlignment="Left"
+                FontSize="15"
+                PreviewKeyDown="TBSearch_PreviewKeyDown"
+                TextChanged="TextBox_TextChanged" />
+            <Label
+                Name="DateLB"
+                Margin="10,0,10,0"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                Content="Date of Entry :"
+                FontSize="15" />
+            <DatePicker
+                Name="DateEntry"
+                Width="120"
+                Height="30" />
+            <Button
+                Width="70"
+                Height="70"
+                Margin="0,0,0,0"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Click="Button_Clic_addStudent">
+                <StackPanel>
+                    <Image Source="/Images/AddPerson.png" />
+                    <Label
+                        Margin="0,0,10,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Add"
+                        FontSize="12"
+                        FontWeight="Bold" />
+                </StackPanel>
+            </Button>
+            <Button
+                Width="70"
+                Height="70"
+                Margin="0,0,0,0"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Click="Button_Click_Add">
+                <StackPanel>
+                    <Image Source="/Images/AddSign.png" />
+
+                </StackPanel>
+            </Button>
+            <StackPanel>
+                <Label Content="Total Students: " FontSize="20" />
+                <Border
+                    Width="120"
+                    Height="35"
+                    Margin="0,0,0,0"
+                    BorderBrush="Black"
+                    BorderThickness="2">
+                    <TextBlock
+                        Name="StudentAmmount"
+                        Width="120"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        TextAlignment="Center" />
+                </Border>
+            </StackPanel>
+        </StackPanel>
+
+        <DataGrid
+            Name="DG"
+            Grid.Row="1"
+            Margin="10"
+            AutoGenerateColumns="False"
+            CanUserAddRows="False"
+            HeadersVisibility="Column"
+            IsReadOnly="True"
+            ItemsSource="{Binding}"
+            MouseDoubleClick="DG_MouseDoubleClick">
+            <DataGrid.Columns>
+                <!--  Big Checkbox Column  -->
+                <DataGridTemplateColumn Width="Auto" Header="Select">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ToggleButton
+                                Width="30"
+                                Height="30"
+                                VerticalAlignment="Center"
+                                Click="ToggleButton_Click"
+                                IsChecked="{Binding IsChecked}">
+                                <ToggleButton.Style>
+                                    <Style TargetType="ToggleButton">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border
+                                                        x:Name="border"
+                                                        Background="{TemplateBinding Background}"
+                                                        BorderBrush="Gray"
+                                                        BorderThickness="1">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsChecked" Value="True">
+                                                            <Setter TargetName="border" Property="Background" Value="Green" />
+                                                        </Trigger>
+                                                        <Trigger Property="IsChecked" Value="False">
+                                                            <Setter TargetName="border" Property="Background" Value="Red" />
+                                                        </Trigger>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter TargetName="border" Property="BorderBrush" Value="DarkGray" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Background" Value="Red" />
+                                        <Setter Property="Content" Value="" />
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--  First Name Column  -->
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding FirstName}"
+                    Header="First Name" />
+
+                <!--  Last Name Column  -->
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding LastName}"
+                    Header="Last Name" />
+
+                <!--  Phone Number Column  -->
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding PhoneNumber}"
+                    Header="Phone Number" />
+
+                <!--  Subjects Column  -->
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Subjects}"
+                    Header="Subjects" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

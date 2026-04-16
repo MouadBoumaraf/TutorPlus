@@ -1,0 +1,168 @@
+﻿<UserControl
+    x:Class="Gestion_De_Cours.UControl.Schedulerr"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduling"
+    xmlns:local="clr-namespace:Gestion_De_Cours.UControl"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    dx:ThemeManager.ThemeName="Office2019Colorful"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <dxsch:SchedulerControl
+            x:Name="scheduler"
+            Width="800"
+            Height="500"
+            AppointmentAdded="scheduler_AppointmentAdded"
+            AppointmentEdited="scheduler_AppointmentEdited"
+            AppointmentEditing="scheduler_AppointmentEditing"
+            AppointmentWindowShowing="scheduler_AppointmentWindowShowing"
+            CommandBarStyle="Ribbon"
+            EditOccurrenceWindowShowing="scheduler_EditOccurrenceWindowShowing"
+            GroupType="Resource"
+            WorkTime="10:00:00-22:00:00">
+            <dxsch:SchedulerControl.RibbonActions>
+                <!-- <dxb:RemoveAction ElementName="{x:Static Member=dxsch:DefaultBarItemNames.Groups_Home_Appointment}" />
+                <dxb:RemoveAction ElementName="{x:Static Member=dxsch:DefaultBarItemNames.Items_Home_Appointment_NewAppointment }"/>-->
+                <dxb:RemoveAction ElementName="{x:Static Member=dxsch:DefaultBarItemNames.Items_Home_Appointment_NewRecurringAppointment}" />
+                <dxb:RemoveAction ElementName="{x:Static Member=dxsch:DefaultBarItemNames.Categories_Appointment}" />
+                <dxb:RemoveAction ElementName="{x:Static Member=dxsch:DefaultBarItemNames.Groups_Home_GroupBy}" />
+                <dxb:RemoveAction ElementName="{x:Static Member=dxsch:DefaultBarItemNames.Items_Home_Appointment_NewAppointment}" />
+                <dxb:RemoveAction ElementName="{x:Static Member=dxsch:DefaultBarItemNames.Groups_Home_Appointment}" />
+                <dxb:UpdateAction
+                    ElementName="{x:Static dxsch:DefaultBarItemNames.Groups_Home_Arrange}"
+                    PropertyName="IsVisible"
+                    Value="true" />
+                <dxb:UpdateAction
+                    ElementName="{x:Static dxsch:DefaultBarItemNames.Groups_Home_Layout}"
+                    PropertyName="IsVisible"
+                    Value="false" />
+                <dxb:UpdateAction
+                    ElementName="{x:Static dxsch:DefaultBarItemNames.Items_Home_Arrange_Views}"
+                    PropertyName="IsVisible"
+                    Value="true" />
+
+                <dxb:InsertAction ContainerName="{x:Static dxsch:DefaultBarItemNames.Pages_Home}" Index="0">
+                    <dxr:RibbonPageGroup Caption="Create">
+                        <dxb:BarButtonItem
+                            Content="Plan Attendance"
+                            ItemClick="BarButtonItem_NewAppointment"
+                            LargeGlyph="{dx:DXImage 'SvgImages/Business Objects/BO_Appointment.svg'}" />
+                    </dxr:RibbonPageGroup>
+                </dxb:InsertAction>
+                <dxb:InsertAction ContainerName="{x:Static dxsch:DefaultBarItemNames.Pages_Home}" Index="1">
+                    <dxr:RibbonPageGroup Caption="Add">
+                        <dxb:BarButtonItem Content="Group Session">
+                            <dxb:BarButtonItem.LargeGlyph>
+                                <!--  Your large icon source goes here  -->
+                                <ImageSource>/Images/Group.png</ImageSource>
+                            </dxb:BarButtonItem.LargeGlyph>
+                        </dxb:BarButtonItem>
+                        <dxb:BarButtonItem Content="One on one Session">
+                            <dxb:BarButtonItem.LargeGlyph>
+                                <!--  Your large icon source goes here  -->
+                                <ImageSource>/Images/Particulier.png</ImageSource>
+                            </dxb:BarButtonItem.LargeGlyph>
+                        </dxb:BarButtonItem>
+                        <dxb:BarButtonItem Content="Formation Session">
+                            <dxb:BarButtonItem.LargeGlyph>
+                                <!--  Your large icon source goes here  -->
+                                <ImageSource>/Images/Formation.png</ImageSource>
+                            </dxb:BarButtonItem.LargeGlyph>
+                        </dxb:BarButtonItem>
+                    </dxr:RibbonPageGroup>
+                </dxb:InsertAction>
+                <dxb:InsertAction ContainerName="{x:Static dxsch:DefaultBarItemNames.Pages_Home}" Index="2">
+                    <dxr:RibbonPageGroup Caption="Status">
+                        <dxb:BarButtonItem
+                            Name="ActivateSes"
+                            Content="Activate"
+                            ItemClick="ActivateSes_ItemClick">
+                            <dxb:BarButtonItem.LargeGlyph>
+                                <!--  Your large icon source goes here  -->
+                                <ImageSource>/Images/GreenCircle.png</ImageSource>
+                            </dxb:BarButtonItem.LargeGlyph>
+                        </dxb:BarButtonItem>
+                        <dxb:BarButtonItem
+                            Name="DisActivateSes"
+                            Content="Disactivate"
+                            ItemClick="DisActivateSes_ItemClick">
+                            <dxb:BarButtonItem.LargeGlyph>
+                                <!--  Your large icon source goes here  -->
+                                <ImageSource>/Images/RedCircle.png</ImageSource>
+                            </dxb:BarButtonItem.LargeGlyph>
+                        </dxb:BarButtonItem>
+                        <!-- <dxb:BarButtonItem   Name="DeleteSes" ItemClick="DeleteSes_ItemClick"  Content="Delete">
+                            <dxb:BarButtonItem.LargeGlyph>
+                        <ImageSource>/Images/BinSched.png</ImageSource>
+                        </dxb:BarButtonItem.LargeGlyph>
+                        </dxb:BarButtonItem>-->
+                    </dxr:RibbonPageGroup>
+                </dxb:InsertAction>
+
+            </dxsch:SchedulerControl.RibbonActions>
+
+            <dxsch:DayView ResourcesPerPage="8" />
+            <dxsch:SchedulerControl.DataSource>
+
+                <dxsch:DataSource
+                    AppointmentLabelsSource="{Binding YearColor}"
+                    AppointmentStatusesSource="{Binding Statuses}"
+                    AppointmentsSource="{Binding Appointments}"
+                    ResourcesSource="{Binding Rooms}">
+                    <dxsch:DataSource.AppointmentLabelMappings>
+                        <dxsch:AppointmentLabelMappings
+                            Caption="Caption"
+                            Id="Id"
+                            Color="Color" />
+                    </dxsch:DataSource.AppointmentLabelMappings>
+                    <dxsch:DataSource.AppointmentStatusMappings>
+                        <dxsch:AppointmentStatusMappings
+                            Brush="Brush"
+                            Caption="Caption"
+                            Id="Id" />
+                    </dxsch:DataSource.AppointmentStatusMappings>
+                    <dxsch:DataSource.ResourceMappings>
+                        <dxsch:ResourceMappings Caption="Name" Id="Id" />
+                    </dxsch:DataSource.ResourceMappings>
+                    <dxsch:DataSource.AppointmentMappings>
+
+                        <dxsch:AppointmentMappings
+                            Description="Description"
+                            End="EndTime"
+                            Id="Id"
+                            LabelId="CategoryId"
+                            Location="Location"
+                            RecurrenceInfo="RecurrenceInfo"
+                            Reminder="ReminderInfo"
+                            ResourceId="roomId"
+                            Start="StartTime"
+                            StatusId="StatusId"
+                            Subject="CName"
+                            Type="Type">
+                            <dxsch:CustomFieldMapping Name="GroupID" Mapping="GroupID" />
+                            <dxsch:CustomFieldMapping Name="AttendanceID" Mapping="AttendanceID" />
+                            <dxsch:CustomFieldMapping Name="ExtraID" Mapping="ExtraID" />
+                            <dxsch:CustomFieldMapping Name="ReoccurrenceExceptionFinished" Mapping="ReoccurrenceExceptionFinished" />
+                            <dxsch:CustomFieldMapping Name="TimeID" Mapping="TimeID" />
+                        </dxsch:AppointmentMappings>
+                    </dxsch:DataSource.AppointmentMappings>
+
+                </dxsch:DataSource>
+
+            </dxsch:SchedulerControl.DataSource>
+        </dxsch:SchedulerControl>
+    </Grid>
+</UserControl>

@@ -1,0 +1,134 @@
+﻿<!--   
+    Copyright © 2008, Zona-Tools, all rights reserved.   
+
+    This source code is licensed under the Code Project Open License (CPOL).
+    Check out http://www.codeproject.com/info/cpol10.aspx for further details.
+    
+    -->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:xpbar="clr-namespace:ZonaTools.XPlorerBar">
+
+
+    <!-- ======================== -->
+    <!-- = Main template import = -->
+    <!-- ======================== -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/ZonaTools.XPlorerBar;component/Themes/XPlorerBar.Generic.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <!-- ========================== -->
+    <!-- = Expand/Collapse arrows = -->
+    <!-- ========================== -->
+    <Geometry x:Key="XPlorerSectionCollapseArrow">M0,0 L8,0 L4,8Z</Geometry>
+    <Geometry x:Key="XPlorerSectionExpandArrow">M0,0 L8,4 L0,8Z</Geometry>
+
+
+    <!-- =========== -->
+    <!-- = Brushes = -->
+    <!-- =========== -->
+    
+    <!-- XPlorerBar : background -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerBarBackgroundBrush}" Color="#333333"/>
+    
+    <!-- XPlorerSection content : background -->
+    <SolidColorBrush x:Key="XPlorerSectionBackgroundBrush" Color="#595959"/>
+    <!-- XPlorerSection content : foreground -->
+    <SolidColorBrush x:Key="XPlorerSectionForegroundBrush" Color="#ffffff"/>
+    <!-- XPlorerSection content : foreground (IsMouseOver = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionContentHoverForegroundBrush}" Color="#ffffff"/>
+
+    <!-- XPlorerSection header : arrow -->
+    <SolidColorBrush x:Key="XPlorerSectionArrowBrush" Color="#aaaaaa"/>
+
+    
+    <!-- ==================== -->
+    <!-- = XPlorerBar style = -->
+    <!-- ==================== -->
+    <Style TargetType="{x:Type xpbar:XPlorerBar}">
+        <Setter Property="Padding" Value="3,3,3,0"/>
+    </Style>
+
+
+    <!-- ======================== -->
+    <!-- = XPlorerSection style = -->
+    <!-- ======================== -->
+    <Style TargetType="{x:Type xpbar:XPlorerSection}">
+        <Setter Property="Margin" Value="0,0,0,3"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="{StaticResource XPlorerSectionBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource XPlorerSectionForegroundBrush}"/>
+        <Setter Property="ExpandOrCollapseDuration" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type xpbar:XPlorerSection}">
+                    <StackPanel Orientation="Vertical">
+                        <!-- Header Site -->
+                        <ToggleButton x:Name="PART_HeaderSite" 
+                                      Content="{TemplateBinding Header}" Style="{DynamicResource HeaderStyle}"
+                                      Background="{TemplateBinding Background}" Foreground="{TemplateBinding Foreground}"/>
+                        <!-- Content Site -->
+                        <xpbar:XPandableDecorator x:Name="PART_ContentSite">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="0,0,4,4">
+                                <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                            </Border>
+                        </xpbar:XPandableDecorator>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- =============================== -->
+    <!-- = XPlorerSection header style = -->
+    <!-- =============================== -->
+    <Style x:Key="HeaderStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="headerBorder" Background="{TemplateBinding Background}" CornerRadius="4">
+                        <DockPanel LastChildFill="True">
+                            <!-- Header arrow -->
+                            <Path x:Name="headerArrow" 
+                                  DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                                  Margin="8,5,5,5" SnapsToDevicePixels="True"
+                                  Data="{StaticResource XPlorerSectionExpandArrow}"
+                                  Fill="{StaticResource XPlorerSectionArrowBrush}"/>
+                            <!-- Header text -->
+                            <ContentPresenter x:Name="headerContent"
+                                              Content="{TemplateBinding Content}" Margin="0,1,10,0"
+                                              HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <ContentPresenter.Resources>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                                    </Style>
+                                </ContentPresenter.Resources>
+                            </ContentPresenter>
+                        </DockPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <!-- IsChecked = true -->
+                        <Trigger Property="IsChecked" Value="True">
+                            <!-- Updates the arrow appearance -->
+                            <Setter TargetName="headerArrow" Property="Data" Value="{StaticResource XPlorerSectionCollapseArrow}"/>
+                            <!-- Updates the border corners -->
+                            <Setter TargetName="headerBorder" Property="CornerRadius" Value="4,4,0,0"/>
+                        </Trigger>
+
+                        <!-- IsMouseOver = true -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <!-- Updates the arrow color -->
+                            <Setter TargetName="headerArrow" Property="Fill" Value="{StaticResource XPlorerSectionForegroundBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

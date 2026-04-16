@@ -1,0 +1,121 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.DetailedTPayment"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="DetailedTPayment"
+    Width="350"
+    Height="300"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <FontFamily x:Key="FontLabel">pack://application:,,,/Fonts/#Droid Arabic Kufi</FontFamily>
+                </ResourceDictionary>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <StackPanel
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Orientation="Vertical">
+            <StackPanel
+                Margin="10,0,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <RadioButton
+                    Name="PrintMethod1"
+                    Margin="0,0,10,0"
+                    Checked="PrintMethod1_Checked"
+                    Content="Print Method 1"
+                    GroupName="Options"
+                    IsChecked="True" />
+
+                <!--  Second RadioButton  -->
+                <RadioButton
+                    Name="PrintMethod2"
+                    Checked="PrintMethod2_Checked"
+                    Content="Print Method 2"
+                    GroupName="Options" />
+            </StackPanel>
+            <DataGrid
+                Name="DGSessions"
+                Grid.RowSpan="5"
+                Grid.Column="1"
+                Width="250"
+                Margin="10"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                AutoGenerateColumns="False"
+                FontSize="15"
+                GridLinesVisibility="All"
+                IsReadOnly="True"
+                ItemsSource="{Binding}"
+                SelectionChanged="DGSessions_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding SessionNumber}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Sessions}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding StudentsCount}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource TotalStudents}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding TotalPrice}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Price}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid
+                Name="AttendanceDG"
+                Grid.Row="0"
+                Grid.RowSpan="5"
+                Grid.Column="1"
+                Margin="10"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                AutoGenerateColumns="False"
+                FontSize="15"
+                GridLinesVisibility="All"
+                IsReadOnly="True"
+                ItemsSource="{Binding}"
+                SelectionMode="Single"
+                SelectionUnit="Cell"
+                Visibility="Collapsed">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        x:Name="ColumSName"
+                        Width="auto"
+                        Binding="{Binding Name}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource StudentName}" />
+                        </DataGridTextColumn.Header>
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Gender}" Value="1">
+                                        <Setter Property="TextBlock.Foreground" Value="Salmon" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Gender}" Value="0">
+                                        <Setter Property="TextBlock.Foreground" Value="Blue" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding ID}" Visibility="Collapsed" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>

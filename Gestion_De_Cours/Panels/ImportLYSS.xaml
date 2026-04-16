@@ -1,0 +1,245 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.ImportLYSS"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ImportLYSS"
+    Width="1300"
+    Height="450"
+    dx:ThemeManager.ThemeName="None"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Normal"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Name="Col1" />
+            <ColumnDefinition Name="Col2" />
+            <ColumnDefinition Name="Col3" />
+            <ColumnDefinition Name="Col4" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" VerticalAlignment="Top">
+            <Label
+                Margin="0,10,0,10"
+                Content="{DynamicResource LevelLB}"
+                FontSize="25" />
+            <DataGrid
+                Name="DGLevel"
+                Grid.RowSpan="2"
+                Grid.Column="1"
+                Width="300"
+                Height="300"
+                Margin="0,5,0,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                AutoGenerateColumns="False"
+                FontSize="15"
+                IsReadOnly="True"
+                ItemsSource="{Binding}"
+                ScrollViewer.CanContentScroll="True"
+                ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Level}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Level}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding IsSpec}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource HasSpec?}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox
+                                    Name="CheckBoxLvl"
+                                    Width="35"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    Checked="CheckBoxLvl_Checked"
+                                    IsChecked="{Binding Checked}"
+                                    Unchecked="CheckBoxLvl_Unchecked" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Top">
+            <Label
+                Margin="0,10,0,10"
+                Content="{DynamicResource YearLB}"
+                FontSize="25" />
+            <DataGrid
+                Name="DGYears"
+                Grid.Column="1"
+                Width="300"
+                MinHeight="300"
+                MaxHeight="300"
+                Margin="0,5,0,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                AutoGenerateColumns="False"
+                FontSize="15"
+                IsReadOnly="True"
+                ItemsSource="{Binding}"
+                ScrollViewer.CanContentScroll="True"
+                ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="auto" Binding="{Binding Level}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Level}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="auto" Binding="{Binding Year}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Year}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox
+                                    Name="CheckboxYears"
+                                    Width="35"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    Checked="CheckboxYears_Checked"
+                                    IsChecked="{Binding Checked}"
+                                    Unchecked="CheckboxYears_Unchecked" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Column="2" VerticalAlignment="Top">
+            <Label
+                Margin="0,10,0,10"
+                Content="{DynamicResource SpecialityLB}"
+                FontSize="25" />
+            <DataGrid
+                Name="DGSpec"
+                Grid.Column="2"
+                Width="300"
+                MinHeight="300"
+                MaxHeight="300"
+                Margin="0,5,0,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                AutoGenerateColumns="False"
+                FontSize="15"
+                IsReadOnly="True"
+                ItemsSource="{Binding}"
+                ScrollViewer.CanContentScroll="True"
+                ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Width="auto" Binding="{Binding Year}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Year}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="auto" Binding="{Binding Speciality}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Speciality}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox
+                                    Name="CheckBoxSpec"
+                                    Width="35"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    Checked="CheckBoxSpec_Checked"
+                                    IsChecked="{Binding Checked}"
+                                    Unchecked="CheckBoxSpec_Unchecked" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Column="3" VerticalAlignment="Top">
+            <Label
+                Margin="0,10,0,10"
+                Content="{DynamicResource SubjectLB}"
+                FontSize="25" />
+            <DataGrid
+                Name="DGSubject"
+                Grid.Column="3"
+                Width="300"
+                MinHeight="300"
+                MaxHeight="300"
+                Margin="0,5,0,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                AutoGenerateColumns="False"
+                FontSize="15"
+                IsReadOnly="True"
+                ItemsSource="{Binding}"
+                ScrollViewer.CanContentScroll="True"
+                ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Width="auto" Binding="{Binding Year}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Year}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="auto" Binding="{Binding Speciality}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Speciality}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="auto" Binding="{Binding Subject}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource Subject}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox
+                                    Name="CheckBoxSubject"
+                                    Width="35"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    Checked="CheckBoxSubject_Checked"
+                                    IsChecked="{Binding Checked}"
+                                    Unchecked="CheckBoxSubject_Unchecked" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <Button
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Width="100"
+            Height="30"
+            Margin="0,0,0,10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Click="Button_Click"
+            Content="+"
+            FontSize="15" />
+    </Grid>
+</Window>

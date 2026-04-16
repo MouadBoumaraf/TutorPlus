@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/03/2022 11:31:26" ReportInfo.Modified="12/04/2022 11:11:38" ReportInfo.CreatorVersion="2022.2.16.0">
+  <Dictionary>
+    <TableDataSource Name="dataDates" ReferenceName="Data.dataDates" DataType="System.Int32" Enabled="true">
+      <Column Name="Date1" DataType="System.String"/>
+      <Column Name="Date2" DataType="System.String"/>
+      <Column Name="Date3" DataType="System.String"/>
+      <Column Name="Date4" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Presense" ReferenceName="Data.Presense" DataType="System.Int32" Enabled="true">
+      <Column Name="Date1" DataType="System.Int32"/>
+      <Column Name="Date2" DataType="System.Int32"/>
+      <Column Name="Date3" DataType="System.Int32"/>
+      <Column Name="SPrice" DataType="System.Int32"/>
+      <Column Name="TPrice" DataType="System.Int32"/>
+      <Column Name="SuPrice" DataType="System.Int32"/>
+      <Column Name="Ses" DataType="System.Int32"/>
+      <Column Name="TSes" DataType="System.Int32"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Gender" DataType="System.Int32"/>
+      <Column Name="ID" DataType="System.Int32"/>
+      <Column Name="SPeriods" DataType="System.Int32"/>
+      <Column Name="Date4" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="DataGeneral" ReferenceName="Data.DataGeneral" DataType="System.Int32" Enabled="true">
+      <Column Name="TName" DataType="System.String"/>
+      <Column Name="GName" DataType="System.String"/>
+      <Column Name="Session" DataType="System.String"/>
+      <Column Name="Date" DataType="System.String"/>
+      <Column Name="TStudents" DataType="System.String"/>
+      <Column Name="SuPrice" DataType="System.String"/>
+      <Column Name="SPrice" DataType="System.String"/>
+      <Column Name="TPrice" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="141.75">
+      <TextObject Name="Text1" Left="274.05" Top="9.45" Width="189" Height="37.8" Text="Teacher Payment" Font="Arial, 15pt"/>
+      <TextObject Name="Text2" Left="9.45" Top="56.7" Width="113.4" Height="18.9" Text="Teacher Name :" Font="Arial, 10pt"/>
+      <TextObject Name="Text3" Left="9.45" Top="103.95" Width="113.4" Height="18.9" Text="Group Name :" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="415.8" Top="56.7" Width="94.5" Height="18.9" Text="Date :" Font="Arial, 10pt"/>
+      <TextObject Name="Text5" Left="415.8" Top="103.95" Width="94.5" Height="18.9" Text="Sessions :" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="122.85" Top="56.7" Width="236.25" Height="18.9" Border.Lines="All" Border.Width="2" Text="[DataGeneral.TName]" Font="Arial, 10pt"/>
+      <TextObject Name="Text7" Left="122.85" Top="103.95" Width="236.25" Height="18.9" Border.Lines="All" Border.Width="2" Text="[DataGeneral.GName]" Font="Arial, 10pt"/>
+      <TextObject Name="Text8" Left="510.3" Top="56.7" Width="122.85" Height="18.9" Border.Lines="All" Border.Width="2" Text="[DataGeneral.Date]" Font="Arial, 10pt"/>
+      <TextObject Name="Text9" Left="510.3" Top="103.95" Width="122.85" Height="18.9" Border.Lines="All" Border.Width="2" Text="[DataGeneral.Session]" Font="Arial, 10pt"/>
+      <TextObject Name="Text27" Left="-9450" Top="-9450" Width="113.4" Height="18.9" Text="Teacher Name :" Font="Arial, 10pt"/>
+      <TextObject Name="Text29" Left="-9043.65" Top="-9450" Width="94.5" Height="18.9" Text="Date :" Font="Arial, 10pt"/>
+      <TextObject Name="Text31" Left="-9336.6" Top="-9450" Width="236.25" Height="18.9" Border.Lines="All" Border.Width="2" Text="[DataGeneral.TName]" Font="Arial, 10pt"/>
+      <TextObject Name="Text33" Left="-8949.15" Top="-9450" Width="122.85" Height="18.9" Border.Lines="All" Border.Width="2" Text="[DataGeneral.TName]" Font="Arial, 10pt"/>
+      <TextObject Name="Text28" Left="-9450" Top="-9402.75" Width="113.4" Height="18.9" Text="Group Name :" Font="Arial, 10pt"/>
+      <TextObject Name="Text30" Left="-9043.65" Top="-9402.75" Width="94.5" Height="18.9" Text="Sessions :" Font="Arial, 10pt"/>
+      <TextObject Name="Text32" Left="-9336.6" Top="-9402.75" Width="236.25" Height="18.9" Border.Lines="All" Border.Width="2" Text="[DataGeneral.TName]" Font="Arial, 10pt"/>
+      <TextObject Name="Text34" Left="-8949.15" Top="-9402.75" Width="122.85" Height="18.9" Border.Lines="All" Border.Width="2" Text="[DataGeneral.TName]" Font="Arial, 10pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="145.75" Width="718.2" Height="18.9">
+      <TextObject Name="Text10" Left="9.45" Width="198.45" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="Student Name" Font="Arial, 8pt"/>
+      <TextObject Name="Text11" Left="198.45" Width="66.15" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="[DataDates.Date1]" Font="Arial, 8pt"/>
+      <TextObject Name="Text12" Left="264.6" Width="66.15" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="[DataDates.Date2]" Font="Arial, 8pt"/>
+      <TextObject Name="Text13" Left="330.75" Width="66.15" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="[DataDates.Date3]" Font="Arial, 8pt"/>
+      <TextObject Name="Text14" Left="396.9" Width="66.15" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="[DataDates.Date4]" Font="Arial, 8pt"/>
+      <TextObject Name="Text15" Left="463.05" Width="75.6" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="Student Price" Font="Arial, 8pt"/>
+      <TextObject Name="Text16" Left="538.65" Width="94.5" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="Supposed Price" Font="Arial, 8pt"/>
+      <TextObject Name="Text17" Left="633.15" Width="85.05" Height="18.9" Border.Lines="All" Fill.Color="Silver" Text="Teacher Price" Font="Arial, 8pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="168.65" Width="718.2" Height="18.9" DataSource="Presense">
+      <TextObject Name="Text18" Left="9.45" Width="189" Height="18.9" Border.Lines="All" Text="[Presense.Name]" Font="Arial, 8pt"/>
+      <TextObject Name="Text19" Left="198.45" Width="66.15" Height="18.9" Border.Lines="All" Text="[Presense.Date1]" Font="Arial, 8pt"/>
+      <TextObject Name="Text20" Left="264.6" Width="66.15" Height="18.9" Border.Lines="All" Text="[Presense.Date2]" Font="Arial, 8pt"/>
+      <TextObject Name="Text21" Left="330.75" Width="66.15" Height="18.9" Border.Lines="All" Text="[Presense.Date3]" Font="Arial, 8pt"/>
+      <TextObject Name="Text22" Left="396.9" Width="66.15" Height="18.9" Border.Lines="All" Text="[Presense.Date4]" Font="Arial, 8pt"/>
+      <TextObject Name="Text23" Left="463.05" Width="75.6" Height="18.9" Border.Lines="All" Text="[Presense.SPrice]" Font="Arial, 8pt"/>
+      <TextObject Name="Text24" Left="538.65" Width="94.5" Height="18.9" Border.Lines="All" Text="[Presense.SuPrice]" Font="Arial, 8pt"/>
+      <TextObject Name="Text25" Left="633.15" Width="85.05" Height="18.9" Border.Lines="All" Text="[Presense.TPrice]" Font="Arial, 8pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="191.55" Width="718.2" Height="47.25">
+      <TextObject Name="Text40" Left="406.35" Top="18.9" Width="103.95" Height="18.9" Text="Teacher Total :" Font="Arial, 10pt"/>
+      <TextObject Name="Text42" Left="510.3" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All" Border.Width="2" Text="[DataGeneral.TPrice]" Font="Arial, 10pt"/>
+      <TextObject Name="Text36" Left="9.45" Top="18.9" Width="103.95" Height="18.9" Text="Student Total :" Font="Arial, 10pt"/>
+      <TextObject Name="Text38" Left="113.4" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All" Border.Width="2" Text="[DataGeneral.SPrice]" Font="Arial, 10pt"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="242.8" Width="718.2"/>
+  </ReportPage>
+</Report>

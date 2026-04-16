@@ -1,0 +1,138 @@
+﻿<UserControl
+    x:Class="Gestion_De_Cours.UControl.ShortCuts"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.UControl"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="1200"
+    Height="800"
+    dx:ThemeManager.ThemeName="None"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <!--  Define styles for each button  -->
+        <Style x:Key="AddStudentButtonStyle" TargetType="local:DisplayButton">
+            <Setter Property="Background" Value="LightBlue" />
+        </Style>
+        <Style x:Key="AddPaymentButtonStyle" TargetType="local:DisplayButton">
+            <Setter Property="Background" Value="LightGreen" />
+        </Style>
+        <Style x:Key="ExtraPaymentButtonStyle" TargetType="local:DisplayButton">
+            <Setter Property="Background" Value="LightCoral" />
+            <!--  Changed to LightCoral  -->
+        </Style>
+        <Style x:Key="ScanBarCodeButtonStyle" TargetType="local:DisplayButton">
+            <Setter Property="Background" Value="LightYellow" />
+        </Style>
+        <Style x:Key="AddTeacherButtonStyle" TargetType="local:DisplayButton">
+            <Setter Property="Background" Value="LightPink" />
+        </Style>
+        <Style x:Key="CreateAttendanceButtonStyle" TargetType="local:DisplayButton">
+            <Setter Property="Background" Value="LightSkyBlue" />
+        </Style>
+        <Style x:Key="ClassAddButtonStyle" TargetType="local:DisplayButton">
+            <Setter Property="Background" Value="LightSalmon" />
+            <!--  Changed to LightSalmon  -->
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="450" />
+            <RowDefinition Name="row" Height="150" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <GroupBox
+            Width="1000"
+            HorizontalAlignment="Center"
+            BorderBrush="Black"
+            BorderThickness="2">
+            <GroupBox.Header>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontWeight="Bold"
+                    Text="ShortCut" />
+            </GroupBox.Header>
+            <Border>
+                <WrapPanel
+                    Name="ShortCutPanel"
+                    AllowDrop="True"
+                    Background="Transparent"
+                    Drop="ShortCutPanel_Drop" />
+            </Border>
+        </GroupBox>
+
+
+        <Expander
+            Name="Expander"
+            Grid.Row="1"
+            Background="Transparent"
+            Collapsed="Expander_Collapsed"
+            Expanded="Expander_Expanded"
+            IsExpanded="False">
+            <WrapPanel
+                Name="TargetPanel"
+                AllowDrop="True"
+                Background="Transparent"
+                Drop="TargetPanel_Drop">
+                <local:DisplayButton
+                    Width="150"
+                    Height="100"
+                    Margin="5"
+                    Image="../Images/studentAdd.png"
+                    Style="{StaticResource AddStudentButtonStyle}"
+                    Tag="AddStudent"
+                    Text="Add Student" />
+                <local:DisplayButton
+                    Width="150"
+                    Height="100"
+                    Margin="5"
+                    Image="../Images/StudentPay.png"
+                    Style="{StaticResource AddPaymentButtonStyle}"
+                    Tag="AddPayment"
+                    Text="Add Payment" />
+                <local:DisplayButton
+                    Width="150"
+                    Height="100"
+                    Margin="5"
+                    Image="../Images/Payment.png"
+                    Style="{StaticResource ExtraPaymentButtonStyle}"
+                    Tag="ExtraPayment"
+                    Text="Extra Payments" />
+                <local:DisplayButton
+                    Width="150"
+                    Height="100"
+                    Margin="5"
+                    Image="../Images/ScanBarCode.png"
+                    Style="{StaticResource ScanBarCodeButtonStyle}"
+                    Tag="ScanBarCode"
+                    Text="Scan BarCode" />
+                <local:DisplayButton
+                    Width="150"
+                    Height="100"
+                    Margin="5"
+                    Image="../Images/Teacher.png"
+                    Style="{StaticResource AddTeacherButtonStyle}"
+                    Tag="AddTeacher"
+                    Text="Add Teacher" />
+                <local:DisplayButton
+                    Width="150"
+                    Height="100"
+                    Margin="5"
+                    Image="../Images/Attendance.png"
+                    Style="{StaticResource CreateAttendanceButtonStyle}"
+                    Tag="CreateAttendance"
+                    Text="Create Attendance" />
+                <local:DisplayButton
+                    Width="150"
+                    Height="100"
+                    Margin="5"
+                    Image="../Images/Class.png"
+                    Style="{StaticResource ClassAddButtonStyle}"
+                    Tag="ClassAdd"
+                    Text="Add Class" />
+
+            </WrapPanel>
+        </Expander>
+    </Grid>
+</UserControl>

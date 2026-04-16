@@ -1,0 +1,644 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.Particulier"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Particulier"
+    Width="600"
+    Height="450"
+    dx:ThemeManager.ThemeName="None"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <TabControl
+        Name="Tab"
+        SelectionChanged="TabControl_SelectionChanged"
+        TabStripPlacement="Top">
+        <TabItem
+            Name="Information"
+            Width="120"
+            MaxWidth="120">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Width="25"
+                        Height="25"
+                        Source="/Images/particulier.png" />
+                    <Label Content="{DynamicResource Info}" FontSize="12" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <StackPanel>
+                    <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                        <Label
+                            Width="80"
+                            HorizontalContentAlignment="Right"
+                            VerticalContentAlignment="Center"
+                            Content="{DynamicResource TeacherLB}"
+                            FontSize="15" />
+                        <ComboBox
+                            Name="TComboBox"
+                            Grid.Row="6"
+                            Grid.Column="0"
+                            Width="220"
+                            Height="40"
+                            FontSize="20"
+                            SelectedValuePath="ID">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image
+                                            Width="50"
+                                            Height="40"
+                                            Source="{Binding Picture}"
+                                            Stretch="Uniform" />
+                                        <Label
+                                            x:Name="Label1"
+                                            Content="{Binding Name}"
+                                            FontSize="15">
+                                            <Label.Resources>
+                                                <Style TargetType="{x:Type Label}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding TGender}" Value="0">
+                                                            <Setter Property="Foreground" Value="Blue" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding TGender}" Value="1">
+                                                            <Setter Property="Foreground" Value="Pink" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Label.Resources>
+                                        </Label>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+
+                        <Label
+                            Name="LabelS"
+                            Width="80"
+                            VerticalAlignment="Center"
+                            HorizontalContentAlignment="Right"
+                            Content="{DynamicResource StudentLB}"
+                            FontSize="15"
+                            Visibility="Visible" />
+
+                        <ComboBox
+                            Name="CBStudent"
+                            Width="220"
+                            Height="40"
+                            FontSize="15"
+                            IsTextSearchEnabled="True"
+                            SelectedValuePath="ID"
+                            SelectionChanged="CBStudent_SelectionChanged"
+                            TextSearch.TextPath="Name"
+                            Visibility="Visible">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image
+                                            Width="55"
+                                            Height="40"
+                                            Source="{Binding Picture}" />
+                                        <Label Content="{Binding Name}" FontSize="15">
+                                            <Label.Resources>
+                                                <Style TargetType="{x:Type Label}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Gender}" Value="0">
+                                                            <Setter Property="Foreground" Value="Blue" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Gender}" Value="1">
+                                                            <Setter Property="Foreground" Value="Pink" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Label.Resources>
+                                        </Label>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                        <Label
+                            Width="80"
+                            HorizontalContentAlignment="Right"
+                            VerticalContentAlignment="Center"
+                            Content="{DynamicResource NameLB}"
+                            FontSize="15" />
+                        <TextBox
+                            Name="TBName"
+                            Width="220"
+                            Height="35"
+                            FontSize="15" />
+                        <Label
+                            Width="80"
+                            HorizontalContentAlignment="Right"
+                            VerticalContentAlignment="Center"
+                            Content="{DynamicResource PriceLB}"
+                            FontSize="15" />
+                        <TextBox
+                            Name="CPrice"
+                            Grid.Row="6"
+                            Grid.Column="0"
+                            Width="220"
+                            Height="30"
+                            FontSize="15"
+                            PreviewTextInput="CPrice_PreviewTextInput" />
+                    </StackPanel>
+                    <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                        <Label
+                            Width="80"
+                            HorizontalContentAlignment="Right"
+                            VerticalContentAlignment="Center"
+                            Content="{DynamicResource Method}"
+                            FontSize="15" />
+                        <ComboBox
+                            Name="TPaymentMethod"
+                            Width="220"
+                            Height="30"
+                            FontSize="15">
+                            <ComboBoxItem Content="Per Hour" />
+                            <ComboBoxItem Content="Per Student" />
+                            <ComboBoxItem Content="Per Session" />
+                        </ComboBox>
+                        <Label
+                            Width="80"
+                            HorizontalContentAlignment="Right"
+                            VerticalContentAlignment="Center"
+                            Content="{DynamicResource SalaryLB}"
+                            FontSize="15" />
+                        <TextBox
+                            Name="TPayment"
+                            Grid.Row="6"
+                            Grid.Column="0"
+                            Width="220"
+                            Height="30"
+                            FontSize="15"
+                            PreviewTextInput="TPayment_PreviewTextInput" />
+                    </StackPanel>
+                    <Button
+                        Width="60"
+                        Height="20"
+                        Margin="0,15,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Click="Button_Click"
+                        Content="+" />
+                </StackPanel>
+            </Grid>
+        </TabItem>
+        <TabItem
+            Name="Time"
+            Width="120"
+            MaxWidth="100">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Width="25"
+                        Height="25"
+                        Source="/Images/time.png" />
+                    <Label Content="{DynamicResource Time}" FontSize="12" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="1*" />
+
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <Label
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource DateLB}"
+                        FontSize="15" />
+                    <DatePicker
+                        Name="Date"
+                        Width="100"
+                        Margin="0,0,10,0"
+                        VerticalContentAlignment="Center" />
+                    <Label
+                        Width="60"
+                        VerticalAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource RoomLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="CRoom"
+                        Width="100"
+                        Height="30"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        DisplayMemberPath="Room"
+                        FontSize="15"
+                        SelectedValuePath="ID"
+                        SelectionChanged="CRoom_SelectionChanged" />
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource FromLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="HFrom"
+                        Width="80"
+                        Height="30"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        SelectionChanged="HFrom_SelectionChanged"
+                        Text="HH">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                    <Label
+                                        VerticalAlignment="Top"
+                                        Content="{Binding Hour}"
+                                        FontSize="15">
+                                        <Label.Resources>
+                                            <Style TargetType="{x:Type Label}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Status}" Value="0">
+                                                        <Setter Property="Foreground" Value="YellowGreen" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="1">
+                                                        <Setter Property="Foreground" Value="Yellow" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="2">
+                                                        <Setter Property="Foreground" Value="Red" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Label.Resources>
+                                    </Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content=" : "
+                        FontSize="15" />
+                    <ComboBox
+                        Name="MFrom"
+                        Width="80"
+                        Height="30"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        SelectionChanged="MFrom_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                    <Label
+                                        VerticalAlignment="Top"
+                                        Content="{Binding Hour}"
+                                        FontSize="15">
+                                        <Label.Resources>
+                                            <Style TargetType="{x:Type Label}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Status}" Value="0">
+                                                        <Setter Property="Foreground" Value="YellowGreen" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="1">
+                                                        <Setter Property="Foreground" Value="Yellow" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="2">
+                                                        <Setter Property="Foreground" Value="Red" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Label.Resources>
+                                    </Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource ToLB}"
+                        FontSize="15" />
+                    <ComboBox
+                        Name="HTo"
+                        Width="80"
+                        Height="30"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        SelectionChanged="HTo_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                    <Label
+                                        VerticalAlignment="Top"
+                                        Content="{Binding Hour}"
+                                        FontSize="15">
+                                        <Label.Resources>
+                                            <Style TargetType="{x:Type Label}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Status}" Value="0">
+                                                        <Setter Property="Foreground" Value="YellowGreen" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="1">
+                                                        <Setter Property="Foreground" Value="Yellow" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="2">
+                                                        <Setter Property="Foreground" Value="Red" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Label.Resources>
+                                    </Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label
+                        VerticalContentAlignment="Center"
+                        Content=" : "
+                        FontSize="15" />
+                    <ComboBox
+                        Name="MTo"
+                        Width="80"
+                        Height="30"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        SelectionChanged="MTo_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                    <Label
+                                        VerticalAlignment="Top"
+                                        Content="{Binding Hour}"
+                                        FontSize="15">
+                                        <Label.Resources>
+                                            <Style TargetType="{x:Type Label}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Status}" Value="0">
+                                                        <Setter Property="Foreground" Value="YellowGreen" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="1">
+                                                        <Setter Property="Foreground" Value="Yellow" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="2">
+                                                        <Setter Property="Foreground" Value="Red" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Label.Resources>
+                                    </Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button
+                        Width="50"
+                        Height="25"
+                        Margin="10,0,0,0"
+                        Click="Button_Click_1"
+                        Content="+" />
+                </StackPanel>
+                <DataGrid
+                    Name="DGTime"
+                    Grid.Row="1"
+                    Margin="10"
+                    AutoGenerateColumns="False"
+                    CellEditEnding="DataGrid_CellEditEnding"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding Date}"
+                            FontSize="15">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Date}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding Room}"
+                            FontSize="15">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Room}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            x:Name="TimeStart"
+                            Width="80"
+                            Binding="{Binding TimeStart}"
+                            FontSize="15">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource TimeStart}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+
+                        <!--  TimeEnd column  -->
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding TimeEnd}"
+                            FontSize="15">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Time End}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding Note}"
+                            FontSize="15">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Note}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Header="{DynamicResource Type}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox
+                                        Name="comboBox"
+                                        SelectedIndex="{Binding Status}"
+                                        SelectionChanged="ComboBox_SelectionChanged">
+                                        <ComboBoxItem Content="{DynamicResource Pending}" />
+                                        <ComboBoxItem Content="{DynamicResource Studied}" />
+                                        <ComboBoxItem Content="{DynamicResource Canceled}" />
+                                    </ComboBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem
+            Name="Payment"
+            Width="120"
+            MaxWidth="100">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Width="25"
+                        Height="25"
+                        Source="/Images/payment.png" />
+                    <Label Content="{DynamicResource Payment}" FontSize="12" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Label
+                        Name="LabelSPay"
+                        Width="80"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Right"
+                        Content="{DynamicResource StudentLB}"
+                        FontSize="15"
+                        Visibility="Visible" />
+
+                    <ComboBox
+                        Name="CBStudentPay"
+                        Width="220"
+                        Height="40"
+                        FontSize="15"
+                        IsTextSearchEnabled="True"
+                        SelectedValuePath="ID"
+                        SelectionChanged="ComboBox_SelectionChanged_PaymentStudent"
+                        TextSearch.TextPath="Name"
+                        Visibility="Visible">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image
+                                        Width="55"
+                                        Height="40"
+                                        Source="{Binding Picture}" />
+                                    <Label Content="{Binding Name}" FontSize="15">
+                                        <Label.Resources>
+                                            <Style TargetType="{x:Type Label}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Gender}" Value="0">
+                                                        <Setter Property="Foreground" Value="Blue" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Gender}" Value="1">
+                                                        <Setter Property="Foreground" Value="Pink" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Label.Resources>
+                                    </Label>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource PriceLB}"
+                        FontSize="15" />
+                    <TextBox
+                        Name="TBPricePay"
+                        Width="100"
+                        Height="25" />
+                    <Button
+                        Width="70"
+                        Height="25"
+                        Margin="10,0,0,0"
+                        Click="Button_Click_Payment"
+                        Content="+" />
+                </StackPanel>
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    BorderBrush="Black"
+                    BorderThickness="0,2,0,0">
+                    <StackPanel
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Label HorizontalContentAlignment="Right" Content="{DynamicResource TotalPaidLB}" />
+                        <TextBox
+                            Name="TBTotalPaid"
+                            Width="105"
+                            Height="30"
+                            BorderBrush="Black"
+                            BorderThickness="2" />
+
+                        <Label Width="100" Content="{DynamicResource SupposedPriceLB}" />
+                        <TextBox
+                            Name="TBSuPrice"
+                            Width="105"
+                            Height="30"
+                            BorderBrush="Black"
+                            BorderThickness="2" />
+
+                        <Label Width="100" Content="{DynamicResource TeacherTotalLB}" />
+                        <TextBox
+                            Name="TBTeacherTotal"
+                            Width="105"
+                            Height="30"
+                            BorderBrush="Black"
+                            BorderThickness="2" />
+
+                    </StackPanel>
+                </Border>
+                <DataGrid
+                    Name="DGPay"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Margin="5">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding Type}"
+                            FontSize="15">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Type}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding Price}"
+                            FontSize="15">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Price}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding Date}"
+                            FontSize="15">
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="{DynamicResource Date}" />
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

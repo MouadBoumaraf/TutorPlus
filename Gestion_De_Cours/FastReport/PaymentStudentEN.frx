@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Name="Simple List" ReportInfo.Author="Fast Reports Inc" ReportInfo.Description="Demonstrates a simple list report. To create it:&#13;&#10;- go to &quot;Data&quot; menu and select &quot;Choose Report Data...&quot; item to select a datasource;&#13;&#10;- go to &quot;Report|Configure Bands...&quot; menu to create the band structure;&#13;&#10;- return to the report page, doubleclick the data band to show its editor;&#13;&#10;- choose the datasource;&#13;&#10;- drag data from the Data Dictionary window to the band." ReportInfo.Created="01/17/2008 03:05:57" ReportInfo.Modified="10/09/2024 12:44:39" ReportInfo.CreatorVersion="1.8.6.0">
+  <Dictionary>
+    <TableDataSource Name="Payment" ReferenceName="Data.Payment" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Ammount" DataType="System.String"/>
+      <Column Name="Date" DataType="System.String"/>
+      <Column Name="Note" DataType="System.String"/>
+      <Column Name="CName" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="EcoleInfo" ReferenceName="Data.EcoleInfo" DataType="System.Int32" Enabled="true">
+      <Column Name="NameFR" DataType="System.String"/>
+      <Column Name="NameAR" DataType="System.String"/>
+      <Column Name="Adress" DataType="System.String"/>
+      <Column Name="Adress2" DataType="System.String"/>
+      <Column Name="Number" DataType="System.String"/>
+      <Column Name="Number2" DataType="System.String"/>
+      <Column Name="CCP" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+      <Column Name="InsFees" DataType="System.Int32"/>
+      <Column Name="Absent" DataType="System.Int32"/>
+      <Column Name="ClassPay" DataType="System.Int32"/>
+      <Column Name="PhotoFile" DataType="System.String"/>
+      <Column Name="ApplicationFile" DataType="System.String"/>
+      <Column Name="TextSize" DataType="System.Int32"/>
+      <Column Name="Language" DataType="System.Int32"/>
+      <Column Name="EcoleLogo" DataType="System.String"/>
+      <Column Name="AddStudent" DataType="System.Int32"/>
+      <Column Name="AddPayment" DataType="System.Int32"/>
+      <Column Name="ExtraPayment" DataType="System.Int32"/>
+      <Column Name="ScanBarCode" DataType="System.Int32"/>
+      <Column Name="AddTeacher" DataType="System.Int32"/>
+      <Column Name="CreateAttendance" DataType="System.Int32"/>
+      <Column Name="ClassAdd" DataType="System.Int32"/>
+      <Column Name="FSID" DataType="System.Int32"/>
+      <Column Name="FSName" DataType="System.Int32"/>
+      <Column Name="FSPhone" DataType="System.Int32"/>
+      <Column Name="FSParentNumber" DataType="System.Int32"/>
+      <Column Name="FSGender" DataType="System.Int32"/>
+      <Column Name="FSBirthDate" DataType="System.Int32"/>
+      <Column Name="FSLevel" DataType="System.Int32"/>
+      <Column Name="FSYear" DataType="System.Int32"/>
+      <Column Name="FSSpeciality" DataType="System.Int32"/>
+      <Column Name="FSAdress" DataType="System.Int32"/>
+      <Column Name="FSRegister" DataType="System.Int32"/>
+      <Column Name="FSNote" DataType="System.Int32"/>
+      <Column Name="FSInsc" DataType="System.Int32"/>
+      <Column Name="FTName" DataType="System.Int32"/>
+      <Column Name="FTNumber" DataType="System.Int32"/>
+      <Column Name="FTGender" DataType="System.Int32"/>
+      <Column Name="FTBDate" DataType="System.Int32"/>
+      <Column Name="FTMail" DataType="System.Int32"/>
+      <Column Name="FTCCP" DataType="System.Int32"/>
+      <Column Name="FTRegister" DataType="System.Int32"/>
+      <Column Name="FTNote" DataType="System.Int32"/>
+      <Column Name="FCCName" DataType="System.Int32"/>
+      <Column Name="FCTName" DataType="System.Int32"/>
+      <Column Name="FCYear" DataType="System.Int32"/>
+      <Column Name="FCSubject" DataType="System.Int32"/>
+      <Column Name="FCPrice" DataType="System.Int32"/>
+      <Column Name="FCTPayMethod" DataType="System.Int32"/>
+      <Column Name="FCTPay" DataType="System.Int32"/>
+      <Column Name="PaymentMonth" DataType="System.Int32"/>
+    </TableDataSource>
+    <TableDataSource Name="StudentInfo" ReferenceName="Data.StudentInfo" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Year" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="70" PaperHeight="3275.8" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="15" OtherPagesSource="15" Guides="94.5,75.6,75.6,28.35">
+    <PageHeaderBand Name="PageHeader2" Width="264.6" Height="217.35">
+      <PictureObject Name="Picture2" Left="94.5" Top="28.35" Width="75.6" Height="56.7" ImageLocation="C:\Users\Home\Downloads\Logo App Black (1).png"/>
+      <TextObject Name="Text22" Top="94.5" Width="264.6" Height="18.9" Text="[EcoleInfo.NameFR]" HorzAlign="Center"/>
+      <TextObject Name="TBName" Top="132.3" Width="122.85" Height="18.9" Text="Student Name :" Font="Arial, 9pt"/>
+      <TextObject Name="Text1" Left="94.5" Top="132.3" Width="151.2" Height="18.9" Border.Lines="All" Text="[StudentInfo.Name]"/>
+      <TextObject Name="TBYear" Top="160.65" Width="94.5" Height="18.9" Text="Year :" Font="Arial, 9pt"/>
+      <TextObject Name="Text25" Left="94.5" Top="160.65" Width="151.2" Height="18.9" Border.Lines="All" Text="[StudentInfo.Year]"/>
+      <TextObject Name="TBMonthSubject" Top="198.45" Width="94.5" Height="18.9" Border.Lines="All" Text="Subject"/>
+      <TextObject Name="TBDate" Left="151.2" Top="198.45" Width="103.95" Height="18.9" Border.Lines="All" Text="Date"/>
+      <TextObject Name="TBPrice" Left="94.5" Top="198.45" Width="56.7" Height="18.9" Border.Lines="All" Text="Ammount"/>
+      <TextObject Name="TBStudentPayment" Left="9.45" Width="255.15" Height="28.35" Text="Student Payment" HorzAlign="Center" Font="Arial, 15pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data2" Top="220.55" Width="264.6" Height="28.35" DataSource="Payment">
+      <TextObject Name="Text30" Left="94.5" Width="56.7" Height="28.35" Border.Lines="All" Text="[Payment.Ammount]" Font="Arial, 7pt"/>
+      <TextObject Name="Text31" Left="151.2" Width="103.95" Height="28.35" Border.Lines="All" Text="[Payment.Date]" Font="Arial, 7pt"/>
+      <TextObject Name="Text32" Width="94.5" Height="28.35" Border.Lines="All" Text="[Payment.CName]" Font="Arial, 7pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="252.1" Width="264.6" Height="56.7">
+      <TextObject Name="TBDisClaimer" Left="9.45" Top="9.45" Width="245.7" Height="37.8" Text="Please keep this receipt safe. The school is not responsible for lost or misplaced receipts" Font="Arial, 8pt, style=Bold"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

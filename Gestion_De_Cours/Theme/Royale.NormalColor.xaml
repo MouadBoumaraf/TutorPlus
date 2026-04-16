@@ -1,0 +1,198 @@
+﻿<!--   
+    Copyright © 2008, Zona-Tools, all rights reserved.   
+
+    This source code is licensed under the Code Project Open License (CPOL).
+    Check out http://www.codeproject.com/info/cpol10.aspx for further details.
+    
+    -->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:xpbar="clr-namespace:ZonaTools.XPlorerBar">
+
+
+    <!-- ======================== -->
+    <!-- = Main template import = -->
+    <!-- ======================== -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/ZonaTools.XPlorerBar;component/Themes/XPlorerBar.Generic.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <!-- ====================== -->
+    <!-- = XPlorerBar brushes = -->
+    <!-- ====================== -->
+
+    <!-- background --> 
+    <LinearGradientBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerBarBackgroundBrush}" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0" Color="#76e862" />
+        <GradientStop Offset="1" Color="#76e862" />
+    </LinearGradientBrush>
+
+
+    <!-- ================================== -->
+    <!-- = XPlorerSection content brushes = -->
+    <!-- ================================== -->
+
+    <!-- background -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionContentBackgroundBrush}" Color="#ffffff"/>
+    <!-- background (IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryContentBackgroundBrush}" Color="#ffffff"/>
+
+    <!-- foreground -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionContentForegroundBrush}" Color="#002280"/>
+    <!-- foreground (IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryContentForegroundBrush}" Color="#002280"/>
+    <!-- foreground (IsMouseOver = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionContentHoverForegroundBrush}" Color="#296dc1"/>
+    <!-- foreground (IsMouseOver = true && IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryContentHoverForegroundBrush}" Color="#296dc1"/>
+
+    <!-- border -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionContentBorderBrush}" Color="#2a4dab"/>
+    <!-- border (IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryContentBorderBrush}" Color="#0f367b"/>
+
+
+
+    <!-- ================================= -->
+    <!-- = XPlorerSection header brushes = -->
+    <!-- ================================= -->
+
+    <!-- background -->
+    <LinearGradientBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionHeaderBackgroundBrush}" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0.0" Color="#97c7f0" />
+        <GradientStop Offset="0.5" Color="#649add" />
+        <GradientStop Offset="0.5" Color="#3980d2" />
+        <GradientStop Offset="1.0" Color="#315fb7" />
+    </LinearGradientBrush>
+    <!-- background (IsPrimary = true) -->
+    <LinearGradientBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryHeaderBackgroundBrush}" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0.0" Color="#5174a8" />
+        <GradientStop Offset="0.5" Color="#1d4b8f" />
+        <GradientStop Offset="0.5" Color="#10367a" />
+        <GradientStop Offset="1.0" Color="#0c337b" />
+    </LinearGradientBrush>
+
+    <!-- foreground -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionHeaderForegroundBrush}" Color="#d9e1f6"/>
+    <!-- foreground (IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryHeaderForegroundBrush}" Color="#d9e1f6"/>
+    <!-- foreground (IsMouseOver = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionHeaderHoverForegroundBrush}" Color="#ffffff"/>
+    <!-- foreground (IsMouseOver = true && IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryHeaderHoverForegroundBrush}" Color="#ffffff"/>
+
+    <!-- button foreground -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionHeaderButtonForegroundBrush}" Color="#bbcef2"/>
+    <!-- button foreground (IsPrimary = true)-->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryHeaderButtonForegroundBrush}" Color="#bbcef2"/>
+    <!-- button foreground (IsMouseOver = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionHeaderButtonHoverForegroundBrush}" Color="#ffffff"/>
+    <!-- button foreground (IsMouseOver = true && IsPrimary = true) -->
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionPrimaryHeaderButtonHoverForegroundBrush}" Color="#ffffff"/>
+
+    <!-- border -->
+    <SolidColorBrush x:Key="XPlorerSectionHeaderBorderBrush" Color="#2a4dab"/>
+    <!-- border (IsPrimary = true) -->
+    <SolidColorBrush x:Key="XPlorerSectionPrimaryHeaderBorderBrush" Color="#365686"/>
+    
+    
+    <!-- =============================== -->
+    <!-- = XPlorerSection header style = -->
+    <!-- =============================== -->
+    <Style x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type xpbar:XPlorerResourceKeys},ResourceId=XPlorerSectionHeaderStyle}" 
+           TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="{DynamicResource {x:Static xpbar:XPlorerResourceKeys.XPlorerSectionHeaderBackgroundBrushKey}}"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static xpbar:XPlorerResourceKeys.XPlorerSectionHeaderForegroundBrushKey}}"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Border x:Name="toggleBorder"
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{StaticResource XPlorerSectionHeaderBorderBrush}" BorderThickness="1,1,1,0"
+                                Height="23" VerticalAlignment="Bottom">
+                            <DockPanel LastChildFill="True">
+                                <!-- Arrows -->
+                                <Path x:Name="buttonArrows"  
+                                      DockPanel.Dock="Right"
+                                      HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,6,10,0"
+                                      SnapsToDevicePixels="True"
+                                      Data="{DynamicResource {x:Static xpbar:XPlorerResourceKeys.XPlorerSectionHeaderExpandArrowsKey}}"
+                                      Fill="{DynamicResource {x:Static xpbar:XPlorerResourceKeys.XPlorerSectionHeaderButtonForegroundBrushKey}}"/>
+                                <!-- Header text -->
+                                <ContentPresenter x:Name="contentSite" 
+                                                  Content="{TemplateBinding Content}" Margin="35,5,10,0"
+                                                  HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <ContentPresenter.Resources>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                                        </Style>
+                                    </ContentPresenter.Resources>
+                                </ContentPresenter>
+                            </DockPanel>
+                        </Border>
+                        <!-- Header image -->
+                        <Image x:Name="headerImage" 
+                               Width="32" Height="32" Margin="1,0,0,0" Visibility="Visible"
+                               HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                               Source="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type xpbar:XPlorerSection}}, Path=HeaderImage}"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+
+                        <!-- IsChecked = true -->
+                        <Trigger Property="IsChecked" Value="True">
+                            <!-- Updates the button -->
+                            <Setter TargetName="buttonArrows" Property="Data" Value="{DynamicResource {x:Static xpbar:XPlorerResourceKeys.XPlorerSectionHeaderCollapseArrowsKey}}"/>
+                        </Trigger>
+
+                        <!-- IsMouseOver = true -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <!-- Updates the header -->
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static xpbar:XPlorerResourceKeys.XPlorerSectionHeaderHoverForegroundBrushKey}}"/>
+                            <!-- Updates the button -->
+                            <Setter TargetName="buttonArrows" Property="Fill" Value="{DynamicResource {x:Static xpbar:XPlorerResourceKeys.XPlorerSectionHeaderButtonHoverForegroundBrushKey}}"/>
+                        </Trigger>
+
+                        <!-- IsPrimary = true -->
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsPrimary}" Value="true">
+                            <!-- Updates the header -->
+                            <Setter Property="Background" Value="{DynamicResource {x:Static xpbar:XPlorerResourceKeys.XPlorerSectionPrimaryHeaderBackgroundBrushKey}}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static xpbar:XPlorerResourceKeys.XPlorerSectionPrimaryHeaderForegroundBrushKey}}"/>
+                            <!-- Updates the header button -->
+                            <Setter TargetName="buttonArrows" Property="Fill" Value="{DynamicResource {x:Static xpbar:XPlorerResourceKeys.XPlorerSectionPrimaryHeaderButtonForegroundBrushKey}}"/>
+                            <!-- Updates the header border -->
+                            <Setter TargetName="toggleBorder" Property="BorderBrush" Value="{StaticResource XPlorerSectionPrimaryHeaderBorderBrush}"/>
+                        </DataTrigger>
+
+                        <!-- IsMouseOver = true && IsPrimary = true -->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <!-- IsMouseOver = true -->
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True"/>
+                                <!-- IsPrimary = true -->
+                                <Condition Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsPrimary}" Value="True"/>
+                            </MultiDataTrigger.Conditions>
+                            <!-- Updates the header -->
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static xpbar:XPlorerResourceKeys.XPlorerSectionPrimaryHeaderHoverForegroundBrushKey}}"/>
+                            <!-- Updates the button -->
+                            <Setter TargetName="buttonArrows" Property="Fill" Value="{DynamicResource {x:Static xpbar:XPlorerResourceKeys.XPlorerSectionPrimaryHeaderButtonHoverForegroundBrushKey}}"/>
+                        </MultiDataTrigger>
+
+                        <!-- There is no header image -->
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HeaderImage}" Value="{x:Null}">
+                            <Setter TargetName="headerImage" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="contentSite" Property="Margin" Value="12,5,10,0"/>
+                        </DataTrigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

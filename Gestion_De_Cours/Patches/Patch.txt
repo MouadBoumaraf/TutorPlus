@@ -1,0 +1,122 @@
+﻿IF EXISTS (
+    SELECT 1
+    FROM sys.columns 
+    WHERE Name = N'Studentses'
+      AND Object_ID = Object_ID(N'dbo.Discounts')
+)
+BEGIN
+    ALTER TABLE dbo.Discounts DROP COLUMN Studentses;
+END
+IF EXISTS (
+    SELECT 1
+    FROM sys.columns 
+    WHERE Name = N'Teacherses'
+      AND Object_ID = Object_ID(N'dbo.Discounts')
+)
+BEGIN
+    ALTER TABLE dbo.Discounts DROP COLUMN Teacherses;
+END
+IF NOT EXISTS (
+    SELECT 1
+    FROM sys.columns 
+    WHERE Name = N'StudentDate'
+      AND Object_ID = Object_ID(N'dbo.Discounts')
+)
+BEGIN
+    ALTER TABLE dbo.Discounts ADD StudentDate NVARCHAR(100);
+END
+IF NOT EXISTS (
+    SELECT 1
+    FROM sys.columns 
+    WHERE Name = N'TeacherDate'
+      AND Object_ID = Object_ID(N'dbo.Discounts')
+)
+BEGIN
+    ALTER TABLE dbo.Discounts ADD TeacherDate NVARCHAR(100);
+END
+@@@@@
+IF EXISTS (
+    SELECT 1
+    FROM INFORMATION_SCHEMA.COLUMNS
+    WHERE TABLE_NAME = 'discounts'
+      AND COLUMN_NAME = 'done'
+      AND DATA_TYPE = 'int'
+)
+BEGIN
+    ALTER TABLE discounts
+    ALTER COLUMN done NVARCHAR(50);
+END
+@@@@@
+ALTER FUNCTION [dbo].[GetPriceSession] 
+(
+	@StudentID int,
+	@AID int
+)
+RETURNS int 
+AS
+BEGIN
+	DECLARE @Price as Int ; 
+	Declare @GroupID int = (Select  GroupID  from Attendance Where ID = @AID);
+	Declare @Date nvarchar(100)  = (Select Date from Attendance where ID = @AID);
+	Declare @ClassID int = (Select  ClassID  from Groups Where GroupID = @GroupID);
+	
+	 IF Exists(Select CPrice From Discounts Where StudentID = @StudentID
+											 And ClassID = @ClassID 
+											 and CONVERT(DATE,StudentDate, 105) <= CONVERT(DATE,@Date, 105)
+											 And (Done is null or CONVERT(DATE,Done, 105) > CONVERT(DATE,@Date, 105) ))
+	 Begin 
+			Set @Price  =(Select CPrice/4 From Discounts Where StudentID = @StudentID
+											 And ClassID = @ClassID 
+											 and CONVERT(DATE,StudentDate, 105) <= CONVERT(DATE,@Date, 105)
+											 And (Done is null or  CONVERT(DATE,Done, 105) > CONVERT(DATE,@Date, 105) ))
+	 End
+     else 
+     Begin
+	 		Set @Price  =(Select CPrice/4 From Class Where ID = @ClassID)
+	 End;
+	RETURN @Price
+
+END
+@@@@@
+ALTER FUNCTION [dbo].[GetTPriceSession]  ( 	
+ @StudentID int, 	@AID int ) 
+ RETURNS int  AS BEGIN  	DECLARE @Price as Int ;  	
+ Declare @GroupID int = (Select  GroupID  from Attendance Where ID = @AID); 	
+ Declare @Date nvarchar(100)  = (Select Date from Attendance where ID = @AID); 
+ Declare @ClassID int = (Select  ClassID  from Groups Where GroupID = @GroupID); 	 	
+ IF Exists(Select TPrice From Discounts Where StudentID = @StudentID 				
+ 	 							  And ClassID = @ClassID  											
+ 	 							  and CONVERT(DATE,TeacherDate, 105) <  CONVERT(DATE,@Date, 105) 											
+ 	 							  And (Done  is null or CONVERT(DATE,Done, 105)  > CONVERT(DATE,@Date, 105)  )) 	 
+ Begin  			
+	Set @Price  =(Select TPrice/4 From Discounts Where StudentID = @StudentID 
+	And ClassID = @ClassID  and CONVERT(DATE,TeacherDate, 105) <  CONVERT(DATE,@Date, 105)  	
+	And  (Done  is null or CONVERT(DATE,Done, 105)  > CONVERT(DATE,@Date, 105))) 	
+ End    
+ else  
+ Begin 	 		
+	Set @Price  =(Select TPayment/4 From Class Where ID = @ClassID)
+ End; 	
+ RETURN @Price   END
+@@@@@
+IF NOT EXISTS (
+    SELECT 1
+    FROM sys.columns 
+    WHERE Name = N'CID'
+      AND Object_ID = Object_ID(N'dbo.Justif')
+)
+BEGIN
+    ALTER TABLE dbo.Justif ADD CID int;
+END
+@@@@@
+IF NOT EXISTS (
+    SELECT 1
+    FROM sys.columns 
+    WHERE Name = N'Date'
+      AND Object_ID = Object_ID(N'dbo.Justif')
+)
+BEGIN
+    ALTER TABLE dbo.Justif ADD Date Nvarchar(100);
+END
+@@@@@
+!!!!

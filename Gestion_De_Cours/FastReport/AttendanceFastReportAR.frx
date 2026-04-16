@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/13/2022 14:19:09" ReportInfo.Modified="09/14/2025 16:34:56" ReportInfo.CreatorVersion="1.8.6.0">
+  <Dictionary>
+    <TableDataSource Name="DataAttend" ReferenceName="Data.DataAttend" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="ID" DataType="System.Int32"/>
+      <Column Name="Gender" DataType="System.Int32"/>
+      <Column Name="Sessions" DataType="System.Int32"/>
+      <Column Name="Status" DataType="System.Int32"/>
+      <Column Name="StatusOP" DataType="System.Int32"/>
+      <Column Name="StatusCH" DataType="System.Int32"/>
+      <Column Name="StatusJustif" DataType="System.Int32"/>
+      <Column Name="Note" DataType="System.String"/>
+      <Column Name="BarCode" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="DataEcole" ReferenceName="Data.DataEcole" DataType="System.Int32" Enabled="true">
+      <Column Name="NameFR" DataType="System.String"/>
+      <Column Name="NameAR" DataType="System.String"/>
+      <Column Name="Logo" DataType="System.String"/>
+      <Column Name="Number" DataType="System.String"/>
+      <Column Name="Number2" DataType="System.String"/>
+      <Column Name="Adress" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="DataGroup" ReferenceName="Data.DataGroup" DataType="System.Int32" Enabled="true">
+      <Column Name="GroupName" DataType="System.String"/>
+      <Column Name="CSubject" DataType="System.Int32"/>
+      <Column Name="CYear" DataType="System.String"/>
+      <Column Name="TName" DataType="System.String"/>
+      <Column Name="RTName" DataType="System.String"/>
+      <Column Name="Year" DataType="System.String"/>
+      <Column Name="Subject" DataType="System.String"/>
+      <Column Name="Level" DataType="System.String"/>
+      <Column Name="LevelID" DataType="System.String"/>
+      <Column Name="Gender" DataType="System.Int32"/>
+      <Column Name="SAmmount" DataType="System.Int32"/>
+      <Column Name="Sessions" DataType="System.Int32"/>
+      <Column Name="TSessions" DataType="System.Int32"/>
+      <Column Name="TimeStart" DataType="System.String"/>
+      <Column Name="TimeEnd" DataType="System.String"/>
+      <Column Name="Date" DataType="System.String"/>
+      <Column Name="Room" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="DataAttendInfo" ReferenceName="Data.DataAttendInfo" DataType="System.Int32" Enabled="true">
+      <Column Name="ID" DataType="System.Int32"/>
+      <Column Name="GroupID" DataType="System.Int32"/>
+      <Column Name="TeacherEntrance" DataType="System.String"/>
+      <Column Name="Date" DataType="System.String"/>
+      <Column Name="Session" DataType="System.Int32"/>
+      <Column Name="Note" DataType="System.String"/>
+      <Column Name="GTID" DataType="System.Int32"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="302.4">
+      <TextObject Name="ClassName" Left="585.9" Top="151.2" Width="122.85" Height="28.35" Text="إسم القِسْم :" RightToLeft="true" Font="Arial, 20pt"/>
+      <TextObject Name="Text7" Left="340.2" Top="151.2" Width="245.7" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[DataGroup.GroupName]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text10" Left="207.9" Top="151.2" Width="122.85" Height="28.35" Text="اسم الأستاذ :" RightToLeft="true" Font="Arial, 20pt"/>
+      <TextObject Name="Text11" Left="9.45" Top="151.2" Width="189" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[DataGroup.TName]" VertAlign="Center" RightToLeft="true"/>
+      <TextObject Name="Text12" Left="595.35" Top="198.45" Width="113.4" Height="28.35" Text="تاريخ :" RightToLeft="true" Font="Arial, 20pt"/>
+      <TextObject Name="Text13" Left="245.7" Top="198.45" Width="85.05" Height="28.35" Text="القاعة :" RightToLeft="true" Font="Arial, 20pt"/>
+      <TextObject Name="Text14" Left="340.2" Top="198.45" Width="245.7" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[DataGroup.Date]" VertAlign="Center" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text15" Left="9.45" Top="198.45" Width="189" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[DataGroup.Room]" VertAlign="Center" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text16" Left="633.15" Top="245.7" Width="75.6" Height="28.35" Text="مِن  :" RightToLeft="true" Font="Arial, 20pt"/>
+      <TextObject Name="Text17" Left="340.2" Top="245.7" Width="245.7" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[DataGroup.TimeStart]" VertAlign="Center" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text18" Left="255.15" Top="245.7" Width="75.6" Height="28.35" Text="إلى :" RightToLeft="true" Font="Arial, 20pt"/>
+      <TextObject Name="Text19" Left="9.45" Top="245.7" Width="189" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[DataGroup.TimeEnd]" VertAlign="Center" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text20" Left="9.45" Top="94.5" Width="699.3" Height="47.25" Text="قائمة الحضور " HorzAlign="Center" RightToLeft="true" Font="Arial, 30pt, style=Bold"/>
+      <PictureObject Name="Picture1" Left="9.45" Top="9.45" Width="699.3" Height="85.05" ImageLocation="C:\ProgramData\EcoleSetting\EcolePhotos\EcoleLogo.jpg"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="306.4" Width="718.2" Height="66.15">
+      <TextObject Name="SName" Left="292.95" Top="37.8" Width="255.15" Height="28.35" Border.Lines="All" Fill.Color="Silver" Text="إسم التلميذ" RightToLeft="true" Font="Arial, 16pt"/>
+      <TextObject Name="Status" Left="160.65" Top="37.8" Width="132.3" Height="28.35" Border.Lines="All" Fill.Color="Silver" Text="الحضور" RightToLeft="true" Font="Arial, 16pt"/>
+      <TextObject Name="Text1" Width="66.15" Height="18.9" Text="[PageN]"/>
+      <TextObject Name="Text9" Left="548.1" Top="37.8" Width="151.2" Height="28.35" Border.Lines="All" Fill.Color="Silver" Text="باركود" RightToLeft="true" Font="Arial, 16pt"/>
+      <TextObject Name="Text21" Left="28.35" Top="37.8" Width="132.3" Height="28.35" Border.Lines="All" Fill.Color="Silver" Text="ملاحظة" RightToLeft="true" Font="Arial, 16pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="376.55" Width="718.2" Height="28.35" DataSource="DataAttend">
+      <TextObject Name="Text5" Left="160.65" Width="132.3" Height="28.35" Border.Lines="All" Text="[DataAttend.Status]" RightToLeft="true" Font="Microsoft Sans Serif, 16pt"/>
+      <TextObject Name="DTSNamee" Left="292.95" Width="255.15" Height="28.35" Border.Lines="All" Text="[DataAttend.Name]" RightToLeft="true" Font="Microsoft Sans Serif, 16pt"/>
+      <TextObject Name="Text8" Left="548.1" Width="151.2" Height="28.35" Border.Lines="All" Text="[DataAttend.BarCode]" RightToLeft="true" Font="Microsoft Sans Serif, 16pt"/>
+      <TextObject Name="Text22" Left="28.35" Width="132.3" Height="28.35" Border.Lines="All" RightToLeft="true" Font="Microsoft Sans Serif, 16pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

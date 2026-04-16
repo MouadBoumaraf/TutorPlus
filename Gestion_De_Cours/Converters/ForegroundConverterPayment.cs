@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Data;
+
+namespace Gestion_De_Cours.Converters
+{
+    class ForegroundConverterPayment : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            if (value is int intValue)
+            {
+                return intValue < 0 ? Brushes.Red : Brushes.Green;
+            }
+            return Brushes.Black; // Default fallback color
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

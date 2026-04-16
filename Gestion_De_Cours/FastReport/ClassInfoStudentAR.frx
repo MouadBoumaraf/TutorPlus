@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Name="Simple List" ReportInfo.Author="Fast Reports Inc" ReportInfo.Description="Demonstrates a simple list report. To create it:&#13;&#10;- go to &quot;Data&quot; menu and select &quot;Choose Report Data...&quot; item to select a datasource;&#13;&#10;- go to &quot;Report|Configure Bands...&quot; menu to create the band structure;&#13;&#10;- return to the report page, doubleclick the data band to show its editor;&#13;&#10;- choose the datasource;&#13;&#10;- drag data from the Data Dictionary window to the band." ReportInfo.Created="01/17/2008 03:05:57" ReportInfo.Modified="07/23/2023 15:45:36" ReportInfo.CreatorVersion="2022.2.16.0">
+  <Dictionary>
+    <TableDataSource Name="EcoleInfo" ReferenceName="Data.EcoleInfo" DataType="System.Int32" Enabled="true">
+      <Column Name="NameFR" DataType="System.String"/>
+      <Column Name="NameAR" DataType="System.String"/>
+      <Column Name="Adress" DataType="System.String"/>
+      <Column Name="Adress2" DataType="System.String"/>
+      <Column Name="Number" DataType="System.String"/>
+      <Column Name="Number2" DataType="System.String"/>
+      <Column Name="CCP" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+      <Column Name="InsFees" DataType="System.Int32"/>
+      <Column Name="Absent" DataType="System.Int32"/>
+      <Column Name="ClassPay" DataType="System.Int32"/>
+      <Column Name="PhotoFile" DataType="System.String"/>
+      <Column Name="ApplicationFile" DataType="System.String"/>
+      <Column Name="TextSize" DataType="System.Int32"/>
+      <Column Name="Language" DataType="System.Int32"/>
+      <Column Name="Logo" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Student" ReferenceName="Data.Student" DataType="System.Int32" Enabled="true">
+      <Column Name="name" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Info" ReferenceName="Data.Info" DataType="System.Int32" Enabled="true">
+      <Column Name="ClassID" DataType="System.Int32"/>
+      <Column Name="StudentID" DataType="System.Int32"/>
+      <Column Name="StartSes" DataType="System.Int32"/>
+      <Column Name="EndSes" DataType="System.Int32"/>
+      <Column Name="GName" DataType="System.String"/>
+      <Column Name="CName" DataType="System.String"/>
+      <Column Name="CSubject" DataType="System.Int32"/>
+      <Column Name="GroupID" DataType="System.Int32"/>
+      <Column Name="Price" DataType="System.Int32"/>
+      <Column Name="Subject" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="292.95" CanGrow="true">
+      <PictureObject Name="Picture1" Left="302.4" Top="18.9" Width="132.3" Height="113.4" DataColumn="EcoleInfo.Logo"/>
+      <TextObject Name="Text1" Left="198.45" Top="151.2" Width="321.3" Height="28.35" Text="[EcoleInfo.NameAR]" HorzAlign="Center" RightToLeft="true" Font="Arial, 14pt"/>
+      <TextObject Name="Text2" Left="548.1" Top="226.8" Width="160.65" Height="28.35" Text="اسم التلميذ :" VertAlign="Center" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text3" Left="302.4" Top="226.8" Width="311.85" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[Student.Name]" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text4" Left="557.55" Top="274.05" Width="151.2" Height="18.9" Border.Lines="All" Text="أسم القسم " RightToLeft="true" Font="Microsoft Sans Serif, 12pt"/>
+      <TextObject Name="Text5" Left="444.15" Top="274.05" Width="113.4" Height="18.9" Border.Lines="All" Text="أسم الفوج " RightToLeft="true" Font="Microsoft Sans Serif, 12pt"/>
+      <TextObject Name="Text6" Left="349.65" Top="274.05" Width="94.5" Height="18.9" Border.Lines="All" Text="المادة " RightToLeft="true" Font="Microsoft Sans Serif, 12pt"/>
+      <TextObject Name="Text7" Left="217.35" Top="274.05" Width="132.3" Height="18.9" Border.Lines="All" Text="بدأ في " RightToLeft="true" Font="Microsoft Sans Serif, 12pt"/>
+      <TextObject Name="Text8" Left="132.3" Top="274.05" Width="85.05" Height="18.9" Border.Lines="All" Text="السعر" RightToLeft="true" Font="Microsoft Sans Serif, 12pt"/>
+      <TextObject Name="Text9" Left="18.9" Top="274.05" Width="113.4" Height="18.9" Border.Lines="All" Text="توقف عند" RightToLeft="true" Font="Microsoft Sans Serif, 12pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="296.95" Width="718.2" Height="18.9" Border.Color="Maroon" CanGrow="true" DataSource="Info">
+      <TextObject Name="Text10" Left="557.55" Width="151.2" Height="18.9" Border.Lines="All" Text="[Info.CName]" RightToLeft="true" Font="Microsoft Sans Serif, 12pt"/>
+      <TextObject Name="Text11" Left="444.15" Width="113.4" Height="18.9" Border.Lines="All" Text="[Info.GName]" RightToLeft="true" Font="Microsoft Sans Serif, 12pt"/>
+      <TextObject Name="Text12" Left="349.65" Width="94.5" Height="18.9" Border.Lines="All" Text="[Info.Subject]" RightToLeft="true" Font="Microsoft Sans Serif, 12pt"/>
+      <TextObject Name="Text13" Left="217.35" Width="132.3" Height="18.9" Border.Lines="All" Text="[Info.StartSes]" RightToLeft="true" Font="Microsoft Sans Serif, 12pt"/>
+      <TextObject Name="Text14" Left="132.3" Width="85.05" Height="18.9" Border.Lines="All" Text="[Info.Price]" RightToLeft="true" Font="Microsoft Sans Serif, 12pt"/>
+      <TextObject Name="Text15" Left="18.9" Width="113.4" Height="18.9" Border.Lines="All" Text="[Info.EndSes]" RightToLeft="true" Font="Microsoft Sans Serif, 12pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

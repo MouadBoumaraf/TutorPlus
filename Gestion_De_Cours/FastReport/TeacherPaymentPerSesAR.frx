@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Name="Simple List" ReportInfo.Author="Fast Reports Inc" ReportInfo.Description="Demonstrates a simple list report. To create it:&#13;&#10;- go to &quot;Data&quot; menu and select &quot;Choose Report Data...&quot; item to select a datasource;&#13;&#10;- go to &quot;Report|Configure Bands...&quot; menu to create the band structure;&#13;&#10;- return to the report page, doubleclick the data band to show its editor;&#13;&#10;- choose the datasource;&#13;&#10;- drag data from the Data Dictionary window to the band." ReportInfo.Created="01/17/2008 03:05:57" ReportInfo.Modified="12/20/2022 11:11:59" ReportInfo.CreatorVersion="2022.2.16.0">
+  <Dictionary>
+    <TableDataSource Name="Employees" ReferenceName="NorthWind.Employees" DataType="System.Int32" Enabled="true">
+      <Column Name="EmployeeID" DataType="System.Int32"/>
+      <Column Name="LastName" DataType="System.String"/>
+      <Column Name="FirstName" DataType="System.String"/>
+      <Column Name="Title" DataType="System.String"/>
+      <Column Name="TitleOfCourtesy" DataType="System.String"/>
+      <Column Name="BirthDate" DataType="System.DateTime"/>
+      <Column Name="HireDate" DataType="System.DateTime"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="HomePhone" DataType="System.String"/>
+      <Column Name="Extension" DataType="System.String"/>
+      <Column Name="Photo" DataType="System.Byte[]" BindableControl="Picture"/>
+      <Column Name="Notes" DataType="System.String"/>
+      <Column Name="ReportsTo" DataType="System.Int32"/>
+    </TableDataSource>
+    <TableDataSource Name="Categories" ReferenceName="NorthWind.Categories" DataType="System.Int32" Enabled="true">
+      <Column Name="CategoryID" DataType="System.Int32"/>
+      <Column Name="CategoryName" DataType="System.String"/>
+      <Column Name="Description" DataType="System.String"/>
+      <Column Name="Picture" DataType="System.Byte[]" BindableControl="Picture"/>
+    </TableDataSource>
+    <TableDataSource Name="Customers" ReferenceName="NorthWind.Customers" DataType="System.Int32" Enabled="true">
+      <Column Name="CustomerID" DataType="System.String"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="ContactName" DataType="System.String"/>
+      <Column Name="ContactTitle" DataType="System.String"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Order Details" ReferenceName="NorthWind.Order Details" DataType="System.Int32" Enabled="true">
+      <Column Name="OrderID" DataType="System.Int32"/>
+      <Column Name="ProductID" DataType="System.Int32"/>
+      <Column Name="UnitPrice" DataType="System.Decimal"/>
+      <Column Name="Quantity" DataType="System.Int16"/>
+      <Column Name="Discount" DataType="System.Single"/>
+    </TableDataSource>
+    <TableDataSource Name="Orders" ReferenceName="NorthWind.Orders" DataType="System.Int32" Enabled="true">
+      <Column Name="OrderID" DataType="System.Int32"/>
+      <Column Name="CustomerID" DataType="System.String"/>
+      <Column Name="EmployeeID" DataType="System.Int32"/>
+      <Column Name="OrderDate" DataType="System.DateTime"/>
+      <Column Name="RequiredDate" DataType="System.DateTime"/>
+      <Column Name="ShippedDate" DataType="System.DateTime"/>
+      <Column Name="ShipVia" DataType="System.Int32"/>
+      <Column Name="Freight" DataType="System.Decimal"/>
+      <Column Name="ShipName" DataType="System.String"/>
+      <Column Name="ShipAddress" DataType="System.String"/>
+      <Column Name="ShipCity" DataType="System.String"/>
+      <Column Name="ShipRegion" DataType="System.String"/>
+      <Column Name="ShipPostalCode" DataType="System.String"/>
+      <Column Name="ShipCountry" DataType="System.String"/>
+      <Column Name="Latitude" DataType="System.Double"/>
+      <Column Name="Longitude" DataType="System.Double"/>
+    </TableDataSource>
+    <TableDataSource Name="Products" ReferenceName="NorthWind.Products" DataType="System.Int32" Enabled="true">
+      <Column Name="ProductID" DataType="System.Int32"/>
+      <Column Name="ProductName" DataType="System.String"/>
+      <Column Name="SupplierID" DataType="System.Int32"/>
+      <Column Name="CategoryID" DataType="System.Int32"/>
+      <Column Name="QuantityPerUnit" DataType="System.String"/>
+      <Column Name="UnitPrice" DataType="System.Decimal"/>
+      <Column Name="UnitsInStock" DataType="System.Int16"/>
+      <Column Name="UnitsOnOrder" DataType="System.Int16"/>
+      <Column Name="ReorderLevel" DataType="System.Int16"/>
+      <Column Name="Discontinued" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="EAN13" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Shippers" ReferenceName="NorthWind.Shippers" DataType="System.Int32" Enabled="true">
+      <Column Name="ShipperID" DataType="System.Int32"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Suppliers" ReferenceName="NorthWind.Suppliers" DataType="System.Int32" Enabled="true">
+      <Column Name="SupplierID" DataType="System.Int32"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="ContactName" DataType="System.String"/>
+      <Column Name="ContactTitle" DataType="System.String"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+      <Column Name="HomePage" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="MatrixDemo" ReferenceName="NorthWind.MatrixDemo" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Year" DataType="System.Int32"/>
+      <Column Name="Month" DataType="System.Int32"/>
+      <Column Name="ItemsSold" DataType="System.Int32"/>
+      <Column Name="Revenue" DataType="System.Decimal"/>
+    </TableDataSource>
+    <TableDataSource Name="Unicode" ReferenceName="NorthWind.Unicode" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="UnicodeName" DataType="System.String"/>
+      <Column Name="Text" DataType="System.String"/>
+      <Column Name="Rtl" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="Active" DataType="System.Boolean" BindableControl="CheckBox"/>
+    </TableDataSource>
+    <BusinessObjectDataSource Name="Categories BusinessObject" ReferenceName="Categories BusinessObject" DataType="null" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Description" DataType="System.String"/>
+      <BusinessObjectDataSource Name="Products1" Alias="Products" Enabled="false" DataType="null" PropName="Products"/>
+    </BusinessObjectDataSource>
+    <TableDataSource Name="Payment" ReferenceName="Data.Payment" DataType="System.Int32" Enabled="true">
+      <Column Name="Date1" DataType="System.String"/>
+      <Column Name="Date2" DataType="System.String"/>
+      <Column Name="Date3" DataType="System.String"/>
+      <Column Name="Date4" DataType="System.String"/>
+      <Column Name="Date5" DataType="System.String"/>
+      <Column Name="Date6" DataType="System.String"/>
+      <Column Name="TEntrance1" DataType="System.String"/>
+      <Column Name="TEntrance2" DataType="System.String"/>
+      <Column Name="TEntrance3" DataType="System.String"/>
+      <Column Name="TEntrance4" DataType="System.String"/>
+      <Column Name="TEntrance5" DataType="System.String"/>
+      <Column Name="TEntrance6" DataType="System.String"/>
+      <Column Name="Price1" DataType="System.String"/>
+      <Column Name="Price2" DataType="System.String"/>
+      <Column Name="Price3" DataType="System.String"/>
+      <Column Name="Price4" DataType="System.String"/>
+      <Column Name="Price5" DataType="System.String"/>
+      <Column Name="Price6" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Info" ReferenceName="Data.Info" DataType="System.Int32" Enabled="true">
+      <Column Name="CName" DataType="System.String"/>
+      <Column Name="GName" DataType="System.String"/>
+      <Column Name="TName" DataType="System.String"/>
+      <Column Name="Date" DataType="System.String"/>
+      <Column Name="Total" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="359.1" CanGrow="true">
+      <TextObject Name="Text1" Left="576.45" Top="18.9" Width="103.95" Height="28.35" Text="أسم  الأستاذ :" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text3" Left="9.45" Top="18.9" Width="189" Height="28.35" Border.Lines="All" Border.Width="2" Text="[Info.CName]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text4" Left="9.45" Top="66.15" Width="189" Height="28.35" Border.Lines="All" Border.Width="2" Text="[Info.GName]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text5" Left="217.35" Top="18.9" Width="94.5" Height="28.35" Text="أسم القسم :" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text6" Left="217.35" Top="66.15" Width="85.05" Height="28.35" Text="أسم الفوج :" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text7" Left="396.9" Top="18.9" Width="179.55" Height="28.35" Border.Lines="All" Border.Width="2" Text="[Info.TName]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text8" Left="396.9" Top="66.15" Width="179.55" Height="28.35" Border.Lines="All" Border.Width="2" Text="[Info.Date]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text9" Left="576.45" Top="66.15" Width="103.95" Height="28.35" Text="التاريخ :" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text11" Left="491.4" Top="151.2" Width="94.5" Height="28.35" Border.Lines="All" Fill.Color="LightGray" Text="[Payment.Date1]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text12" Left="396.9" Top="151.2" Width="94.5" Height="28.35" Border.Lines="All" Fill.Color="LightGray" Text="[Payment.Date2]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text13" Left="302.4" Top="151.2" Width="94.5" Height="28.35" Border.Lines="All" Fill.Color="LightGray" Text="[Payment.Date3]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text14" Left="207.9" Top="151.2" Width="94.5" Height="28.35" Border.Lines="All" Fill.Color="LightGray" Text="[Payment.Date4]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text15" Left="585.9" Top="179.55" Width="94.5" Height="28.35" Border.Lines="All" Fill.Color="LightGray" Text="وقت الدخول" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text16" Left="585.9" Top="207.9" Width="94.5" Height="28.35" Border.Lines="All" Fill.Color="LightGray" Text="سعر الحص" RightToLeft="true" Font="Arial, 15pt"/>
+      <TextObject Name="Text18" Left="113.4" Top="151.2" Width="94.5" Height="28.35" Border.Lines="All" Fill.Color="LightGray" Text="[Payment.Date5]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text19" Left="18.9" Top="151.2" Width="94.5" Height="28.35" Border.Lines="All" Fill.Color="LightGray" Text="[Payment.Date6]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text20" Left="491.4" Top="179.55" Width="94.5" Height="28.35" Border.Lines="All" Text="[Payment.TEntrance1]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text21" Left="396.9" Top="179.55" Width="94.5" Height="28.35" Border.Lines="All" Text="[Payment.TEntrance2]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text22" Left="302.4" Top="179.55" Width="94.5" Height="28.35" Border.Lines="All" Text="[Payment.TEntrance3]" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text23" Left="207.9" Top="179.55" Width="94.5" Height="28.35" Border.Lines="All" Text="[Payment.TEntrance4]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text24" Left="113.4" Top="179.55" Width="94.5" Height="28.35" Border.Lines="All" Text="[Payment.TEntrance5]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text25" Left="18.9" Top="179.55" Width="94.5" Height="28.35" Border.Lines="All" Text="[Payment.TEntrance6]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text26" Left="396.9" Top="207.9" Width="94.5" Height="28.35" Border.Lines="All" Text="[Payment.Price2]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text27" Left="302.4" Top="207.9" Width="94.5" Height="28.35" Border.Lines="All" Text="[Payment.Price3]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text28" Left="207.9" Top="207.9" Width="94.5" Height="28.35" Border.Lines="All" Text="[Payment.Price4]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text29" Left="113.4" Top="207.9" Width="94.5" Height="28.35" Border.Lines="All" Text="[Payment.Price5]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text30" Left="18.9" Top="207.9" Width="94.5" Height="28.35" Border.Lines="All" Text="[Payment.Price6]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text36" Left="491.4" Top="207.9" Width="94.5" Height="28.35" Border.Lines="All" Text="[Payment.Price1]" RightToLeft="true" Font="Arial, 12pt"/>
+      <TextObject Name="Text37" Left="481.95" Top="274.05" Width="103.95" Height="37.8" Text="المجموع :" RightToLeft="true" Font="Arial, 20pt"/>
+      <TextObject Name="Text38" Left="264.6" Top="274.05" Width="207.9" Height="37.8" Border.Lines="All" Border.Width="2" Text="[Info.Total]" RightToLeft="true" Font="Arial, 20pt"/>
+    </ReportTitleBand>
+  </ReportPage>
+</Report>

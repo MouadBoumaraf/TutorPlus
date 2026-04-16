@@ -1,0 +1,244 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.Discount"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Convert="clr-namespace:Gestion_De_Cours.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Discounts"
+    Width="750"
+    Height="450"
+    dx:ThemeManager.ThemeName="None"
+    FontSize="15"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <FontFamily x:Key="FontLabel">pack://application:,,,/Fonts/#Droid Arabic Kufi</FontFamily>
+                </ResourceDictionary>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Convert:ConverterForDiscount x:Key="ConverterForDiscount" />
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="85" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+
+            <Label
+                Width="auto"
+                VerticalAlignment="Center"
+                Content="{DynamicResource ClassLB}" />
+            <dxe:ComboBoxEdit
+                Name="CBclass"
+                Width="220"
+                Height="35"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                dx:ThemeManager.ThemeName="Office2019Colorful"
+                AutoComplete="True"
+                DisplayMember="CName"
+                EditValueChanged="CBclass_EditValueChanged"
+                FontSize="15"
+                ImmediatePopup="True"
+                IncrementalFiltering="True"
+                IsTextEditable="True"
+                ValueMember="ID" />
+
+            <Label
+                Width="auto"
+                VerticalAlignment="Center"
+                Content="{DynamicResource StudentLB}" />
+            <dxe:ComboBoxEdit
+                Name="CBStudent"
+                Width="250"
+                Height="40"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                dx:ThemeManager.ThemeName="Office2019Colorful"
+                AutoComplete="True"
+                DisplayMember="Name"
+                EditValueChanged="CBStudent_EditValueChanged"
+                FontSize="15"
+                ImmediatePopup="True"
+                IncrementalFiltering="True"
+                IsTextEditable="True"
+                ValueMember="ID">
+
+                <dxe:ComboBoxEdit.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image
+                                Width="50"
+                                Height="35"
+                                Source="{Binding Picture}" />
+                            <Label Content="{Binding Name}" FontSize="15">
+                                <Label.Resources>
+                                    <Style TargetType="{x:Type Label}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Gender}" Value="0">
+                                                <Setter Property="Foreground" Value="Blue" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Gender}" Value="1">
+                                                <Setter Property="Foreground" Value="Pink" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Label.Resources>
+                            </Label>
+                        </StackPanel>
+                    </DataTemplate>
+                </dxe:ComboBoxEdit.ItemTemplate>
+            </dxe:ComboBoxEdit>
+
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <StackPanel Width="auto">
+                <Label
+                    Margin="0,10,0,0"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource SPriceLB}" />
+            </StackPanel>
+            <StackPanel Width="auto">
+                <TextBox
+                    Name="SPrice"
+                    Width="100"
+                    Height="30"
+                    Margin="0,10,0,0"
+                    VerticalAlignment="Top" />
+                <DatePicker
+                    Name="SDateStart"
+                    Width="100"
+                    Margin="0,10,0,0"
+                    FontSize="12" />
+            </StackPanel>
+            <StackPanel Width="auto">
+                <Label
+                    Margin="0,10,0,0"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource TPriceLB}" />
+
+            </StackPanel>
+            <StackPanel Name="SP2" Width="auto">
+                <TextBox
+                    Name="TPrice"
+                    Width="100"
+                    Height="30"
+                    Margin="0,10,0,0"
+                    VerticalAlignment="Top" />
+                <DatePicker
+                    Name="TDateStart"
+                    Width="100"
+                    Margin="0,10,0,0"
+                    FontSize="12" />
+            </StackPanel>
+            <Label
+                Width="50"
+                Margin="0,10,0,0"
+                VerticalAlignment="Top"
+                Content="{DynamicResource NoteLB}" />
+            <TextBox
+                Name="Note"
+                Width="150"
+                Height="30"
+                Margin="0,10,0,0"
+                VerticalAlignment="Top" />
+            <Button
+                Width="70"
+                Height="25"
+                Margin="10,15,0,0"
+                VerticalAlignment="Top"
+                Click="Button_Click"
+                Content="+" />
+
+
+        </StackPanel>
+        <DataGrid
+            Name="DGDiscount"
+            Grid.Row="2"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            VirtualizingStackPanel.VirtualizationMode="Recycling">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem
+                        Name="Stop"
+                        Click="BtnLeave_Click"
+                        Header="{DynamicResource StopDiscount}">
+                        <MenuItem.Icon>
+                            <Image
+                                Width="16"
+                                Height="16"
+                                Source="/Images/Stop.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem
+                        Name="ChangeStartSes"
+                        Click="BtnDelete_Click"
+                        Header="{DynamicResource Delete}">
+                        <MenuItem.Icon>
+                            <Image
+                                Width="16"
+                                Height="16"
+                                Source="/Images/DeleteIconsmall.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="Auto" Binding="{Binding StudentName}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource SName}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="Auto" Binding="{Binding ClassName}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource ClassName}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="Auto" Binding="{Binding TPrice}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource TPrice}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="Auto" Binding="{Binding SPrice}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource SPrice}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn
+                    Width="100"
+                    Binding="{Binding StudentDate}"
+                    Visibility="Visible">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource BegSes}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+                    Width="100"
+                    Binding="{Binding EndDate}"
+                    Visibility="Visible">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource EndSes}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="Auto" Binding="{Binding Note}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{DynamicResource Note}" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

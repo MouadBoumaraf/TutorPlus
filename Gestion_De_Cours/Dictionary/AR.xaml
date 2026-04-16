@@ -1,0 +1,752 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <Style x:Key="FlowUser" TargetType="UserControl">
+        <Setter Property="FlowDirection" Value="RightToLeft" />
+    </Style>
+    <Style x:Key="FlowWindow" TargetType="Window">
+        <Setter Property="FlowDirection" Value="RightToLeft" />
+    </Style>
+    <Style x:Key="FlowPage" TargetType="Page">
+        <Setter Property="FlowDirection" Value="RightToLeft" />
+    </Style>
+
+
+    <system:String x:Key="SesAfterToday">{0} هل ترغب في تسجيل حضور الحصص الموجودة بعد تاريخ</system:String>
+
+    <system:String x:Key="SessionsAfterSelectedDate">هناك حصص بعد التاريخ المحدد، هل تريد إدخال التلاميذ فيها؟</system:String>
+
+
+    <system:String x:Key="ChangeStartSes">تغيير الحصة الأولى</system:String>
+
+
+    <system:String x:Key="SelectOneStudent">يرجى اختيار تلميذ واحد فقط</system:String>
+
+    <system:String x:Key="NoSesInDate">لا توجد حصة في هذا التاريخ، هل ما زلت ترغب في تطبيق تغيير المجموعة؟</system:String>
+
+    <system:String x:Key="Refresh">معاينة</system:String>
+
+    <system:String x:Key="RefreshDone">تم المعاينة بنجاح</system:String>
+
+    <system:String x:Key="EnterNewPrice">أدخل السعر الجديد</system:String>
+
+    <system:String x:Key="ChangeEndSes">تغيير الحصة الأخيرة</system:String>
+
+    <system:String x:Key="ChangeGroup">تغيير الفوج</system:String>
+
+    <system:String x:Key="ExtraSession">حصة إضافية</system:String>
+
+    <system:String x:Key="LeaveGroup">مغادرة الفوج</system:String>
+
+    <system:String x:Key="Olddebt">ديون سابقة</system:String>
+
+    <system:String x:Key="ConfChangeDate">هل أنت متأكد أنك تريد تغيير التاريخ؟</system:String>
+
+    <system:String x:Key="ExtraSessions">حصص إضافية</system:String>
+
+    <system:String x:Key="CalcMethod">طريقة الحساب</system:String>
+
+    <system:String x:Key="ChangePrice">تغيير السعر</system:String>
+
+    <system:String x:Key="MonthlyPaymentLB">الدفع شهرياً :</system:String>
+
+    <system:String x:Key="NotRegAddStu">الطالب/الطالبة :({0}) غير مسجل داخل الفوج ( {1} ). هل تريد إدخاله/إدخالها؟</system:String>
+
+    <system:String x:Key="StartDatePay">تاريخ بدء</system:String>
+    <system:String x:Key="EndDatePay">تاريخ انتهاء</system:String>
+
+    <system:String x:Key="OneTimeSes">حصة واحدة</system:String>
+
+    <system:String x:Key="FullRegister">تسجيل في القسم</system:String>
+
+    <system:String x:Key="InsertedSucc">تم الإدخال بنجاح</system:String>
+
+    <system:String x:Key="TotalP">إجمالي الدفع</system:String>
+
+    <system:String x:Key="WarningSeatsMax">عدد الطلاب يتجاوز عدد المقاعد في القاعة. هل تريد المتابعة؟</system:String>
+
+    <system:String x:Key="FreeSes">حصة مجانية</system:String>
+
+    <system:String x:Key="ReasonOfCallLB">سبب الاتصال :</system:String>
+
+    <system:String x:Key="ReasonOfCall">سبب الاتصال</system:String>
+
+    <system:String x:Key="MaxSeatsLB">أقصى عدد للمقاعد :</system:String>
+    <system:String x:Key="MaxSeats">أقصى عدد للمقاعد</system:String>
+
+    <system:String x:Key="Custom">خاص</system:String>
+
+    <system:String x:Key="HowApplyDisc?">على أي جلسة تريد تطبيق هذا الخصم؟</system:String>
+
+    <system:String x:Key="DiscStartSes">يبدأ من أول حصة للطالب</system:String>
+    <system:String x:Key="DiscLastPayment">يبدأ من آخر دفعة للطالب</system:String>
+    <system:String x:Key="DiscFromNow?">يبدأ من الآن</system:String>
+    <system:String x:Key="MonthLB">شهر :</system:String>
+
+
+    <system:String x:Key="SumSesStu">Somme des sessions (élève)</system:String>
+
+    <system:String x:Key="SumSesTeacher">مجموع الحصص (التلاميذ)</system:String>
+
+    <system:String x:Key="Month">شهر</system:String>
+
+    <system:String x:Key="TheStudentIsMarkedAs">هذا الطالب مُعلّم  كـ</system:String>
+
+    <system:String x:Key="Doyouwantochangethat">هل تريد تغيير ذلك؟</system:String>
+    <system:String x:Key="Scheduler">جدول التوقيت</system:String>
+
+    <system:String x:Key="TotalStudents">عدد التلاميذ</system:String>
+
+    <system:String x:Key="Deleted">حُذِفَ</system:String>
+
+    <system:String x:Key="Jan">يناير</system:String>
+    <system:String x:Key="Feb">فبراير</system:String>
+    <system:String x:Key="Mar">مارس</system:String>
+    <system:String x:Key="Apr">أبريل</system:String>
+    <system:String x:Key="May">مايو</system:String>
+    <system:String x:Key="Jun">يونيو</system:String>
+    <system:String x:Key="Jul">يوليو</system:String>
+    <system:String x:Key="Aug">أغسطس</system:String>
+    <system:String x:Key="Sep">سبتمبر</system:String>
+    <system:String x:Key="Oct">أكتوبر</system:String>
+    <system:String x:Key="Nov">نوفمبر</system:String>
+    <system:String x:Key="Dec">ديسمبر</system:String>
+
+    <system:String x:Key="PaymentPerMonth">إجراء دفع الطالب شهريًا؟</system:String>
+
+
+    <system:String x:Key="DurationSessionLB">مدة الحصة :</system:String>
+
+    <system:String x:Key="DurationSession">مدة الحصة</system:String>
+
+
+    <system:String x:Key="RemainingPayment">المبلغ المتبقي للدفع</system:String>
+
+
+    <system:String x:Key="ThisAttendanceNotCreated">هذا الحضور لم يتم إنشاؤه</system:String>
+
+    <system:String x:Key="CreateAttendance">إنشاء الحضور</system:String>
+
+    <system:String x:Key="French">فرنسي</system:String>
+
+    <system:String x:Key="FormationInfo">معلومات التكوين</system:String>
+
+    <system:String x:Key="Formations">تكوينات</system:String>
+
+    <system:String x:Key="TotalHoursLB">عدد الساعات :</system:String>
+
+    <system:String x:Key="TotalHours">عدد الساعات</system:String>
+
+    <system:String x:Key="HoursLB">الساعات :</system:String>
+
+    <system:String x:Key="Hours">الساعات</system:String>
+
+
+    <system:String x:Key="RemainingHours">الساعات المتبقية</system:String>
+
+
+    <system:String x:Key="FormationList">قائمة تكوينات  (عَنْ قَرِيب)</system:String>
+
+    <system:String x:Key="FormationName">أسم التكوين</system:String>
+
+
+
+
+    <system:String x:Key="MessageBoxDatabaseRestored">تم استعادت قاعدة البيانات  بنجاح</system:String>
+
+
+    <system:String x:Key="Absent">غائب</system:String>
+
+    <system:String x:Key="FeesLB">رسوم :</system:String>
+
+    <system:String x:Key="MesssageBoxFillStudents">يرجى ملء جميع المعلومات  التلميذ الضرورية</system:String>
+
+
+    <system:String x:Key="JustifStoppedGroup">غادر الفوج</system:String>
+
+    <system:String x:Key="BackStudyingGroup">عودة للدراسة فالفوج</system:String>
+
+    <system:String x:Key="DeleteCompletly">حذف كلياً</system:String>
+
+    <system:String x:Key="ColorPaidSes">تلوين الحصص المدفوعة</system:String>
+
+    <system:String x:Key="EnterReasonAbsence">أدخل سبب الغياب</system:String>
+
+    <system:String x:Key="MessageBoxOverrideJustif">هل أنت متأكد أنك تريد إزالة التبرير من هذا الطالب؟</system:String>
+
+    <system:String x:Key="MessageBoxOverrideGroupChange">غير الطالب الفوج لهذه الحصة. هل ترغب في حذف الطالب من تلك الحصة؟</system:String>
+
+    <system:String x:Key="MessageBoxStandardDiscountType1">هذا التلميد({0}) يدرس في المواد ( {1} ) هل ترغب في تطبيق خصم عليه في تلك المواد؟</system:String>
+
+    <system:String x:Key="MessageSessionsAfterthis">هاذا الفوج لديها حصص في التواريخ ( {0} ),هل ترغب في تسجيل حضورهم في تلك الحصص؟</system:String>
+
+    <system:String x:Key="MessageDiscountExtend">هذا التلميذ لديه خصم. هل ترغب في تمديد ذلك للحصة الجديدة الأولى أم الاحتفاظ به كما هو؟</system:String>
+
+    <system:String x:Key="MessageDiscountExtendEnded">هناك خصم يبدأ في الحصة {0} وينتهي في الحصةً {1} على السعر {2}. هل ترغب في حذفه أم تمديده؟</system:String>
+
+
+
+    <system:String x:Key="SelectAll">اختيار الكل</system:String>
+
+    <system:String x:Key="MessageStudentIsAbsentMarkPresent?">هذا التلميذ مسجل غائبًا  في القسم {0} .هل تريد تغيير ذلك؟</system:String>
+
+
+
+    <system:String x:Key="SubjectDiscount">تخفيض في مواد</system:String>
+
+    <system:String x:Key="DiscriptionForDiscount">خصم لدراسة عدة مواد</system:String>
+
+    <system:String x:Key="AmmountOFSubjects">عدد المواد المدرسة</system:String>
+
+    <system:String x:Key="DiscountInSPrice">تخفيض في سعر التلميد</system:String>
+
+    <system:String x:Key="DiscountInSTPrice">تخفيض في سعر الأستاذ</system:String>
+
+    <system:String x:Key="Intake">المدخول</system:String>
+
+    <system:String x:Key="OutTake">إخراج</system:String>
+
+    <system:String x:Key="Both">كلاهما</system:String>
+
+    <system:String x:Key="InitialAmmount">المبلغ الأولي :</system:String>
+
+    <system:String x:Key="StandardDiscounts">خصومات</system:String>
+
+    <system:String x:Key="SpecialDiscounts">خصومات خاصة</system:String>
+
+    <system:String x:Key="Refund">استرداد</system:String>
+
+
+    <system:String x:Key="FinalAmmount">المبلغ النهائية:</system:String>
+
+    <system:String x:Key="Difference">الفرق:</system:String>
+
+
+    <system:String x:Key="MainMenu">القائمة الرئيسية</system:String>
+
+    <system:String x:Key="ShortCuts">الاختصارات</system:String>
+
+    <system:String x:Key="Math">رياضيات</system:String>
+
+
+
+
+    <system:String x:Key="Physique">فيزياء</system:String>
+
+    <system:String x:Key="Science">علوم</system:String>
+
+
+    <system:String x:Key="ConfirmationDeletePayment">هل أنت متأكد أنك تريد حذف هذا الدفع؟</system:String>
+
+
+    <system:String x:Key="ConfirmationCloseattend">هل أنت متأكد أنك تريد الإغلاق؟ ام يتم تسجيل الحضور لكل الطلاب.</system:String>
+
+
+    <system:String x:Key="BegSes">الحصة الأولى</system:String>
+
+    <system:String x:Key="Session">الحصة</system:String>
+
+
+
+
+    <system:String x:Key="ReasonLB">السبب:</system:String>
+
+    <system:String x:Key="EndSes">توقف عند</system:String>
+
+
+    <system:String x:Key="BegSession">بدأت في</system:String>
+
+    <system:String x:Key="EndSession">توقف عند</system:String>
+
+    <system:String x:Key="WorkerAdd">أضافة عامل</system:String>
+
+    <system:String x:Key="WorkerInfo">معلومة العامل</system:String>
+
+    <system:String x:Key="MessageBoxNoDeleteSelections">يرجى تحديد صف ليتم حذفه</system:String>
+
+
+    <system:String x:Key="MessageBoxConfirmationDelete">هل أنت متأكد أنك تريد حذف?</system:String>
+
+
+    <system:String x:Key="WorkTime">وقت العمل</system:String>
+
+    <system:String x:Key="EditFastReport">تعديل الطباعة</system:String>
+
+    <system:String x:Key="Submit">سجل</system:String>
+
+    <system:String x:Key="Language">لغة</system:String>
+
+    <system:String x:Key="Payments">دُفوع</system:String>
+
+    <system:String x:Key="Add">إضافة</system:String>
+
+    <system:String x:Key="Presense">حضور</system:String>
+
+    <system:String x:Key="SPriceLB">سعر لتلميذ :</system:String>
+
+    <system:String x:Key="SPrice">سعر لتلميذ</system:String>
+
+    <system:String x:Key="TPriceLB">سعر للأستاذ :</system:String>
+
+    <system:String x:Key="TPrice">سعر للأستاذ</system:String>
+
+    <system:String x:Key="Classes">الأقسام</system:String>
+
+    <system:String x:Key="AddStudentLB">أضافة تلميذ :</system:String>
+
+    <system:String x:Key="AddStudent">أضافة تلميذ</system:String>
+
+
+    <system:String x:Key="StudentPayment">دفع التلميذ</system:String>
+
+    <system:String x:Key="TeacherPayment">دفع الأستاذ</system:String>
+
+    <system:String x:Key="Adress">العنوان</system:String>
+
+    <system:String x:Key="Adress2LB">العنوان 2:</system:String>
+
+    <system:String x:Key="AdressLB">العنوان :</system:String>
+
+    <system:String x:Key="AppFileLB">ملف التطبيق :</system:String>
+
+    <system:String x:Key="Arabic">عربية</system:String>
+
+    <system:String x:Key="Archive">أرشيف</system:String>
+
+    <system:String x:Key="Attendance">الحضور</system:String>
+
+    <system:String x:Key="AttendanceLB">الحضور :</system:String>
+
+    <system:String x:Key="AttendanceList">قائمة الحضور</system:String>
+
+    <system:String x:Key="BarCodeLB">الباركود :</system:String>
+
+    <system:String x:Key="BirthDate">ت. الميلاد</system:String>
+
+    <system:String x:Key="BirthDateLB">تاريخ الميلاد :</system:String>
+
+    <system:String x:Key="Cancel">إلغاء :</system:String>
+
+    <system:String x:Key="CCP">CCP</system:String>
+
+    <system:String x:Key="CCPLB">CCP :</system:String>
+
+    <system:String x:Key="ChargeStudent">دفع الطالب لو يغيب ؟</system:String>
+
+    <system:String x:Key="Class">الاقسام</system:String>
+
+    <system:String x:Key="ClassAdd">أضافت قسم</system:String>
+
+    <system:String x:Key="ClassInfo">معلومة القسم</system:String>
+
+    <system:String x:Key="ClassLB">قسم :</system:String>
+
+    <system:String x:Key="ClassList">قائمة الاقسام</system:String>
+
+    <system:String x:Key="ClassName">أسم القسم</system:String>
+
+    <system:String x:Key="ClassTime">توقيتات الفواج</system:String>
+
+    <system:String x:Key="CNameLB">أسم القسم :</system:String>
+
+    <system:String x:Key="CName">أسم القسم</system:String>
+
+    <system:String x:Key="Date">التاريخ</system:String>
+
+    <system:String x:Key="DateLB">التاريخ :</system:String>
+
+    <system:String x:Key="DateOfRegister">تاريخ التسجيل</system:String>
+
+    <system:String x:Key="DateOfRegisterLB">تاريخ التسجيل :</system:String>
+
+    <system:String x:Key="MessageBoxSameName">يوجد تلميذ بالاسم  ({0}) هل أنت متأكد أنهم ليسوا نفس الشخص ?</system:String>
+
+    <system:String x:Key="Day">اليوم</system:String>
+
+    <system:String x:Key="DayLB">اليوم :</system:String>
+
+    <system:String x:Key="Delete">حذف</system:String>
+
+    <system:String x:Key="Discounts">الخصومات</system:String>
+
+
+    <system:String x:Key="Discount">خصم</system:String>
+
+
+    <system:String x:Key="StopDiscount">إيقاف التخفيض</system:String>
+
+    <system:String x:Key="EcoleInfo">معلومة المدرسة</system:String>
+
+    <system:String x:Key="Email">البريد الإلكتروني</system:String>
+
+    <system:String x:Key="EmailLB">البريد الإلكتروني :</system:String>
+
+    <system:String x:Key="English">إنجليزية</system:String>
+
+    <system:String x:Key="ExceptionHandle">حدث  خطأ  اتصل  بالخدمة تقنية</system:String>
+
+    <system:String x:Key="Export">تصدير</system:String>
+
+    <system:String x:Key="FaxLB">فاكس :</system:String>
+
+    <system:String x:Key="Female">أنثى</system:String>
+
+    <system:String x:Key="FirstName">اسْم</system:String>
+
+    <system:String x:Key="FirstNameLB">الاسم :</system:String>
+
+    <system:String x:Key="Filter">فلتر :</system:String>
+
+    <system:String x:Key="FreeTime">وقت فراغ</system:String>
+
+    <system:String x:Key="Friday">الجمعه</system:String>
+
+    <system:String x:Key="FromLB">من :</system:String>
+
+    <system:String x:Key="Gender">جنس</system:String>
+
+    <system:String x:Key="Gender--">--جنس--</system:String>
+
+    <system:String x:Key="GenderGroup">جنس الفوج</system:String>
+
+    <system:String x:Key="GenderLB">جنس :</system:String>
+
+    <system:String x:Key="General">عام</system:String>
+
+    <system:String x:Key="GNameLB">أسم فوج :</system:String>
+
+    <system:String x:Key="GroupChange">بدل فوج</system:String>
+
+    <system:String x:Key="GroupGender">جنس الفوج</system:String>
+
+    <system:String x:Key="GroupLB">فوج :</system:String>
+
+    <system:String x:Key="GroupStudentAdd">تلاميد الفوج</system:String>
+
+    <system:String x:Key="GroupList">قائمة الافواج</system:String>
+
+    <system:String x:Key="GroupName">أسم الفوج</system:String>
+
+    <system:String x:Key="GroupNameLB">أسم الفوج :</system:String>
+
+    <system:String x:Key="Group">فوج</system:String>
+
+    <system:String x:Key="Groups">الأفواج</system:String>
+
+    <system:String x:Key="HasSpec?">لديه تخصص ؟</system:String>
+
+    <system:String x:Key="HaveSpec" xml:space="preserve">هل المستوى  
+لديه تخصص ؟</system:String>
+
+    <system:String x:Key="History">سِجِلُّ</system:String>
+
+    <system:String x:Key="Import">استيراد</system:String>
+
+    <system:String x:Key="IndivClass">حصص فرديا</system:String>
+
+    <system:String x:Key="inscFees">رسوم التسجيل</system:String>
+
+    <system:String x:Key="InscFeesLB">رسوم التسجيل :</system:String>
+
+    <system:String x:Key="Insert">إضافة :</system:String>
+
+    <system:String x:Key="Justification">التبريرات</system:String>
+
+    <system:String x:Key="Justified">مبرر</system:String>
+
+    <system:String x:Key="LanguageLB">اللغة :</system:String>
+
+    <system:String x:Key="LastName">لقب</system:String>
+
+    <system:String x:Key="LastNameLB">اللقب :</system:String>
+
+    <system:String x:Key="Level">مستوى</system:String>
+
+    <system:String x:Key="Levels--">--مستوى--</system:String>
+
+    <system:String x:Key="LevelLB">مستوى :</system:String>
+
+    <system:String x:Key="LevelNameLB">اسم المستوى :</system:String>
+
+    <system:String x:Key="Logo">شعار</system:String>
+
+    <system:String x:Key="MainWindow">النافذة الرئيسية</system:String>
+
+    <system:String x:Key="Male">ذكر</system:String>
+
+    <system:String x:Key="Mix">مختلط</system:String>
+
+    <system:String x:Key="Monday">الأثنين</system:String>
+
+    <system:String x:Key="NameARLB">اسم المدرسة AR :</system:String>
+
+    <system:String x:Key="NameFRLB">اسم المدرسة FR :</system:String>
+
+    <system:String x:Key="NameLB">اسم :</system:String>
+
+    <system:String x:Key="Name">اسم</system:String>
+
+
+    <system:String x:Key="Next">إضافة</system:String>
+
+    <system:String x:Key="No">لا</system:String>
+
+    <system:String x:Key="Note">ملاحظة</system:String>
+
+    <system:String x:Key="NoteLB">ملاحظة :</system:String>
+
+    <system:String x:Key="Number2LB">رقم الهاتف 2 :</system:String>
+
+    <system:String x:Key="NumberLB">رقم الهاتف :</system:String>
+
+    <system:String x:Key="Number1">الهاتف :</system:String>
+
+    <system:String x:Key="Number2">الهاتف 2:</system:String>
+    <system:String x:Key="PaidSessions">حصص المدفوع</system:String>
+
+    <system:String x:Key="Pending">قيد الانتظار</system:String>
+
+    <system:String x:Key="Studied">مدروسة</system:String>
+
+    <system:String x:Key="Canceled">ألغيت</system:String>
+
+
+
+    <system:String x:Key="ParentNumber">هاتف ولي الأمر</system:String>
+
+    <system:String x:Key="ParentNumberLB">هاتف و.أ :</system:String>
+
+    <system:String x:Key="Particular">دروس خاصة (عَنْ قَرِيب)</system:String>
+
+    <system:String x:Key="Info">معلومات</system:String>
+
+    <system:String x:Key="Paid">مدفوع</system:String>
+
+    <system:String x:Key="Didntpay">لم يدفع</system:String>
+
+    <system:String x:Key="DoesntPay">لا يدفع</system:String>
+    <system:String x:Key="Payment">الدفع</system:String>
+
+    <system:String x:Key="PaymentList">قائمة دفع</system:String>
+
+    <system:String x:Key="PerHour">بل ساعة</system:String>
+
+    <system:String x:Key="PerPeriod">بل حصة</system:String>
+
+    <system:String x:Key="PerStudent">بل تلميد</system:String>
+
+    <system:String x:Key="PhoneNumber">رقم الهاتف</system:String>
+
+    <system:String x:Key="PhoneNumberLB">الهاتف :</system:String>
+
+    <system:String x:Key="PhotoFileLB">ملف الصور :</system:String>
+
+    <system:String x:Key="Present">حاضر</system:String>
+
+    <system:String x:Key="Price">السعر</system:String>
+
+    <system:String x:Key="PriceLB">سعر :</system:String>
+
+    <system:String x:Key="Print">طبع</system:String>
+
+    <system:String x:Key="PrintAll">طباعة الكل</system:String>
+
+    <system:String x:Key="ReasonofAbsent">سبب الغياب</system:String>
+
+    <system:String x:Key="Room">قاعة</system:String>
+
+    <system:String x:Key="Rooms">القاعات</system:String>
+
+    <system:String x:Key="RoomLB">قاعة :</system:String>
+
+    <system:String x:Key="RoomNameLB">اسم قاعة :</system:String>
+
+    <system:String x:Key="Saturday">السبت</system:String>
+
+    <system:String x:Key="SchoolNameLB">المدرسة :</system:String>
+
+    <system:String x:Key="SearchLB">بحث :</system:String>
+
+    <system:String x:Key="Sessions">حصص</system:String>
+
+    <system:String x:Key="SessionsLB">حصص :</system:String>
+
+    <system:String x:Key="Statistics">إحصائيات</system:String>
+
+    <system:String x:Key="SessionLB">الحصة :</system:String>
+
+    <system:String x:Key="CashRegister">تسجيل المدفوعات النقدية</system:String>
+
+
+    <system:String x:Key="Setting">إعدادات</system:String>
+
+    <system:String x:Key="ShowSettings">إعدادات</system:String>
+
+    <system:String x:Key="SName">اسم التلميذ</system:String>
+
+    <system:String x:Key="SNames">اسم التلاميذ</system:String>
+
+    <system:String x:Key="SNameLB">اسم التلميذ :</system:String>
+
+    <system:String x:Key="Speciality">تخصص</system:String>
+
+    <system:String x:Key="Speciality--">--تخصص--</system:String>
+
+    <system:String x:Key="SpecialityLB">تخصص :</system:String>
+
+    <system:String x:Key="SpecNameLB">اسم التخصص :</system:String>
+
+    <system:String x:Key="Student">التلاميذ</system:String>
+
+    <system:String x:Key="StudentAdd">اضافة تلميذ</system:String>
+
+    <system:String x:Key="StudentAmount">عدد التلاميذ</system:String>
+
+    <system:String x:Key="StudentInfo">بيانات عامة</system:String>
+
+    <system:String x:Key="StudentLB">التلميذ :</system:String>
+
+    <system:String x:Key="StudentList">قائمة التلاميذ</system:String>
+
+    <system:String x:Key="Students">الطلاب</system:String>
+
+    <system:String x:Key="StudentsTotalLB">مجموع الطلاب :</system:String>
+
+    <system:String x:Key="StudentName">اسم الطالب</system:String>
+
+    <system:String x:Key="StudentTotal">مجموع التلاميذ</system:String>
+
+    <system:String x:Key="StudiedSes">حصص المدروسة</system:String>
+
+    <system:String x:Key="Subject">مادة</system:String>
+
+    <system:String x:Key="Subjects">مواد</system:String>
+
+    <system:String x:Key="SubjectExist" xml:space="preserve">هل المادة 
+موجود ?</system:String>
+
+    <system:String x:Key="SubjectLB">مادة :</system:String>
+
+    <system:String x:Key="SubjectNameLB">اسم  المادة :</system:String>
+
+    <system:String x:Key="Sunday">الأحد</system:String>
+
+    <system:String x:Key="SupposedTotal">دفع مفترض</system:String>
+
+    <system:String x:Key="SupposedTotalLB">دفع مفترض :</system:String>
+
+    <system:String x:Key="SupposedPriceLB">دفع مفترض :</system:String>
+
+
+    <system:String x:Key="TotalPriceLB">دفع الكلي:</system:String>
+
+    <system:String x:Key="TotalPaidLB">مجموع المدفوع :</system:String>
+
+    <system:String x:Key="Teacher">الأساتذة</system:String>
+
+    <system:String x:Key="TeacherAdd">اضافة الأستاذ</system:String>
+
+    <system:String x:Key="TeacherInfo">معلومة الأستاذ</system:String>
+
+    <system:String x:Key="TeacherLB">الأستذ :</system:String>
+
+    <system:String x:Key="TeacherList">قائمة  أساتذة</system:String>
+
+    <system:String x:Key="TeacherNameLB">أسم  الأستاذ :</system:String>
+
+    <system:String x:Key="TeacherTotal">مبلغ كلي للأستاذ</system:String>
+
+    <system:String x:Key="TeacherTotalLB">مبلغ كلي للأستاذ :</system:String>
+
+    <system:String x:Key="TEntranceTime">وقت الدخول الأستاذ</system:String>
+
+    <system:String x:Key="TextSizeLB">حجم الخط :</system:String>
+
+    <system:String x:Key="Thursday">الخميس</system:String>
+
+    <system:String x:Key="Time">التوقيت</system:String>
+
+    <system:String x:Key="Time End">الوقت انتهىء</system:String>
+
+    <system:String x:Key="TimeLB">الوقت :</system:String>
+
+    <system:String x:Key="TimeStart">وقت البدء</system:String>
+
+    <system:String x:Key="TName">اسم الأستاذ</system:String>
+
+    <system:String x:Key="ToLB">إلا :</system:String>
+
+    <system:String x:Key="TPayment">دفع الأستاذ</system:String>
+
+    <system:String x:Key="TPaymentDepS" xml:space="preserve">هل راتب للأستاذ يعتمد على دفع  التلميذ؟</system:String>
+
+    <system:String x:Key="TPaymentLB">راتب الأستاذ :</system:String>
+
+    <system:String x:Key="TimeTaken">الفترة الزمنية المختارة  مأخوذ من طرف الفوج :</system:String>
+
+    <system:String x:Key="TimeEndNowPT1">وقت الفوج :</system:String>
+
+    <system:String x:Key="Warning">تحذير</system:String>
+
+    <system:String x:Key="TimeEndNowPT2" xml:space="preserve">ينتهي في نفس الوقت بِداية هذا الفوج
+هل أنت متأكد من  ظبط هذا الوقت؟
+</system:String>
+
+    <system:String x:Key="TPaymentMethod">طريقة دفع الأستاذ</system:String>
+
+    <system:String x:Key="ViewClass">عرض معلومات القسم</system:String>
+    <system:String x:Key="ViewAttendance">عرض معلومات الحضور</system:String>
+    <system:String x:Key="ViewExtraStudents">عرض طلاب إضافيين</system:String>
+    <system:String x:Key="ExtraStudents">طلاب إضافيين</system:String>
+    <system:String x:Key="SetAbsenceForRest">تعيين الغياب المتبقي</system:String>
+
+    <system:String x:Key="Method">طريقة :</system:String>
+
+    <system:String x:Key="PaymentMethodLB">طريقة دفع :</system:String>
+
+    <system:String x:Key="TPaymentMethodLB">طريقة الدفع :</system:String>
+
+    <system:String x:Key="SalaryLB">الراتب :</system:String>
+
+    <system:String x:Key="TSalary">راتب الأستاذ</system:String>
+
+    <system:String x:Key="Tuesday">الثلاثاء</system:String>
+
+    <system:String x:Key="Type">نوع</system:String>
+
+
+    <system:String x:Key="ActionType">نوع الفعل</system:String>
+
+    <system:String x:Key="ActionTypeLB">نوع الفعل :</system:String>
+
+
+    <system:String x:Key="TypeLB">نوع :</system:String>
+
+    <system:String x:Key="UnpaidSes">حصص الغير مدفوعة</system:String>
+
+    <system:String x:Key="Update">تحديث</system:String>
+
+    <system:String x:Key="View">عرض</system:String>
+
+    <system:String x:Key="Wednesday">الأربعاء</system:String>
+
+    <system:String x:Key="Worker">العمال</system:String>
+
+
+    <system:String x:Key="WName">اسم العمال</system:String>
+
+
+    <system:String x:Key="WorkerList">قائمة العمال</system:String>
+
+    <system:String x:Key="Year">سنة</system:String>
+
+    <system:String x:Key="Year--">--سنة--</system:String>
+
+    <system:String x:Key="YearLB">سنة :</system:String>
+
+    <system:String x:Key="YearNameLB">اسم سنة :</system:String>
+
+    <system:String x:Key="Yes">نعم</system:String>
+
+
+</ResourceDictionary>

@@ -1,0 +1,41 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.Backup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title=""
+    Width="200"
+    Height="120"
+    dx:ThemeManager.ThemeName="None"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel>
+            <TextBlock
+                Name="Block"
+                HorizontalAlignment="Center"
+                Text="Enter BackUp Name" />
+            <TextBox
+                x:Name="ResponseTextBox"
+                Margin="10"
+                PreviewKeyDown="ResponseTextBox_PreviewKeyDown"
+                PreviewTextInput="ResponseTextBox_PreviewTextInput" />
+
+
+            <ComboBox
+                Name="CB"
+                Width="150"
+                Height="30"
+                Margin="10"
+                SelectionChanged="CB_SelectionChanged"
+                Visibility="Collapsed" />
+            <Button
+                Width="30"
+                Click="Button_Click"
+                Content="OK" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Name="Simple List" ReportInfo.Author="Fast Reports Inc" ReportInfo.Description="Demonstrates a simple list report. To create it:&#13;&#10;- go to &quot;Data&quot; menu and select &quot;Choose Report Data...&quot; item to select a datasource;&#13;&#10;- go to &quot;Report|Configure Bands...&quot; menu to create the band structure;&#13;&#10;- return to the report page, doubleclick the data band to show its editor;&#13;&#10;- choose the datasource;&#13;&#10;- drag data from the Data Dictionary window to the band." ReportInfo.Created="01/17/2008 03:05:57" ReportInfo.Modified="07/27/2023 14:06:58" ReportInfo.CreatorVersion="2022.2.16.0">
+  <Dictionary>
+    <TableDataSource Name="EcoleInfo" ReferenceName="Data.EcoleInfo" DataType="System.Int32" Enabled="true">
+      <Column Name="NameFR" DataType="System.String"/>
+      <Column Name="NameAR" DataType="System.String"/>
+      <Column Name="Adress" DataType="System.String"/>
+      <Column Name="Adress2" DataType="System.String"/>
+      <Column Name="Number" DataType="System.String"/>
+      <Column Name="Number2" DataType="System.String"/>
+      <Column Name="CCP" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+      <Column Name="InsFees" DataType="System.Int32"/>
+      <Column Name="Absent" DataType="System.Int32"/>
+      <Column Name="ClassPay" DataType="System.Int32"/>
+      <Column Name="PhotoFile" DataType="System.String"/>
+      <Column Name="ApplicationFile" DataType="System.String"/>
+      <Column Name="TextSize" DataType="System.Int32"/>
+      <Column Name="Language" DataType="System.Int32"/>
+      <Column Name="EcoleLogo" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="CashRegister" ReferenceName="Data.CashRegister" DataType="System.Int32" Enabled="true">
+      <Column Name="Initial" DataType="System.String"/>
+      <Column Name="Difference" DataType="System.String"/>
+      <Column Name="Final" DataType="System.String"/>
+      <Column Name="FromDate" DataType="System.String"/>
+      <Column Name="ToDate" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Info" ReferenceName="Data.Info" DataType="System.Int32" Enabled="true">
+      <Column Name="Type" DataType="System.String"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="WorkerName" DataType="System.String"/>
+      <Column Name="Intake" DataType="System.Int32"/>
+      <Column Name="OutTake" DataType="System.String"/>
+      <Column Name="Date" DataType="System.String"/>
+      <Column Name="ID" DataType="System.Int32"/>
+      <Column Name="RName" DataType="System.String"/>
+      <Column Name="ClassName" DataType="System.String"/>
+      <Column Name="WorkerRName" DataType="System.String"/>
+      <Column Name="DateSearch" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="340.2" CanGrow="true">
+      <PictureObject Name="Picture1" Left="302.4" Width="113.4" Height="103.95" DataColumn="EcoleInfo.EcoleLogo"/>
+      <TextObject Name="Text27" Top="122.85" Width="718.2" Height="28.35" Text="[EcoleInfo.NameFR]" HorzAlign="Center" Font="Arial, 14pt"/>
+      <TextObject Name="Text29" Left="9.45" Top="274.05" Width="132.3" Height="28.35" Text="To Date     :" VertAlign="Center" Font="Arial, 15pt"/>
+      <TextObject Name="Text2" Left="9.45" Top="217.35" Width="160.65" Height="28.35" Text="From Date :" VertAlign="Center" Font="Arial, 15pt"/>
+      <TextObject Name="Text3" Left="141.75" Top="217.35" Width="311.85" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[CashRegister.FromDate]" Font="Arial, 15pt"/>
+      <TextObject Name="Text30" Left="141.75" Top="274.05" Width="311.85" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[CashRegister.ToDate]" Font="Arial, 15pt"/>
+      <TextObject Name="Text4" Top="321.3" Width="132.3" Height="18.9" Border.Lines="All" Text="Type" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text5" Left="132.3" Top="321.3" Width="141.75" Height="18.9" Border.Lines="All" Text="Worker Name" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text6" Left="274.05" Top="321.3" Width="113.4" Height="18.9" Border.Lines="All" Text="Name" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text7" Left="387.45" Top="321.3" Width="103.95" Height="18.9" Border.Lines="All" Text="Class Name" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text8" Left="491.4" Top="321.3" Width="56.7" Height="18.9" Border.Lines="All" Text="Intake" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text9" Left="548.1" Top="321.3" Width="75.6" Height="18.9" Border.Lines="All" Text="OutTake" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text31" Left="623.7" Top="321.3" Width="94.5" Height="18.9" Border.Lines="All" Text="Date" VertAlign="Center" Font="Arial, 12pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="344.2" Width="718.2" Height="18.9" DataSource="Info">
+      <TextObject Name="Text32" Width="132.3" Height="18.9" Border.Lines="All" Text="[Info.Type]" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text33" Left="132.3" Width="141.75" Height="18.9" Border.Lines="All" Text="[Info.WorkerName]" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text34" Left="274.05" Width="113.4" Height="18.9" Border.Lines="All" Text="[Info.Name]" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text35" Left="387.45" Width="103.95" Height="18.9" Border.Lines="All" Text="[Info.ClassName]" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text36" Left="491.4" Width="56.7" Height="18.9" Border.Lines="All" Text="[Info.Intake]" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text37" Left="548.1" Width="75.6" Height="18.9" Border.Lines="All" Text="[Info.OutTake]" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text38" Left="623.7" Width="94.5" Height="18.9" Border.Lines="All" Text="[Info.Date]" VertAlign="Center" Font="Arial, 10pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="367.1" Width="718.2" Height="75.6">
+      <TextObject Name="Text39" Left="28.35" Top="28.35" Width="132.3" Height="28.35" Text="Initial Ammount :" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text40" Left="151.2" Top="28.35" Width="85.05" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[CashRegister.Initial]" Font="Arial, 15pt"/>
+      <TextObject Name="Text41" Left="264.6" Top="28.35" Width="132.3" Height="28.35" Text="Final Ammount :" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text43" Left="500.85" Top="28.35" Width="113.4" Height="28.35" Text="Difference :" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text45" Left="387.45" Top="28.35" Width="85.05" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[CashRegister.Final]" Font="Arial, 15pt"/>
+      <TextObject Name="Text46" Left="595.35" Top="28.35" Width="85.05" Height="28.35" Border.Lines="All" Border.Width="1.5" Text="[CashRegister.Difference]" Font="Arial, 15pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,103 @@
+﻿<Window
+    x:Class="Gestion_De_Cours.Panels.ImportStudentsClass"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.Panels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ImportStudentsClass"
+    Width="450"
+    Height="550"
+    dx:ThemeManager.ThemeName="None"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Dictionary\EN.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Label VerticalAlignment="Center" Content="{DynamicResource ClassLB}" />
+                <ComboBox
+                    Name="CBClass"
+                    Width="150"
+                    Height="25"
+                    Margin="0,10,0,10"
+                    DisplayMemberPath="ClassName"
+                    SelectionChanged="ComboBox_SelectionChanged" />
+            </StackPanel>
+            <DataGrid
+                Name="DGStudents"
+                Grid.RowSpan="2"
+                Grid.Column="1"
+                Width="380"
+                Height="410"
+                Margin="0,5,0,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                AutoGenerateColumns="False"
+                FontSize="15"
+                IsReadOnly="True"
+                ItemsSource="{Binding}"
+                ScrollViewer.CanContentScroll="True"
+                ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="{DynamicResource Import}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox
+                                    Name="CheckBoxLvl"
+                                    HorizontalAlignment="Center"
+                                    Checked="CheckBoxLvl_Checked"
+                                    IsChecked="{Binding Checked}"
+                                    Unchecked="CheckBoxLvl_Unchecked">
+                                    <CheckBox.Style>
+                                        <Style TargetType="CheckBox">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Status}" Value="0">
+                                                    <Setter Property="IsEnabled" Value="False" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </CheckBox.Style>
+                                </CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Width="150" Binding="{Binding FName}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource FirstName}" />
+                        </DataGridTextColumn.Header>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Status}" Value="0">
+                                        <Setter Property="Foreground" Value="Red" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="150" Binding="{Binding LName}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource LastName}" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button
+                Width="100"
+                Height="25"
+                Margin="0,20,0,0"
+                VerticalContentAlignment="Center"
+                Click="Button_Click"
+                Content="+" />
+        </StackPanel>
+    </Grid>
+</Window>

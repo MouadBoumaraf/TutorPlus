@@ -1,0 +1,40 @@
+﻿<UserControl
+    x:Class="Gestion_De_Cours.UControl.DisplayButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Gestion_De_Cours.UControl"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="100"
+    d:DesignWidth="80"
+    dx:ThemeManager.ThemeName="None"
+    mc:Ignorable="d">
+    <Border>
+        <Grid>
+
+            <Button
+                AllowDrop="True"
+                Background="Transparent"
+                Click="Click1"
+                MouseMove="Button_MouseMove"
+                Tag="{Binding Tag}">
+
+                <StackPanel>
+                    <Image
+                        Width="60"
+                        Height="70"
+                        VerticalAlignment="Top"
+                        Source="{Binding Image}" />
+                    <TextBlock
+                        VerticalAlignment="Bottom"
+                        FontSize="{Binding FontSize}"
+                        FontWeight="Bold"
+                        Text="{Binding Text}"
+                        TextAlignment="Center" />
+                </StackPanel>
+            </Button>
+
+        </Grid>
+    </Border>
+</UserControl>
